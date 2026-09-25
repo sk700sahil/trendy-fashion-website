@@ -1,0 +1,9 @@
+[project]
+name = "trendy-threads"
+version = "1.0.0"
+description = "Trendy Threads fashion and data engineering portfolio"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = ["workers-py", "workers-runtime-sdk"]

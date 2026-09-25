@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "trendy-threads",
+  "account_id": "522a242a3d124cfb73cb9b2c839ee10c",
+  "main": "src/main.py",
+  "compatibility_date": "2026-09-24",
+  "compatibility_flags": ["python_workers"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
+    "not_found_handling": "404-page"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "trendy-threads-db",
+    "database_id": "16e1fe33-e82e-4307-ba6e-e705f72a6f22",
+    "migrations_dir": "migrations"
+  }]
+}

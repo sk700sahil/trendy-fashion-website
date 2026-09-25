@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "source": "catalog_raw.csv",
+  "input_rows": 25,
+  "accepted_rows": 25,
+  "rejected_rows": 0,
+  "status": "passed",
+  "currency": "INR",
+  "money_storage": "integer paise",
+  "category_counts": {
+    "accessories": 4,
+    "footwear": 5,
+    "kids": 5,
+    "men": 6,
+    "women": 5
+  },
+  "normalizations": [
+    {
+      "row": 2,
+      "id": "men-overshirt",
+      "field": "category",
+      "result": "men"
+    },
+    {
+      "row": 2,
+      "id": "men-overshirt",
+      "field": "price_inr",
+      "result": "136400"
+    },
+    {
+      "row": 3,
+      "id": "men-classic-jeans",
+      "field": "price_inr",
+      "result": "199900"
+    },
+    {
+      "row": 4,
+      "id": "men-graphic-tee",
+      "field": "category",
+      "result": "men"
+    },
+    {
+      "row": 4,
+      "id": "men-graphic-tee",
+      "field": "price_inr",
+      "result": "128700"
+    },
+    {
+      "row": 5,
+      "id": "men-formal-blazer",
+      "field": "price_inr",
+      "result": "519900"
+    },
+    {
+      "row": 6,
+      "id": "men-forest-overshirt",
+      "field": "category",
+      "result": "men"
+    },
+    {
+      "row": 6,
+      "id": "men-forest-overshirt",
+      "field": "price_inr",
+      "result": "149900"
+    },
+    {
+      "row": 7,
+      "id": "men-lilac-hoodie",
+      "field": "price_inr",
+      "result": "129900"
+    },
+    {
+      "row": 8,
+      "id": "women-floral-dress",
+      "field": "category",
+      "result": "women"
+    },
+    {
+      "row": 8,
+      "id": "women-floral-dress",
+      "field": "price_inr",
+      "result": "159900"
+    },
+    {
+      "row": 9,
+      "id": "women-denim-jacket",
+      "field": "price_inr",
+      "result": "273500"
+    },
+    {
+      "row": 10,
+      "id": "women-skinny-jeans",
+      "field": "price_inr",
+      "result": "189900"
+    },
+    {
+      "row": 11,
+      "id": "women-anarkali",
+      "field": "price_inr",
+      "result": "359900"
+    },
+    {
+      "row": 12,
+      "id": "women-floral-kimono",
+      "field": "category",
+      "result": "women"
+    },
+    {
+      "row": 12,
+      "id": "women-floral-kimono",
+      "field": "price_inr",
+      "result": "119900"
+    },
+    {
+      "row": 13,
+      "id": "kids-cartoon-tee",
+      "field": "category",
+      "result": "kids"
+    },
+    {
+      "row": 13,
+      "id": "kids-cartoon-tee",
+      "field": "price_inr",
+      "result": "27400"
+    },
+    {
+      "row": 14,
+      "id": "kids-baby-set",
+      "field": "price_inr",
+      "result": "119900"
+    },
+    {
+      "row": 15,
+      "id": "kids-denim-jacket",
+      "field": "category",
+      "result": "kids"
+    },
+    {
+      "row": 15,
+      "id": "kids-denim-jacket",
+      "field": "price_inr",
+      "result": "129900"
+    },
+    {
+      "row": 16,
+      "id": "kids-party-dress",
+      "field": "price_inr",
+      "result": "89900"
+    },
+    {
+      "row": 17,
+      "id": "kids-striped-set",
+      "field": "category",
+      "result": "kids"
+    },
+    {
+      "row": 17,
+      "id": "kids-striped-set",
+      "field": "price_inr",
+      "result": "79900"
+    },
+    {
+      "row": 18,
+      "id": "acc-graffiti-cap",
+      "field": "category",
+      "result": "accessories"
+    },
+    {
+      "row": 18,
+      "id": "acc-graffiti-cap",
+      "field": "price_inr",
+      "result": "29900"
+    },
+    {
+      "row": 19,
+      "id": "acc-floral-handbag",
+      "field": "price_inr",
+      "result": "69900"
+    },
+    {
+      "row": 20,
+      "id": "acc-peacock-earrings",
+      "field": "price_inr",
+      "result": "41900"
+    },
+    {
+      "row": 21,
+      "id": "acc-silver-necklace",
+      "field": "price_inr",
+      "result": "64900"
+    },
+    {
+      "row": 22,
+      "id": "foot-colorblock-sneakers",
+      "field": "category",
+      "result": "footwear"
+    },
+    {
+      "row": 22,
+      "id": "foot-colorblock-sneakers",
+      "field": "price_inr",
+      "result": "105800"
+    },
+    {
+      "row": 23,
+      "id": "foot-high-top-sneakers",
+      "field": "category",
+      "result": "footwear"
+    },
+    {
+      "row": 23,
+      "id": "foot-high-top-sneakers",
+      "field": "price_inr",
+      "result": "69900"
+    },
+    {
+      "row": 24,
+      "id": "foot-formal-shoes",
+      "field": "price_inr",
+      "result": "169900"
+    },
+    {
+      "row": 25,
+      "id": "foot-embellished-heels",
+      "field": "price_inr",
+      "result": "54900"
+    },
+    {
+      "row": 26,
+      "id": "foot-grey-sneakers",
+      "field": "category",
+      "result": "footwear"
+    },
+    {
+      "row": 26,
+      "id": "foot-grey-sneakers",
+      "field": "price_inr",
+      "result": "139900"
+    }
+  ],
+  "issues": []
+}

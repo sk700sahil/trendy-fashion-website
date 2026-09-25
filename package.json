@@ -1,0 +1,14 @@
+{
+  "name": "trendy-threads",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browser tests for the Python Worker and static storefront",
+  "scripts": {
+    "test:browser": "playwright test",
+    "test:api": "python scripts/smoke_api.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "wrangler": "4.139.0"
+  }
+}
