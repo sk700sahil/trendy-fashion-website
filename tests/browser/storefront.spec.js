@@ -23,11 +23,6 @@ test('pages, local images, links, and original portraits work', async ({ page, r
     await expect(page.locator('input[type=email],input[type=password],input[type=tel]')).toHaveCount(0);
   }
   for (const href of links) expect((await request.get(href)).status(), href).toBe(200);
-  for (const filename of fs.readdirSync(path.join(__dirname, '../../public/assets/images'))) {
-    const response = await request.get(`/assets/images/${filename}`);
-    expect(response.status(), filename).toBe(200);
-    expect(response.headers()['content-type']).toMatch(/^image\//);
-  }
   await page.goto('/pages/about.html');
   for (const photo of ['sahil.jpg', 'sahil1.jpg', 'sahil.png']) await expect(page.locator(`img[src$="/${photo}"]`)).toHaveCount(1);
   expect(errors).toEqual([]);

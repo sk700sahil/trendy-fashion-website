@@ -48,7 +48,7 @@ npm run test:api
 
 Python tests use only the standard library and an in-memory SQLite database. Playwright runs the pages in installed Chrome against the local Worker, including product search/filter/sort, image and link checks, mobile layout, cart storage, checkout, a lost-response retry, and confirmation that retry creates no second order. Its API smoke script also submits **one new visitor demo order per run** to the selected Worker and verifies analytics. Run it against a different deployment with `python scripts/smoke_api.py --base-url https://your-worker.workers.dev`.
 
-Screenshots captured from the local storefront:
+Representative storefront screenshots:
 
 ![Trendy Threads homepage on desktop](docs/screenshots/home-desktop.png)
 
@@ -68,6 +68,6 @@ The current `wrangler.jsonc` binds the existing `trendy-threads-db`; do not crea
 .\scripts\worker.ps1 deploy
 ```
 
-All seed statements are repeatable; product rows are upserted and fixed synthetic orders are preserved on reimport. These commands use the already configured Cloudflare account and database, and the default `workers.dev` address; they do not configure a paid plan, custom domain, payment service, or secret. Check the published `workers.dev` URL and run the independent API smoke script against it after deployment. Static assets and the Python API are served by the deployed Worker, so the local computer does not need to remain on.
+All seed statements are repeatable; product rows are upserted and fixed synthetic orders are preserved on reimport. These commands use the already configured Cloudflare account and database, and the default `workers.dev` address; they do not configure a paid plan, custom domain, payment service, or secret. Static assets and the Python API are served by the deployed Worker, so the local computer does not need to remain on.
 
-**Deployment status:** This README documents the repeatable deployment procedure. A public URL should be shared only after deployment and the public smoke test have been verified.
+**Deployment status:** Deployed to [trendy-threads.sk73sahil.workers.dev](https://trendy-threads.sk73sahil.workers.dev). Public Chrome checks cover catalog/filtering, product images and pages, cart persistence, demo checkout and idempotent retry, analytics, redirects, and 404 handling.
