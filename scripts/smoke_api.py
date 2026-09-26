@@ -42,8 +42,8 @@ def run(base):
     products = catalog["products"]
     source_products = [item for item in products if item["id"].startswith("source-")]
     assert len(source_products) == 61
-    assert sum(item["price_minor"] is None for item in source_products) == 14
-    assert sum(item["price_minor"] is not None for item in source_products) == 47
+    assert sum(item["price_minor"] is None for item in source_products) == 20
+    assert sum(item["price_minor"] is not None for item in source_products) == 41
     assert all(isinstance(item["price_minor"], int) and item["price_minor"] > 0
                for item in products if item["price_minor"] is not None)
     unpriced = next(item for item in source_products if item["price_minor"] is None)

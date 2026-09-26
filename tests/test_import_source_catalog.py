@@ -45,8 +45,9 @@ class SourceImportTests(unittest.IsolatedAsyncioTestCase):
             "SELECT category,COUNT(*) FROM catalog_products GROUP BY category ORDER BY category"
         ).fetchall()
         self.assertEqual(dict(rows), {"accessories": 14, "footwear": 15, "kids": 16, "men": 21, "women": 20})
-        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM products").fetchone()[0], 72)
-        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM source_products").fetchone()[0], 14)
+        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM products").fetchone()[0], 66)
+        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM source_products").fetchone()[0], 20)
+        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM unavailable_products").fetchone()[0], 0)
         self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM products WHERE id NOT LIKE 'source-%'").fetchone()[0], 25)
         total, unique_ids = self.db.connection.execute("SELECT COUNT(*),COUNT(DISTINCT id) FROM catalog_products").fetchone()
         self.assertEqual((total, unique_ids), (86, 86))
@@ -61,65 +62,105 @@ class SourceImportTests(unittest.IsolatedAsyncioTestCase):
         before = self.db.connection.execute("SELECT COUNT(*) FROM orders").fetchone()[0]
         self.db.connection.executescript((ROOT / "data" / "source_products_seed.sql").read_text(encoding="utf-8"))
         self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM catalog_products").fetchone()[0], 86)
-        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM source_products").fetchone()[0], 14)
+        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM source_products").fetchone()[0], 20)
+        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM unavailable_products").fetchone()[0], 0)
         self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM orders").fetchone()[0], before)
         report = json.loads((ROOT / "data" / "source_import_report.json").read_text(encoding="utf-8"))
         self.assertEqual(report["imported_source_rows"], 61)
-        self.assertEqual(report["source_priced_and_orderable"], 47)
-        self.assertEqual(report["source_visible_price_unavailable"], 14)
-        self.assertEqual(report["products_enriched"], 42)
-        self.assertEqual(report["products_with_real_images_restored"], 42)
-        self.assertEqual(report["prices_restored"], 30)
+        self.assertEqual(report["source_priced_and_orderable"], 41)
+        self.assertEqual(report["source_visible_price_unavailable"], 20)
+        self.assertEqual(report["products_enriched"], 41)
+        self.assertEqual(report["products_with_real_images_restored"], 41)
+        self.assertEqual(report["prices_restored"], 29)
+        self.assertEqual(report["source_pages_identity_mismatched"], 1)
         self.assertEqual(main(["--check"]), 0)
 
     async def test_catalog_search_detail_and_price_sort_include_unpriced_items(self):
         result = await list_products(self.db, {"q": "HIGHLANDER"})
         self.assertEqual([item["id"] for item in result["products"]], ["source-men-001"])
-        self.assertEqual(result["products"][0]["price_minor"], 48500)
+        self.assertIsNone(result["products"][0]["price_minor"])
         self.assertEqual(result["products"][0]["brand"], "HIGHLANDER")
         detail = await get_product(self.db, "source-footwear-004")
-        self.assertEqual(detail["product"]["price_minor"], 865600)
-        self.assertIn("m.media-amazon.com", detail["product"]["image"])
-        self.assertIn("Quick Dry Water Shoes", detail["product"]["description"])
+        self.assertIsNone(detail["product"]["price_minor"])
+        self.assertEqual(detail["product"]["image"], "/assets/images/product-placeholder.svg")
+        self.assertIsNone(detail["product"]["description"])
         self.assertEqual(detail["product"]["brand"], "Besroad")
-        self.assertEqual(detail["product"]["colors"], ["Black"])
-        self.assertEqual(detail["product"]["rating_count"], 1572)
+        self.assertEqual(detail["product"]["colors"], [])
+        self.assertIsNone(detail["product"]["rating_count"])
         unavailable = await get_product(self.db, "source-footwear-003")
         self.assertIsNone(unavailable["product"]["price_minor"])
         self.assertEqual(unavailable["product"]["image"], "/assets/images/product-placeholder.svg")
         asc = await list_products(self.db, {"sort": "price_asc"})
-        self.assertTrue(all(item["price_minor"] is not None for item in asc["products"][:-14]))
-        self.assertTrue(all(item["price_minor"] is None for item in asc["products"][-14:]))
+        self.assertTrue(all(item["price_minor"] is not None for item in asc["products"][:-20]))
+        self.assertTrue(all(item["price_minor"] is None for item in asc["products"][-20:]))
         filtered = await list_products(self.db, {"min_price": "10000"})
         self.assertTrue(all(item["price_minor"] is not None for item in filtered["products"]))
 
     async def test_verified_imported_price_can_order_but_unknown_price_cannot(self):
+        priced = next(product for product in (await list_products(self.db, {}))["products"]
+                      if product["id"].startswith("source-") and product["price_minor"] is not None)
         result, status = await create_order(
             self.db,
-            {"items": [{"product_id": "source-men-001", "quantity": 1, "size": "39", "color": "Grey & black tartan checks"}]},
+            {"items": [{"product_id": priced["id"], "quantity": 1,
+                        "size": (priced["sizes"] or [""])[0], "color": (priced["colors"] or [""])[0]}]},
             str(uuid4()),
         )
         self.assertEqual(status, 201)
-        self.assertEqual(result["order"]["total_minor"], 48500)
+        self.assertEqual(result["order"]["total_minor"], priced["price_minor"])
         unpriced = [row[0] for row in self.db.connection.execute("SELECT id FROM source_products")]
+        unpriced += [row[0] for row in self.db.connection.execute("SELECT id FROM unavailable_products")]
         for product_id in unpriced:
             with self.subTest(product_id=product_id), self.assertRaises(APIError) as caught:
                 await create_order(self.db, {"items": [{"product_id": product_id, "quantity": 1}]}, str(uuid4()))
             self.assertEqual(caught.exception.code, "invalid_product")
         self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM orders WHERE source='visitor'").fetchone()[0], 1)
 
+    async def test_unverified_reprice_keeps_historical_order_but_hides_product_price(self):
+        product_id = "source-men-001"
+        columns = "id,name,category,description,price_minor,image,alt,sizes,colors,featured,brand,subcategory,mrp_minor,discount_percent,material,fit,rating_value,rating_scale,rating_count,source_store,source_product_id,canonical_url,verification_status,missing_fields"
+        self.db.connection.execute(
+            f"INSERT INTO products ({columns}) SELECT id,name,category,description,48500,image,alt,sizes,colors,featured,brand,subcategory,mrp_minor,discount_percent,material,fit,rating_value,rating_scale,rating_count,source_store,source_product_id,canonical_url,verification_status,missing_fields FROM source_products WHERE id=?",
+            (product_id,),
+        )
+        self.db.connection.execute("DELETE FROM source_products WHERE id=?", (product_id,))
+        self.db.connection.execute(
+            "INSERT INTO orders (id,idempotency_key,request_hash,source,total_minor,created_at) VALUES ('old-order','old-key','old-hash','visitor',48500,'2026-01-01T00:00:00Z')"
+        )
+        self.db.connection.execute(
+            "INSERT INTO order_items (order_id,line_no,product_id,product_name,category,unit_price_minor,quantity,size,color) VALUES ('old-order',1,?,'HIGHLANDER Regular Fit Shirt','men',48500,1,'39','Grey & black tartan checks')",
+            (product_id,),
+        )
+        self.db.connection.commit()
+        self.db.connection.executescript((ROOT / "data" / "source_products_seed.sql").read_text(encoding="utf-8"))
+        row = self.db.connection.execute("SELECT price_minor FROM catalog_products WHERE id=?", (product_id,)).fetchone()
+        self.assertIsNone(row[0])
+        self.assertEqual(self.db.connection.execute("SELECT total_minor FROM orders WHERE id='old-order'").fetchone()[0], 48500)
+        self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM order_items WHERE order_id='old-order'").fetchone()[0], 1)
+        with self.assertRaises(APIError) as caught:
+            await create_order(self.db, {"items": [{"product_id": product_id, "quantity": 1}]}, str(uuid4()))
+        self.assertEqual(caught.exception.code, "invalid_product")
+
     def test_verified_image_hosts_are_https_allowlisted_and_seed_is_idempotent(self):
-        before = self.db.connection.execute("SELECT image FROM products WHERE id='source-footwear-004'").fetchone()[0]
-        self.assertTrue(before.startswith("https://m.media-amazon.com/"))
+        before = self.db.connection.execute("SELECT image FROM products WHERE image LIKE 'https://%' LIMIT 1").fetchone()[0]
+        self.assertTrue(before.startswith("https://"))
         self.db.connection.executescript((ROOT / "data" / "source_products_seed.sql").read_text(encoding="utf-8"))
         self.assertEqual(self.db.connection.execute("SELECT COUNT(*) FROM catalog_products").fetchone()[0], 86)
-        self.assertEqual(self.db.connection.execute("SELECT image FROM products WHERE id='source-footwear-004'").fetchone()[0], before)
+        self.assertEqual(self.db.connection.execute("SELECT image FROM products WHERE image LIKE 'https://%' LIMIT 1").fetchone()[0], before)
+        self.assertIsNone(self.db.connection.execute("SELECT price_minor FROM source_products WHERE id='source-footwear-004'").fetchone()[0])
 
     def test_duplicate_url_fails_instead_of_silently_dropping_a_row(self):
         payload = json.loads((ROOT / "data" / "trendy_threads_products_source.json").read_text(encoding="utf-8"))
         payload["products"][1]["canonical_url"] = payload["products"][0]["canonical_url"]
         with self.assertRaises(ValueError):
             validate_and_map(payload, [{"id": "existing", "name": "Existing"}], {"checks": []})
+
+    def test_redirected_different_asin_cannot_supply_enriched_values(self):
+        payload = json.loads((ROOT / "data" / "trendy_threads_products_source.json").read_text(encoding="utf-8"))
+        product = next(item for item in payload["products"] if item["id"] == "FOOTWEAR-004")
+        product["price_inr"] = 100
+        checks = json.loads((ROOT / "data" / "source_page_checks.json").read_text(encoding="utf-8"))
+        with self.assertRaisesRegex(ValueError, "identity mismatch"):
+            validate_and_map(payload, [{"id": "existing", "name": "Existing"}], checks)
 
 
 if __name__ == "__main__":

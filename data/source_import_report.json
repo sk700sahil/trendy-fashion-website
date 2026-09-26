@@ -1,17 +1,17 @@
 {
   "status": "passed",
   "source_file": "trendy_threads_products_source.json",
-  "source_checked_on": "2026-09-26",
+  "source_checked_on": "2026-09-27",
   "source_rows": 61,
   "imported_source_rows": 61,
   "existing_products_preserved": 25,
   "final_catalog_count": 86,
-  "source_priced_and_orderable": 47,
-  "source_visible_price_unavailable": 14,
-  "products_enriched": 42,
-  "products_with_real_images_restored": 42,
-  "prices_restored": 30,
-  "descriptions_details_restored": 30,
+  "source_priced_and_orderable": 41,
+  "source_visible_price_unavailable": 20,
+  "products_enriched": 41,
+  "products_with_real_images_restored": 41,
+  "prices_restored": 29,
+  "descriptions_details_restored": 28,
   "products_still_using_placeholders": [
     "MEN-001",
     "MEN-008",
@@ -28,22 +28,29 @@
     "KIDS-009",
     "FOOTWEAR-002",
     "FOOTWEAR-003",
+    "FOOTWEAR-004",
     "FOOTWEAR-005",
     "ACCESSORIES-002",
     "ACCESSORIES-009",
     "ACCESSORIES-010"
   ],
   "missing_current_prices": [
+    "MEN-001",
     "MEN-008",
+    "MEN-010",
+    "MEN-015",
     "WOMEN-002",
     "WOMEN-003",
     "WOMEN-006",
     "WOMEN-007",
     "WOMEN-013",
     "WOMEN-014",
+    "WOMEN-015",
     "KIDS-003",
     "KIDS-009",
+    "FOOTWEAR-002",
     "FOOTWEAR-003",
+    "FOOTWEAR-004",
     "FOOTWEAR-005",
     "ACCESSORIES-002",
     "ACCESSORIES-009",
@@ -53,16 +60,16 @@
   "image_policy": "Verified HTTPS retailer/CDN URLs are used when confirmed on the matching product page; exact CDN origins are allowlisted in public/_headers. Images that fail verification remain on the local placeholder. Retailer images are not downloaded or rehosted.",
   "missing_field_counts": {
     "brand": 16,
-    "color": 36,
-    "description": 21,
+    "color": 37,
+    "description": 31,
     "discount_percent": 49,
     "fit": 46,
-    "image": 19,
-    "material": 36,
+    "image": 20,
+    "material": 37,
     "mrp_inr": 49,
-    "price_inr": 14,
-    "rating": 31,
-    "sizes": 47,
+    "price_inr": 20,
+    "rating": 32,
+    "sizes": 48,
     "source_product_id": 13
   },
   "exact_duplicates_found": [],
@@ -91,6 +98,9 @@
   },
   "confirmed_broken_urls": [],
   "source_pages_checked": 61,
+  "source_pages_accessible": 42,
+  "source_pages_identity_matched": 41,
+  "source_pages_identity_mismatched": 1,
   "source_pages_inaccessible": 10,
   "source_pages_blocked": 7,
   "source_pages_without_product_content": 2,
@@ -99,34 +109,19 @@
     {
       "id": "FOOTWEAR-004",
       "source_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
-      "status": "accessible",
+      "status": "redirected_mismatch",
       "http_status": 200,
       "page_title": "Buy Besroad Outdoor Hiking Slip on Sandals Sports Water Shoes Fashion Sneakers Slippers Classic Clogs for Women Men, Black, 7.5 Women/6 Men at Amazon.in",
       "final_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B09QGL1ZDB?th=1&psc=1",
-      "identity_match": true,
+      "identity_match": false,
       "redirected_asin": {
         "source": "B08ZCGXGTS",
         "final": "B09QGL1ZDB",
         "canonical": "B08ZCGXGTS"
       },
-      "verified_fields": [
-        "image",
-        "price",
-        "description",
-        "material",
-        "sizes",
-        "rating"
-      ],
-      "issue": "",
-      "restored_fields": [
-        "price_inr",
-        "description",
-        "image",
-        "sizes",
-        "material",
-        "rating",
-        "title"
-      ],
+      "verified_fields": [],
+      "issue": "Source ASIN B08ZCGXGTS redirected to different ASIN B09QGL1ZDB; redirected listing data was excluded.",
+      "restored_fields": [],
       "url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS"
     }
   ],
@@ -271,7 +266,7 @@
         "description",
         "fit"
       ],
-      "issue": "",
+      "issue": "The extracted description text contained stale embedded price/rating values and was excluded from the stored product description.",
       "restored_fields": [
         "image",
         "fit",
@@ -329,7 +324,7 @@
         "price",
         "description"
       ],
-      "issue": "",
+      "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
       "restored_fields": [
         "price_inr",
         "image",
@@ -365,7 +360,7 @@
         "price",
         "description"
       ],
-      "issue": "",
+      "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
       "restored_fields": [
         "price_inr",
         "image",
@@ -442,7 +437,7 @@
         "description",
         "fit"
       ],
-      "issue": "",
+      "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
       "restored_fields": [
         "image",
         "fit"
@@ -787,10 +782,9 @@
         "color",
         "rating"
       ],
-      "issue": "",
+      "issue": "The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail. The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; excluded from the stored description.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "brand",
         "color",
@@ -1047,34 +1041,19 @@
     {
       "id": "FOOTWEAR-004",
       "source_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
-      "status": "accessible",
+      "status": "redirected_mismatch",
       "http_status": 200,
       "page_title": "Buy Besroad Outdoor Hiking Slip on Sandals Sports Water Shoes Fashion Sneakers Slippers Classic Clogs for Women Men, Black, 7.5 Women/6 Men at Amazon.in",
       "final_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B09QGL1ZDB?th=1&psc=1",
-      "identity_match": true,
+      "identity_match": false,
       "redirected_asin": {
         "source": "B08ZCGXGTS",
         "final": "B09QGL1ZDB",
         "canonical": "B08ZCGXGTS"
       },
-      "verified_fields": [
-        "image",
-        "price",
-        "description",
-        "material",
-        "sizes",
-        "rating"
-      ],
-      "issue": "",
-      "restored_fields": [
-        "price_inr",
-        "description",
-        "image",
-        "sizes",
-        "material",
-        "rating",
-        "title"
-      ],
+      "verified_fields": [],
+      "issue": "Source ASIN B08ZCGXGTS redirected to different ASIN B09QGL1ZDB; redirected listing data was excluded.",
+      "restored_fields": [],
       "url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS"
     },
     {
@@ -1107,10 +1086,9 @@
         "brand",
         "color"
       ],
-      "issue": "",
+      "issue": "The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail. The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; excluded from the stored description.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "brand",
         "color",
@@ -1175,7 +1153,7 @@
         "image",
         "price"
       ],
-      "issue": "",
+      "issue": "The extracted description only repeated the product category and color; omitted as non-informative. The extracted description only repeated the product category and color; omitted as non-informative.",
       "restored_fields": [
         "image",
         "title"
@@ -1221,10 +1199,9 @@
         "price",
         "description"
       ],
-      "issue": "",
+      "issue": "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate. The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; excluded as stale price boilerplate.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "title"
       ],
@@ -1260,10 +1237,9 @@
         "brand",
         "rating"
       ],
-      "issue": "",
+      "issue": "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate. The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; excluded as stale price boilerplate.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "brand",
         "rating",

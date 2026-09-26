@@ -2,7 +2,7 @@
   "catalog_metadata": {
     "project": "Trendy Threads",
     "purpose": "Source catalog for Codex product import",
-    "checked_on": "2026-09-26",
+    "checked_on": "2026-09-27",
     "target_product_count": 60,
     "provided_product_count": 61,
     "category_counts": {
@@ -62,7 +62,7 @@
       "title": "HIGHLANDER Regular Fit Shirt",
       "brand": "HIGHLANDER",
       "currency": "INR",
-      "price_inr": 485,
+      "price_inr": null,
       "mrp_inr": 1799,
       "discount_percent": 73,
       "rating": {
@@ -83,11 +83,12 @@
       "image_urls": [],
       "image_source_page": "https://www.myntra.com/shirts/highlander/highlander-regular-fit-shirt/28594132/buy",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
-      "verification_status": "verified",
+      "verification_status": "previous_price_unverified",
       "issues": [
-        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
-      "needs_enrichment": false,
+      "needs_enrichment": true,
       "needs_image_fetch": true
     },
     {
@@ -301,14 +302,16 @@
       "sizes": [],
       "material": "Cotton blend",
       "fit": "Regular Fit",
-      "description": "THE INDIAN GARAGE CO4.2 out of 5 stars87₹566.00₹566.00+7 colours/patterns",
+      "description": null,
       "image_urls": [
         "https://m.media-amazon.com/images/I/61qMMGkDHfL._SY741_.jpg"
       ],
       "image_source_page": "https://www.amazon.in/DEELMO-Stylish-Button-Down-Comfortable-Breathable/dp/B0FXRWKV4C",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
+      "issues": [
+        "The extracted text contained stale embedded price/rating metadata conflicting with the verified fields; removed from the product description."
+      ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",
@@ -423,7 +426,7 @@
       "sizes": [],
       "material": "Polyester",
       "fit": "Regular Fit",
-      "description": "men jackets || bomber jacket for men || Lightweight Outwear Sportswear Bomber Jacket",
+      "description": null,
       "image_urls": [
         "https://m.media-amazon.com/images/I/61YT6E6bWvL._SY741_.jpg"
       ],
@@ -431,7 +434,8 @@
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
       "issues": [
-        "Original URL was missing https://; canonical_url has been normalized."
+        "Original URL was missing https://; canonical_url has been normalized.",
+        "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
       ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
@@ -453,7 +457,7 @@
       "title": "Bewakoof Official Harry Potter Men's Blue Order of the Phoenix Graphic Printed T-shirt",
       "brand": "Bewakoof",
       "currency": "INR",
-      "price_inr": 552,
+      "price_inr": null,
       "mrp_inr": 1149,
       "discount_percent": 52,
       "rating": {
@@ -476,11 +480,12 @@
       "image_urls": [],
       "image_source_page": "https://www.nykaaman.com/bewakoof-official-harry-potter-merchandise-men-s-blue-order-of-the-phoenix-t-shirt/p/14609787",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
-      "verification_status": "verified",
+      "verification_status": "previous_price_unverified",
       "issues": [
-        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
-      "needs_enrichment": false,
+      "needs_enrichment": true,
       "needs_image_fetch": true
     },
     {
@@ -506,14 +511,16 @@
       "sizes": [],
       "material": "Polyester",
       "fit": "Regular Fit",
-      "description": "men jackets || bomber jacket for men || Lightweight Outwear Sportswear Bomber Jacket",
+      "description": null,
       "image_urls": [
         "https://m.media-amazon.com/images/I/71er0AVpnAL._SY741_.jpg"
       ],
       "image_source_page": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-04-khakhi-S/dp/B0FMDHT43B",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
+      "issues": [
+        "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
+      ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",
@@ -632,14 +639,16 @@
       "sizes": [],
       "material": null,
       "fit": "Regular",
-      "description": "men jackets || bomber jacket for men || Lightweight Outwear Sportswear Bomber Jacket",
+      "description": null,
       "image_urls": [
         "https://m.media-amazon.com/images/I/71Nk-AwuemL._SY741_.jpg"
       ],
       "image_source_page": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-11-Grey-S/dp/B0FKB9RB56",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
+      "issues": [
+        "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
+      ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",
@@ -661,7 +670,7 @@
       "title": "Mast & Harbour Men Lightweight Woven Jacket",
       "brand": "Mast & Harbour",
       "currency": "INR",
-      "price_inr": 608,
+      "price_inr": null,
       "mrp_inr": 1399,
       "discount_percent": 57,
       "rating": {
@@ -682,11 +691,12 @@
       "image_urls": [],
       "image_source_page": "https://www.myntra.com/jackets/mast+%26+harbour/mast--harbour-men-lightweight-woven-jacket/45217050/buy",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
-      "verification_status": "verified",
+      "verification_status": "previous_price_unverified",
       "issues": [
-        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
-      "needs_enrichment": false,
+      "needs_enrichment": true,
       "needs_image_fetch": true
     },
     {
@@ -1217,7 +1227,7 @@
       "title": "Chemistry Round Neck Crop Top With Trouser",
       "brand": "Chemistry",
       "currency": "INR",
-      "price_inr": 921,
+      "price_inr": null,
       "mrp_inr": 5599,
       "discount_percent": 84,
       "rating": null,
@@ -1236,11 +1246,12 @@
       "image_urls": [],
       "image_source_page": "https://www.myntra.com/co-ords/chemistry/chemistry-round-neck-crop-top-with-trouser/25804984/buy",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
-      "verification_status": "verified",
+      "verification_status": "previous_price_unverified",
       "issues": [
-        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
-      "needs_enrichment": false,
+      "needs_enrichment": true,
       "needs_image_fetch": true
     },
     {
@@ -1305,14 +1316,16 @@
       "sizes": [],
       "material": null,
       "fit": null,
-      "description": "Liwash Full Sleeve Solid Baby Boys & Baby Girls Sweatshirt - Buy Liwash Full Sleeve Solid Baby Boys & Baby Girls Sweatshirt For Only Rs. 599.0 Online in India. Shop Online For Apparels. Huge Collection of Branded Clothes Only at Flipkart.com",
+      "description": null,
       "image_urls": [
         "https://rukmini1.flixcart.com/image/1500/1500/xif0q/sweatshirt/b/d/k/1-2-years-red-pink-com-sw-liwash-original-imah6hgem8fzzusg.jpeg?q=70"
       ],
       "image_source_page": "https://www.flipkart.com/liwash-full-sleeve-solid-baby-boys-girls-sweatshirt/p/itmeb5ff06368358?pid=SWSGB2WYASDYVUB2",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
+      "issues": [
+        "The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail."
+      ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",
@@ -1707,7 +1720,7 @@
       "title": "Red Tape Men Solid Sneakers",
       "brand": "Red Tape",
       "currency": "INR",
-      "price_inr": 1709,
+      "price_inr": null,
       "mrp_inr": 9499,
       "discount_percent": 82,
       "rating": {
@@ -1729,11 +1742,12 @@
       "image_urls": [],
       "image_source_page": "https://www.myntra.com/casual-shoes/red+tape/red-tape-men-solid-sneakers/32213488/buy",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
-      "verification_status": "verified",
+      "verification_status": "previous_price_unverified",
       "issues": [
-        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
-      "needs_enrichment": false,
+      "needs_enrichment": true,
       "needs_image_fetch": true
     },
     {
@@ -1776,47 +1790,29 @@
       "source_product_id": "B08ZCGXGTS",
       "provided_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
       "canonical_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
-      "title": "Besroad Outdoor Hiking Slip on Sandals Sports Water Shoes Fashion Sneakers Slippers Classic Clogs for Women Men",
+      "title": "Besroad Athletic Running Fashion Sneakers",
       "brand": "Besroad",
       "currency": "INR",
-      "price_inr": 8656,
+      "price_inr": null,
       "mrp_inr": null,
       "discount_percent": null,
-      "rating": {
-        "value": 4,
-        "scale": 5,
-        "count": 1572
-      },
-      "color": "Black",
-      "sizes": [
-        "5 UK Men/ 5.5 UK Women",
-        "6 UK Men/ 6.5 UK Women",
-        "6.5 UK Men/ 7 UK Women",
-        "8 UK Men/ 8.5 UK Women"
-      ],
-      "material": "Spandex upper; rubber sole",
+      "rating": null,
+      "color": null,
+      "sizes": [],
+      "material": null,
       "fit": null,
-      "description": "Besroad Outdoor Hiking Slip on Sandals Sports Water Shoes Fashion Sneakers Slippers Classic Clogs for Women MenVersatile Wear: This shoe type can be worn as water shoes, sandals, slippers and clogs.Breathable and Comfort: Soft and stretchy spandex upper can dry quickly and fit snugly to your feet for a comfortable fit. Safety Protection:Thickened wide toe section protects your foot from injury.Easy to Wear:Adjust the heel strap whenever you want to change the way to wear and provides a secure fit while offering a quick and easy way to put them on and off.A comfortable Day Starts With A Good Pair of ShoesFashionable, Durable, All-matchQuick Dry Water ShoesBarefoot water shoes are available in a variety of colors, perfect for pool, beach, swimming, water sports, walking, and surfing.Summer Sport SandalsEvery woman and man needs a casual, slide sandal. Our sandals can pair perfectly with any outfit!Comfortable House SlippersThese casual slippers are suitable for spring, summer, autumn and winter.",
-      "image_urls": [
-        "https://m.media-amazon.com/images/I/71hvoOx7O9L._SY535_.jpg"
-      ],
+      "description": null,
+      "image_urls": [],
       "image_source_page": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
-      "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
-      "verification_status": "verified_partial",
-      "issues": [],
+      "image_fetch_instruction": "Use the local placeholder unless the original ASIN B08ZCGXGTS can be verified directly. Do not use images or details from the redirected ASIN B09QGL1ZDB.",
+      "verification_status": "redirected_mismatch_unverified",
+      "issues": [
+        "The source ASIN B08ZCGXGTS redirected to ASIN B09QGL1ZDB during audit. Do not use the redirected listing data; price, image, and product details remain unverified."
+      ],
       "needs_enrichment": true,
-      "needs_image_fetch": false,
-      "verified_on": "2026-09-26",
-      "verified_fields": [
-        "image",
-        "price",
-        "description",
-        "material",
-        "sizes",
-        "rating",
-        "brand",
-        "color"
-      ]
+      "needs_image_fetch": true,
+      "verified_on": "2026-09-27",
+      "verified_fields": []
     },
     {
       "id": "FOOTWEAR-005",
@@ -1869,14 +1865,16 @@
       "sizes": [],
       "material": null,
       "fit": null,
-      "description": "Neemans The Sneandals Unisex Casual Sneakers Sneakers For Unisex - Buy Neemans The Sneandals Unisex Casual Sneakers Sneakers For Unisex - NM-TSD only for Rs.4999.0 from Flipkart.com. Only Genuine Products. 30 Day Replacement Guarantee. Free Shipping. Cash On Delivery!",
+      "description": null,
       "image_urls": [
         "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shoe/u/0/r/11-nm-tsd-11-neemans-ivory-brown-original-imahrdfnjnzgbufw.jpeg?q=70"
       ],
       "image_source_page": "https://www.flipkart.com/neemans-sneandals-unisex-casual-sneakers/p/itm787ee1840d0b5?pid=SHOHRDFNDDVTUVYH",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
+      "issues": [
+        "The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail."
+      ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",
@@ -1986,15 +1984,17 @@
       ],
       "material": null,
       "fit": null,
-      "description": "Women blue casual sandals.",
+      "description": null,
       "image_urls": [
         "https://walkwayshoes.com/wp-content/uploads/2025/06/33-161M45.jpg"
       ],
       "image_source_page": "https://walkwayshoes.com/product/women-blue-casual-sandals-4/",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
-      "needs_enrichment": false,
+      "issues": [
+        "The extracted description only repeated the product category and color; omitted as non-informative."
+      ],
+      "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",
       "verified_fields": [
@@ -2062,14 +2062,16 @@
       "sizes": [],
       "material": null,
       "fit": null,
-      "description": "Buy RELish Watch, Sunglass & Wallet Combo for Rs.999.0 online. RELish Watch, Sunglass & Wallet Combo at best prices with FREE shipping & cash on delivery. Only Genuine Products. 30 Day Replacement Guarantee.",
+      "description": null,
       "image_urls": [
         "https://rukmini1.flixcart.com/image/1500/1500/xif0q/accessories-combo/h/l/s/re-614bwws-relish-original-imah9ju9gtbnfgrw.jpeg?q=70"
       ],
       "image_source_page": "https://www.flipkart.com/relish-watch-sunglass-wallet-combo/p/itm053e2b8c6d445?pid=AAOG8FRJE7FZMYDT",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
+      "issues": [
+        "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate."
+      ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",
@@ -2134,14 +2136,16 @@
       "sizes": [],
       "material": null,
       "fit": null,
-      "description": "Buy Just Leatheer Watch, Sunglass & Wallet Combo for Rs.999.0 online. Just Leatheer Watch, Sunglass & Wallet Combo at best prices with FREE shipping & cash on delivery. Only Genuine Products. 30 Day Replacement Guarantee.",
+      "description": null,
       "image_urls": [
         "https://rukmini1.flixcart.com/image/1500/1500/xif0q/belt/t/d/b/46-ba606-ba611-men-s-nylon-woven-fabric-belt-hole-free-plastic-original-imahek58gupth5ry.jpeg?q=70"
       ],
       "image_source_page": "https://www.flipkart.com/just-leatheer-watch-sunglass-wallet-combo/p/itm134a8cc676a2f?pid=AAOGBHFAYKVZGBX9",
       "image_fetch_instruction": "Use a verified HTTPS retailer/CDN image URL from this product page and test it in production. Do not download or rehost retailer images without reuse permission; use the local placeholder if the image does not load.",
       "verification_status": "verified_partial",
-      "issues": [],
+      "issues": [
+        "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate."
+      ],
       "needs_enrichment": true,
       "needs_image_fetch": false,
       "verified_on": "2026-09-26",

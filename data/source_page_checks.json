@@ -1,17 +1,19 @@
 {
-  "checked_on": "2026-09-26",
-  "method": "Each source URL opened in a fresh Chrome browser context with no sign-in or access-control bypass. Page data was extracted only when the canonical/final product identity matched the supplied listing.",
+  "checked_on": "2026-09-27",
+  "method": "Each source URL opened in a fresh Chrome browser context with no sign-in or access-control bypass. Only pages that retained the exact supplied product identity were considered matching; redirected ASIN mismatches were excluded.",
   "total_checked": 61,
   "counts": {
     "accessible": 42,
     "blocked": 7,
     "inaccessible": 10,
     "no_product_content": 2,
-    "identity_unconfirmed": 0,
-    "products_enriched": 42,
-    "images_restored": 42,
-    "prices_restored": 30,
-    "descriptions_or_details_restored": 30
+    "identity_unconfirmed": 19,
+    "products_enriched": 41,
+    "images_restored": 41,
+    "prices_restored": 29,
+    "descriptions_or_details_restored": 28,
+    "identity_matched": 41,
+    "redirected_mismatched": 1
   },
   "checks": [
     {
@@ -149,7 +151,7 @@
         "description",
         "fit"
       ],
-      "issue": "",
+      "issue": "The extracted description text contained stale embedded price/rating values and was excluded from the stored product description.",
       "restored_fields": [
         "image",
         "fit",
@@ -204,7 +206,7 @@
         "price",
         "description"
       ],
-      "issue": "",
+      "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
       "restored_fields": [
         "price_inr",
         "image",
@@ -238,7 +240,7 @@
         "price",
         "description"
       ],
-      "issue": "",
+      "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
       "restored_fields": [
         "price_inr",
         "image",
@@ -312,7 +314,7 @@
         "description",
         "fit"
       ],
-      "issue": "",
+      "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
       "restored_fields": [
         "image",
         "fit"
@@ -639,10 +641,9 @@
         "color",
         "rating"
       ],
-      "issue": "",
+      "issue": "The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail. The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; excluded from the stored description.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "brand",
         "color",
@@ -886,34 +887,19 @@
     {
       "id": "FOOTWEAR-004",
       "source_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
-      "status": "accessible",
+      "status": "redirected_mismatch",
       "http_status": 200,
       "page_title": "Buy Besroad Outdoor Hiking Slip on Sandals Sports Water Shoes Fashion Sneakers Slippers Classic Clogs for Women Men, Black, 7.5 Women/6 Men at Amazon.in",
       "final_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B09QGL1ZDB?th=1&psc=1",
-      "identity_match": true,
+      "identity_match": false,
       "redirected_asin": {
         "source": "B08ZCGXGTS",
         "final": "B09QGL1ZDB",
         "canonical": "B08ZCGXGTS"
       },
-      "verified_fields": [
-        "image",
-        "price",
-        "description",
-        "material",
-        "sizes",
-        "rating"
-      ],
-      "issue": "",
-      "restored_fields": [
-        "price_inr",
-        "description",
-        "image",
-        "sizes",
-        "material",
-        "rating",
-        "title"
-      ]
+      "verified_fields": [],
+      "issue": "Source ASIN B08ZCGXGTS redirected to different ASIN B09QGL1ZDB; redirected listing data was excluded.",
+      "restored_fields": []
     },
     {
       "id": "FOOTWEAR-005",
@@ -944,10 +930,9 @@
         "brand",
         "color"
       ],
-      "issue": "",
+      "issue": "The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail. The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; excluded from the stored description.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "brand",
         "color",
@@ -1009,7 +994,7 @@
         "image",
         "price"
       ],
-      "issue": "",
+      "issue": "The extracted description only repeated the product category and color; omitted as non-informative. The extracted description only repeated the product category and color; omitted as non-informative.",
       "restored_fields": [
         "image",
         "title"
@@ -1053,10 +1038,9 @@
         "price",
         "description"
       ],
-      "issue": "",
+      "issue": "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate. The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; excluded as stale price boilerplate.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "title"
       ]
@@ -1090,10 +1074,9 @@
         "brand",
         "rating"
       ],
-      "issue": "",
+      "issue": "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate. The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; excluded as stale price boilerplate.",
       "restored_fields": [
         "price_inr",
-        "description",
         "image",
         "brand",
         "rating",

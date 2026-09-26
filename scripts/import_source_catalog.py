@@ -69,11 +69,24 @@ def validate_and_map(payload, existing_rows, page_checks):
     ids, urls, identities = Counter(), Counter(), Counter()
     mapped, errors = [], []
     field_missing = Counter()
+    checks_by_id = {check.get("id"): check for check in page_checks.get("checks", [])}
     for row_number, item in enumerate(source, 1):
         try:
             if not isinstance(item, dict):
                 raise ValueError("product row must be an object")
             code = item.get("id")
+            page_check = checks_by_id.get(code, {})
+            redirect = page_check.get("redirected_asin") or {}
+            redirected_mismatch = bool(redirect and str(redirect.get("source", "")).casefold() !=
+                                       str(redirect.get("final", "")).casefold())
+            if redirected_mismatch:
+                enriched_values = (
+                    item.get("price_inr"), item.get("mrp_inr"), item.get("discount_percent"),
+                    item.get("rating"), item.get("color"), item.get("sizes"), item.get("material"),
+                    item.get("fit"), item.get("description"), item.get("image_urls"),
+                )
+                if any(value not in (None, "", []) for value in enriched_values):
+                    raise ValueError("source identity mismatch: remove retailer-page values and leave unavailable fields empty")
             canonical = item.get("canonical_url")
             parsed = urlparse(canonical or "")
             if not code or not canonical or parsed.scheme != "https" or not parsed.hostname:
@@ -188,9 +201,11 @@ def validate_and_map(payload, existing_rows, page_checks):
     for check in page_checks.get("checks", []):
         original = source_by_code.get(check.get("id"), {})
         page_results.append({**check, "url": original.get("canonical_url")})
+    accessible = sum(check["status"] in ("accessible", "redirected_mismatch") for check in page_results)
     inaccessible = sum(check["status"] == "inaccessible" for check in page_results)
     blocked = sum(check["status"] == "blocked" for check in page_results)
     no_product_content = sum(check["status"] == "no_product_content" for check in page_results)
+    identity_mismatches = sum(check.get("status") == "redirected_mismatch" for check in page_results)
     priced = [p for p in mapped if p["price_minor"] is not None]
     unpriced = [p for p in mapped if p["price_minor"] is None]
     combined_counts = Counter(row["category"] for row in existing_rows)
@@ -219,7 +234,10 @@ def validate_and_map(payload, existing_rows, page_checks):
         "similarity_review_candidates": candidates,
         "category_counts_final": dict(sorted(combined_counts.items())),
         "confirmed_broken_urls": [],
-        "source_pages_checked": len(page_results), "source_pages_inaccessible": inaccessible,
+        "source_pages_checked": len(page_results), "source_pages_accessible": accessible,
+        "source_pages_identity_matched": sum(bool(check.get("identity_match")) for check in page_results),
+        "source_pages_identity_mismatched": identity_mismatches,
+        "source_pages_inaccessible": inaccessible,
         "source_pages_blocked": blocked, "source_pages_without_product_content": no_product_content,
         "source_pages_not_individually_checked": len(source) - len(checked_ids),
         "redirected_or_suspicious_products": [check for check in page_results if check.get("redirected_asin")],
@@ -235,7 +253,7 @@ def seed_sql(products):
     for product in products:
         target = "products" if product["price_minor"] is not None else "source_products"
         other = "source_products" if target == "products" else "products"
-        lines.append(f"DELETE FROM {other} WHERE id={sql_literal(product['id'])};")
+        product_id = sql_literal(product["id"])
         columns = PRODUCT_COLUMNS
         values = []
         for column in columns:
@@ -244,8 +262,35 @@ def seed_sql(products):
                 value = json.dumps(value, ensure_ascii=False, separators=(",", ":"))
             values.append(sql_literal(value))
         updates = ",".join(f"{column}=excluded.{column}" for column in columns if column != "id")
-        lines.append(f"INSERT INTO {target} ({','.join(columns)}) VALUES ({','.join(values)}) "
-                     f"ON CONFLICT(id) DO UPDATE SET {updates};")
+        if target == "products":
+            lines.append(f"DELETE FROM unavailable_products WHERE id={product_id};")
+            lines.append(f"DELETE FROM source_products WHERE id={product_id};")
+            lines.append(f"INSERT INTO products ({','.join(columns)}) VALUES ({','.join(values)}) "
+                         f"ON CONFLICT(id) DO UPDATE SET {updates};")
+        else:
+            # Keep legacy product rows referenced by historical order_items, but hide their stale
+            # catalog price. Unreferenced rows can move to source_products normally.
+            lines.append(
+                f"INSERT OR IGNORE INTO unavailable_products (id,reason) "
+                f"SELECT id,'current_price_unverified' FROM products p WHERE p.id={product_id} "
+                f"AND EXISTS (SELECT 1 FROM order_items i WHERE i.product_id=p.id);"
+            )
+            retained = [column for column in columns if column not in ("id", "price_minor")]
+            assignments = ",".join(f"{column}={sql_literal(product[column]) if column not in ('sizes','colors','missing_fields') else sql_literal(json.dumps(product[column], ensure_ascii=False, separators=(',', ':')))}" for column in retained)
+            lines.append(
+                f"UPDATE products SET {assignments} WHERE id={product_id} "
+                f"AND EXISTS (SELECT 1 FROM unavailable_products WHERE id={product_id});"
+            )
+            lines.append(
+                f"DELETE FROM products WHERE id={product_id} "
+                f"AND NOT EXISTS (SELECT 1 FROM order_items WHERE product_id={product_id});"
+            )
+            lines.append(f"DELETE FROM source_products WHERE id={product_id};")
+            lines.append(
+                f"INSERT INTO source_products ({','.join(columns)}) SELECT {','.join(values)} "
+                f"WHERE NOT EXISTS (SELECT 1 FROM products WHERE id={product_id}) "
+                f"ON CONFLICT(id) DO UPDATE SET {updates};"
+            )
     return "\n".join(lines) + "\n"
 
 

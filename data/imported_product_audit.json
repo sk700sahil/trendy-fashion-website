@@ -1,0 +1,3969 @@
+{
+  "title": "Trendy Threads imported product audit",
+  "audited_on": "2026-09-27",
+  "source_data": "data/trendy_threads_products_source.json",
+  "method": "Each source URL opened in a fresh Chrome browser context with no sign-in or access-control bypass. Only pages that retained the exact supplied product identity were considered matching; redirected ASIN mismatches were excluded.",
+  "current_live_catalog": "https://trendy-threads.sk73sahil.workers.dev/api/products",
+  "price_policy": "A current price is verified only when the public page preserved the exact product identity and exposed a price. Listings without a verifiable current price remain visible but cannot be checked out. Historical order records are retained.",
+  "description_policy": "A description is marked meaningful when stored catalog text has at least 40 characters after trimming; stale price/SEO snippets were removed.",
+  "production_image_check": "Every product image rendered in Chrome on the public site; this does not establish reuse rights for retailer CDN images.",
+  "summary": {
+    "source_rows": 61,
+    "accessible_source_pages": 42,
+    "identity_matched_pages": 41,
+    "identity_mismatches": 1,
+    "blocked_pages": 7,
+    "inaccessible_pages": 10,
+    "pages_without_product_content": 2,
+    "identity_unconfirmed": 19,
+    "verified_current_prices": 41,
+    "no_verified_current_price": 20,
+    "verified_retailer_images": 41,
+    "placeholder_images": 20,
+    "meaningful_descriptions": 30,
+    "missing_or_short_descriptions": 31,
+    "production_catalog_images": 86,
+    "production_images_loaded": 86,
+    "production_image_fallbacks": 0,
+    "production_page_viewport_runs": 42,
+    "production_overflow_findings": 0,
+    "production_page_errors": 0,
+    "production_failed_requests": 0,
+    "duplicate_catalog_ids": 0,
+    "product_rows_with_useful_details": 45,
+    "product_rows_without_meaningful_details": 16
+  },
+  "products": [
+    {
+      "id": "MEN-001",
+      "api_id": "source-men-001",
+      "category": "Men",
+      "subcategory": "Shirt",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/shirts/highlander/highlander-regular-fit-shirt/28594132/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "HIGHLANDER Regular Fit Shirt",
+        "brand": "HIGHLANDER",
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": 179900,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Checked opaque casual hooded shirt with button placket, one patch pocket, long sleeves and curved hem.",
+        "description_characters": 102,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [
+          "39",
+          "40",
+          "42",
+          "44"
+        ],
+        "colors": [
+          "Grey & black tartan checks"
+        ],
+        "material": "Cotton",
+        "fit": "Regular Fit",
+        "rating_value": 4.3,
+        "rating_count": 128400,
+        "description_present": true,
+        "missing_fields": [
+          "price_inr",
+          "image"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "fit",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
+      ]
+    },
+    {
+      "id": "MEN-002",
+      "api_id": "source-men-002",
+      "category": "Men",
+      "subcategory": "Men",
+      "source_store": "SNITCH",
+      "source_url": "https://www.snitch.com/men-sweatshirts/oversized-printed-sweatshirt-4msws0031-01/8884317421730/buy",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.snitch.com/men-sweatshirts/oversized-printed-sweatshirt-4msws0031-01/8884317421730/buy",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "color",
+          "material",
+          "sizes",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "No Drama Oversized Sweatshirt",
+        "brand": "SNITCH",
+        "price_minor": 129900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://cdn.shopify.com/s/files/1/0420/7073/7058/files/4msws0031-01_1.jpg?v=1767634688",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Bold and stylish, this sweatshirt features a striking graphic print and a rich brown hue. Crafted from a premium blend of 70% cotton and 30% polyester, it offers unmatched comfort and durability. Perfect for casual outings, this oversized fit ensures a relaxed yet trendy look.",
+        "description_characters": 277,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [
+          "L",
+          "S",
+          "XXL",
+          "XL",
+          "M",
+          "XS"
+        ],
+        "colors": [
+          "Brown"
+        ],
+        "material": "Cotton Blend",
+        "fit": null,
+        "rating_value": 4.3,
+        "rating_count": 9,
+        "description_present": true,
+        "missing_fields": [
+          "mrp_inr",
+          "discount_percent",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "MEN-003",
+      "api_id": "source-men-003",
+      "category": "Men",
+      "subcategory": "Men",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Veirdo%C2%AE-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_MRN_S/dp/B0FV91LFTQ",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Veirdo%C2%AE-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_MRN_S/dp/B0FV91LFTQ?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "fit",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Veirdo Men’s Pure Cotton Utility Shirt",
+        "brand": "Veirdo",
+        "price_minor": 84900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61cFGrX+PtL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Upgrade your casual wardrobe with the Veirdo Men’s Cotton Utility Shirt, designed for style, comfort, and versatility. Crafted from 100% premium cotton, this shirt ensures a soft, breathable feel that keeps you comfortable all day long. Featuring a modern utility design with dual flap chest pockets, it blends functional detailing with contemporary fashion. Perfect for casual outings, travel, or smart-casual office wear, this shirt pairs effortlessly with jeans or chinos for a polished yet relaxed look. The full sleeves, button-down front, and tailored fit add a refined edge, while the crisp fabric structure maintains shape and durability through every wash. Whether you’re dressing up for a weekend brunch or a casual evening, the Veirdo Cotton Utility Shirt delivers the perfect balance of rugged charm and everyday sophistication.",
+        "description_characters": 840,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": "Regular Fit",
+        "rating_value": 3.8,
+        "rating_count": 130,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "fit",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "MEN-004",
+      "api_id": "source-men-004",
+      "category": "Men",
+      "subcategory": "Shirt",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Noble-Monk-Relax-Hooded-Shirt/dp/B0FJ8HLCP7",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Noble-Monk-Relax-Hooded-Shirt/dp/B0FJ8HLCP7?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Noble Monk Men’s Solid Regular Fit Hooded Shirt",
+        "brand": "Noble Monk",
+        "price_minor": 32600,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61t3t-xruVL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "A comfortable and stylish men’s hooded shirt from Noble Monk, designed with a relaxed fit for everyday wear and effortless casual style.",
+        "description_characters": 136,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "material": "Polycotton",
+        "fit": "Relaxed Fit",
+        "rating_value": 3.6,
+        "rating_count": 119,
+        "description_present": true,
+        "missing_fields": [
+          "mrp_inr",
+          "discount_percent"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "fit",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "MEN-005",
+      "api_id": "source-men-005",
+      "category": "Men",
+      "subcategory": "Men",
+      "source_store": "SNITCH",
+      "source_url": "https://www.snitch.com/men-hoodies/oversized-hooded-100-cotton-terry-printed-hoodie-4mswh9926-01/8896908558498/buy",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.snitch.com/men-hoodies/oversized-hooded-100-cotton-terry-printed-hoodie-4mswh9926-01/8896908558498/buy",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "color",
+          "material",
+          "sizes",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "GRIND GRIT TO GLORY Oversized Hoodie",
+        "brand": "SNITCH",
+        "price_minor": 229900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://cdn.shopify.com/s/files/1/0420/7073/7058/files/1_28e6e408-3305-48b1-9ef6-cc5c9c1d59e9.jpg?v=1769149700",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "GRIND NEVER STOPS is a manifesto for the relentless. Born at the intersection of street discipline, cultural rebellion, and unapologetic ambition, this collection captures the mindset of those who move when the world sleeps—and rise louder every time they’re doubted. Drawing inspiration from underground music movements and dystopian futurecore aesthetics. This is not about perfection. It’s about persistence. Blackout oversized fit hoodie makes a bold statement, crafted from premium 100% cotton terry for superior comfort and breathability. Its standout feature is the dynamic graphic print with 'Drive' and 'Grit to Glory' text in contrasting tones, capturing an urban edge. Complete with a classic kangaroo pocket and ribbed cuffs, this piece is your go-to for effortless streetwear style.",
+        "description_characters": 795,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [
+          "M",
+          "XL",
+          "L",
+          "S"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "material": "Terry",
+        "fit": null,
+        "rating_value": 4.3,
+        "rating_count": 18,
+        "description_present": true,
+        "missing_fields": [
+          "mrp_inr",
+          "discount_percent",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "MEN-006",
+      "api_id": "source-men-006",
+      "category": "Men",
+      "subcategory": "Shirt",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/DEELMO-Stylish-Button-Down-Comfortable-Breathable/dp/B0FXRWKV4C",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/DEELMO-Stylish-Button-Down-Comfortable-Breathable/dp/B0FXRWKV4C?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "fit"
+        ],
+        "issue": "The extracted description text contained stale embedded price/rating values and was excluded from the stored product description.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "DEELMO Men’s Stylish Cotton Blend Casual Shirt",
+        "brand": "DEELMO",
+        "price_minor": 49900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61qMMGkDHfL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": "Cotton blend",
+        "fit": "Regular Fit",
+        "rating_value": 3.5,
+        "rating_count": 1715,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "material",
+          "fit",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted text contained stale embedded price/rating metadata conflicting with the verified fields; removed from the product description."
+      ]
+    },
+    {
+      "id": "MEN-007",
+      "api_id": "source-men-007",
+      "category": "Men",
+      "subcategory": "Co-ord Set",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/BULLMER-Cotton-Clothing-Trendy-Co-Ords/dp/B0D1CJV7FD",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/BULLMER-Cotton-Clothing-Trendy-Co-Ords/dp/B0D1CJV7FD?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "fit"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "BULLMER Shirt and Pants Co-ords Set for Men",
+        "brand": "BULLMER",
+        "price_minor": 79900,
+        "price_verified": true,
+        "mrp_minor": 299900,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61hY8Xbn9pL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Two-piece men co-ord set containing shirt and pants.",
+        "description_characters": 52,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL"
+        ],
+        "colors": [
+          "Beige/Black"
+        ],
+        "material": "Cotton blend",
+        "fit": "Regular",
+        "rating_value": 3.6,
+        "rating_count": 71,
+        "description_present": true,
+        "missing_fields": [],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "fit",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "MEN-008",
+      "api_id": "source-men-008",
+      "category": "Men",
+      "subcategory": "Men",
+      "source_store": "AJIO",
+      "source_url": "https://www.ajio.com/snitch-men-regular-fit-sweatshirt/p/702632501_grey",
+      "source_check": {
+        "status": "blocked",
+        "http_status": 403,
+        "final_url": "https://www.ajio.com/snitch-men-regular-fit-sweatshirt/p/702632501_grey",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Retailer returned an access-denied / challenge response.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "snitch men regular fit sweatshirt",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "MEN-009",
+      "api_id": "source-men-009",
+      "category": "Men",
+      "subcategory": "Jacket",
+      "source_store": "Amazon India",
+      "source_url": "https://amazon.in/Lymio-Jackets-Lightweight-Outwear-J-9-Grey-2XL/dp/B0FK9S8K2S",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-9-Grey-2XL/dp/B0FK9S8K2S?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Lymio Lightweight Outwear Jacket J-07-09",
+        "brand": "Lymio",
+        "price_minor": 79900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61YT6E6bWvL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "Grey"
+        ],
+        "material": "Polyester",
+        "fit": "Regular Fit",
+        "rating_value": 3.3,
+        "rating_count": 156,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "sizes",
+          "mrp_inr",
+          "discount_percent"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "material",
+          "fit",
+          "rating",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "Original URL was missing https://; canonical_url has been normalized.",
+        "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
+      ]
+    },
+    {
+      "id": "MEN-010",
+      "api_id": "source-men-010",
+      "category": "Men",
+      "subcategory": "T-Shirt",
+      "source_store": "NykaaMan",
+      "source_url": "https://www.nykaaman.com/bewakoof-official-harry-potter-merchandise-men-s-blue-order-of-the-phoenix-t-shirt/p/14609787",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "Bewakoof Official Harry Potter Men's Blue Order of the Phoenix Graphic Printed T-shirt",
+        "brand": "Bewakoof",
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": 114900,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Official Harry Potter Order of the Phoenix graphic printed men T-shirt.",
+        "description_characters": 71,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "material": null,
+        "fit": null,
+        "rating_value": 5,
+        "rating_count": 2,
+        "description_present": true,
+        "missing_fields": [
+          "price_inr",
+          "material",
+          "fit",
+          "image"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
+      ]
+    },
+    {
+      "id": "MEN-011",
+      "api_id": "source-men-011",
+      "category": "Men",
+      "subcategory": "Jacket",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-04-khakhi-S/dp/B0FMDHT43B",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-04-khakhi-S/dp/B0FMDHT43B?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Lymio Lightweight Outwear Jacket J-04-06",
+        "brand": "Lymio",
+        "price_minor": 74900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/71er0AVpnAL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "Khakhi"
+        ],
+        "material": "Polyester",
+        "fit": "Regular Fit",
+        "rating_value": 3.3,
+        "rating_count": 868,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "sizes",
+          "mrp_inr",
+          "discount_percent"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "material",
+          "fit",
+          "rating",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
+      ]
+    },
+    {
+      "id": "MEN-012",
+      "api_id": "source-men-012",
+      "category": "Men",
+      "subcategory": "Men",
+      "source_store": "Amazon India",
+      "source_url": "https://amazon.in/Veirdo®-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_BK_L/dp/B0FV8YFMLQ",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Veirdo%C2%AE-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_BK_L/dp/B0FV8YFMLQ?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "fit",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Veirdo Men’s Pure Cotton Utility Shirt",
+        "brand": "Veirdo",
+        "price_minor": 84900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61wFM32+4yL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Upgrade your casual wardrobe with the Veirdo Men’s Cotton Utility Shirt, designed for style, comfort, and versatility. Crafted from 100% premium cotton, this shirt ensures a soft, breathable feel that keeps you comfortable all day long. Featuring a modern utility design with dual flap chest pockets, it blends functional detailing with contemporary fashion. Perfect for casual outings, travel, or smart-casual office wear, this shirt pairs effortlessly with jeans or chinos for a polished yet relaxed look. The full sleeves, button-down front, and tailored fit add a refined edge, while the crisp fabric structure maintains shape and durability through every wash. Whether you’re dressing up for a weekend brunch or a casual evening, the Veirdo Cotton Utility Shirt delivers the perfect balance of rugged charm and everyday sophistication.",
+        "description_characters": 840,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": "Regular Fit",
+        "rating_value": 3.8,
+        "rating_count": 130,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "fit",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "Original URL was missing https://; canonical_url has been normalized."
+      ]
+    },
+    {
+      "id": "MEN-013",
+      "api_id": "source-men-013",
+      "category": "Men",
+      "subcategory": "Men",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/SMOWKLY-Lightweight-Overshirt-Everyday-1689_BK_2XL/dp/B0G2HC8RZZ",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/SMOWKLY-Lightweight-Overshirt-Everyday-1689_BK_2XL/dp/B0G2HC8RZZ?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "fit",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "SMOWKLY Men’s Lightweight Cotton Overshirt",
+        "brand": "SMOWKLY",
+        "price_minor": 74500,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61476-mpOAL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Daily Wear Features a stylish spread collar, adjustable button cuffs, and two spacious chest pockets to keep your essentials handy.",
+        "description_characters": 131,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": "Relaxed",
+        "rating_value": 4.1,
+        "rating_count": 133,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "fit",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "MEN-014",
+      "api_id": "source-men-014",
+      "category": "Men",
+      "subcategory": "Jacket",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-11-Grey-S/dp/B0FKB9RB56",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-11-Grey-S/dp/B0FKB9RB56?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "fit"
+        ],
+        "issue": "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details. The extracted description was generic keyword text without product-specific features; omitted from the stored product description.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Lymio Lightweight Outwear Jacket J-10-11",
+        "brand": "Lymio",
+        "price_minor": 79900,
+        "price_verified": true,
+        "mrp_minor": 499900,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/71Nk-AwuemL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "Grey"
+        ],
+        "material": null,
+        "fit": "Regular",
+        "rating_value": 6.8,
+        "rating_count": 423,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "sizes",
+          "material"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "fit",
+          "rating",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
+      ]
+    },
+    {
+      "id": "MEN-015",
+      "api_id": "source-men-015",
+      "category": "Men",
+      "subcategory": "Jacket",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/jackets/mast+%26+harbour/mast--harbour-men-lightweight-woven-jacket/45217050/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "Mast & Harbour Men Lightweight Woven Jacket",
+        "brand": "Mast & Harbour",
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": 139900,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Black lightweight hooded woven jacket with zip closure, two pockets, long sleeves and straight hem.",
+        "description_characters": 99,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [
+          "M",
+          "L",
+          "XL",
+          "XXL"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "material": "Woven shell; nylon lining",
+        "fit": null,
+        "rating_value": 2.8,
+        "rating_count": 6,
+        "description_present": true,
+        "missing_fields": [
+          "price_inr",
+          "fit",
+          "image"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
+      ]
+    },
+    {
+      "id": "WOMEN-001",
+      "api_id": "source-women-001",
+      "category": "Women",
+      "subcategory": "Co-ord Set",
+      "source_store": "9shines Label",
+      "source_url": "https://www.9shineslabel.com/products/pure-cotton-denim-co-ord-set-embroidered-sleeves-women?variant=47858864914585",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.9shineslabel.com/products/pure-cotton-denim-co-ord-set-embroidered-sleeves-women?variant=47858864914585",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Light Blue Denim Co Ord Set for Women with Floral Embroidery",
+        "brand": "9shines Label",
+        "price_minor": 229900,
+        "price_verified": true,
+        "mrp_minor": 499900,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://www.9shineslabel.com/cdn/shop/files/denim_co_ords.png?v=1783509576&width=900",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Relaxed-fit denim co-ord set with floral embroidered sleeves, wide-leg bottom and elasticated drawstring waist.",
+        "description_characters": 111,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [
+          "M/38",
+          "L/40",
+          "XL/42",
+          "XXL/44",
+          "3XL/46"
+        ],
+        "colors": [
+          "Light Blue"
+        ],
+        "material": "Pure Cotton Denim Wash Fabric",
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-002",
+      "api_id": "source-women-002",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "AJIO",
+      "source_url": "https://www.ajio.com/buda-jeans-co-women-printed-2-piece-co-ord-set/p/702756071_maroon",
+      "source_check": {
+        "status": "blocked",
+        "http_status": 403,
+        "final_url": "https://www.ajio.com/buda-jeans-co-women-printed-2-piece-co-ord-set/p/702756071_maroon",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Retailer returned an access-denied / challenge response.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "buda jeans co women printed 2 piece co ord set",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "WOMEN-003",
+      "api_id": "source-women-003",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/co-ords/claura/claura-printed-chanderi-silk-top--trousers-co-ord-set/30204960/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "claura printed chanderi silk top trousers co ord set",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "WOMEN-004",
+      "api_id": "source-women-004",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Codaisy-Pinafore-Festivity-Everyday-Available/dp/B0DXKBR581",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Codaisy-Pinafore-Festivity-Everyday-Available/dp/B0DXKBR581?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "material",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Codaisy Blue Denim Pinafore Dress for Women",
+        "brand": "Codaisy",
+        "price_minor": 65142,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/41SkNxcB2qL._SY679_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": "Denim",
+        "fit": null,
+        "rating_value": 4,
+        "rating_count": 61,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "material",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-005",
+      "api_id": "source-women-005",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/GRECIILOOKS-Spandex-Ethnic-Wear-Women/dp/B0F6XNSQMQ",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/GRECIILOOKS-Spandex-Ethnic-Wear-Women/dp/B0F6XNSQMQ?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "material",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "GRECIILOOKS Women’s Co-Ord Set",
+        "brand": "GRECIILOOKS",
+        "price_minor": 69900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/51SllsCXWXL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Elevate your style with our Women's Co-ord Set, the perfect two-piece outfit designed to make you look and feel fantastic. This stunning co-ordinate ensemble is a must-have addition to your wardrobe, offering a blend of comfort and fashion that's perfect for any occasion. Crafted with the latest trends in mind, our Co-ord Set for Women includes a matching top and bottom, making it easy to create a cohesive and stylish look. The set is versatile, suitable for both casual outings and special events, ensuring you're always fashion-forward. Stay effortlessly chic with our Stylish Two-Piece Ensemble, available in various colors and styles to suit your personal taste. Whether you're looking for a Summer Co-ord Set for your vacation or a Chic Two-Piece Co-ord for a night out, we've got you covered. The Co-ord Set features top-quality materials, offering comfort and breathability, ensuring you look and feel your best. The Crop Top and Skirt Co-ord is perfect for warm-weather days, while our Trendy Matching Separates provide a trendy and contemporary fashion statement. Our Women's Co-ord Set has been designed with attention to detail, and we know you'll love the stylish and coordinated look it provides. So why wait? Elevate your fashion game with our Women's Co-ord Set and get ready to turn heads. Discover the perfect co-ord outfit with our fashionable Two-Piece Co-ords. Whether you're lounging at home or stepping out for a special event, our Co-ord Set for Women ensures you're always ahead of the fashion curve. Shop now and enjoy the convenience of coordinated fashion!",
+        "description_characters": 1587,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": "Cotton Blend",
+        "fit": null,
+        "rating_value": 4.1,
+        "rating_count": 1268,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-006",
+      "api_id": "source-women-006",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "AJIO",
+      "source_url": "https://www.ajio.com/buda-jeans-co-women-2-piece-co-ord-set-/p/702452772_blue",
+      "source_check": {
+        "status": "blocked",
+        "http_status": 403,
+        "final_url": "https://www.ajio.com/buda-jeans-co-women-2-piece-co-ord-set-/p/702452772_blue",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Retailer returned an access-denied / challenge response.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "buda jeans co women 2 piece co ord set",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "WOMEN-007",
+      "api_id": "source-women-007",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/co-ords/moda+rapido/moda-rapido-solid-sweetheart-neck-long-sleeves-top-with-trouser/40727267/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "moda rapido solid sweetheart neck long sleeves top with trouser",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "WOMEN-008",
+      "api_id": "source-women-008",
+      "category": "Women",
+      "subcategory": "Co-ord Set",
+      "source_store": "Belore Slims",
+      "source_url": "https://www.beloreslims.com/products/jegging-with-full-sleeve-denim-coord-set?variant=51300243800342",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.beloreslims.com/products/jegging-with-full-sleeve-denim-coord-set?variant=51300243800342",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Jegging with full sleeve denim co-ord set",
+        "brand": "Belore Slims",
+        "price_minor": 274900,
+        "price_verified": true,
+        "mrp_minor": 549600,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://www.beloreslims.com/cdn/shop/files/Dark_Indigo-_Coord_1024x1024.jpg?v=1778325476",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "The Belore Slims Coord Set Jegging with Full Sleeve Crop Top is Crafted from a premium blend of 91% cotton and 9% spandex, this co-ord set offers a soft, breathable feel with the perfect amount of stretch for all-day ease. The advanced 4-way stretch fabric moves naturally with your body, providing maximum flexibility, comfort, and a flattering fit. Featuring curve-enhancing jeggings paired with a stylish full-sleeve crop top designed for the perfect blend of comfort and confidence, hugs your curves beautifully giving a sleek, modern look. Perfect for casual everyday wear, gym or yoga.",
+        "description_characters": 591,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "colors": [
+          "Dark Indigo"
+        ],
+        "material": "91% cotton, 9% spandex",
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-009",
+      "api_id": "source-women-009",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/TOPLOT-Button-up-Loose-fit-Artistic-5234_M_Olive/dp/B0DXFBRTDL",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/TOPLOT-Button-up-Loose-fit-Artistic-5234_M_Olive/dp/B0DXFBRTDL?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "fit",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "TOPLOT Women’s Printed Co-Ord Set",
+        "brand": "TOPLOT",
+        "price_minor": 59900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61hiiOxAjML._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "This coord set features a relaxed-fit top with a mandarin collar and button-down front, adorned with an abstract print for a modern touch. The three-quarter sleeves and lightweight fabric enhance comfort and breathability. The accompanying ankle-length trousers offer a structured yet comfortable fit, with a straight-leg cut that complements the top’s flowy silhouette. Paired with chunky sneakers, this set blends casual elegance with contemporary style, perfect for everyday wear.",
+        "description_characters": 483,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": "Regular Fit",
+        "rating_value": 3.8,
+        "rating_count": 682,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "fit",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-010",
+      "api_id": "source-women-010",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Vastrick-Fashion-Embroidered-Embroidery-Regular/dp/B0H6D8Z99S",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Vastrick-Fashion-Embroidered-Embroidery-Regular/dp/B0H6D8Z99S?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "material",
+          "fit"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Vastrick Cotton Slub Embroidered Co-Ord Set",
+        "brand": "Vastrick",
+        "price_minor": 99900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/51C6Zwpqu9L._SX679_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Upgrade your wardrobe with this elegant Women's Embroidered Cotton Slub Co-Ord Set from Vastrick Fashion. Crafted from soft and breathable cotton slub fabric, this stylish two-piece outfit features beautiful floral embroidery work that lends it a premium, eye-catching appeal. The relaxed-fit top paired with wide-leg palazzo pants offers unmatched comfort and effortless style, making it a versatile addition to any wardrobe. Whether you are heading out for a casual outing, a festive celebration, a day at the office, or simply going about your daily routine, this co-ord set ensures you look and feel your best. Its lightweight and breathable fabric makes it especially well-suited for warm summer days. The thoughtfully designed silhouette flatters a variety of body types while keeping you at ease throughout the day. A perfect blend of traditional craftsmanship and contemporary fashion, this set lets you make a confident style statement wherever you go.",
+        "description_characters": 961,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": "Cotton Slub",
+        "fit": "Regular",
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "rating"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "fit"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-011",
+      "api_id": "source-women-011",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Indigo Dreams",
+      "source_url": "https://indigodreams.in/products/pearl-glow?variant=44737519026229",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://indigodreams.in/products/pearl-glow?variant=44737519026229",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "PEARL GLOW",
+        "brand": "Indigo Dreams",
+        "price_minor": 1850000,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://indigodreams.in/cdn/shop/files/DSC01925_8098a5dc-69b4-4082-b672-e5df7bdbb5b9.jpg?v=1760695784&width=1400",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "A Jamdani fit-and-flare ensemble featuring a deep square-neck dress with back zipper fastening, kali panel detailing, and functional side pockets. It is paired with a denim-inspired Jamdani co-ord jacket, reimagining the timeless weave with a modern denim aesthetic. Handwoven by Indian artisans, this set beautifully blends tradition with contemporary design. Handwoven Jamdani Side Pockets Dress Length: 50” Jacket Length: 20\" No. of Component: 2 Handcrafted by Indian Artisans Style No: SGN02...",
+        "description_characters": 498,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-012",
+      "api_id": "source-women-012",
+      "category": "Women",
+      "subcategory": "Dress + Jacket Set",
+      "source_store": "Indigo Dreams",
+      "source_url": "https://indigodreams.in/products/orion",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://indigodreams.in/products/orion",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "ORION",
+        "brand": "Indigo Dreams",
+        "price_minor": 1800000,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://indigodreams.in/cdn/shop/files/DSC02034.jpg?v=1770523966&width=1400",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "A Jamdani fit-and-flare ensemble featuring a deep square-neck dress with back zipper fastening, kali panel detailing, and functional side pockets. It is paired with a denim-inspired Jamdani co-ord jacket, reimagining the timeless weave with a modern denim aesthetic. Handwoven by Indian artisans, this set beautifully blends tradition with contemporary design. Handwoven Jamdani Fully Lined Dress Length: 51” Jacket Length: 20\" No. of Component: 2 Handcrafted by Indian Artisans Style No: SGN069",
+        "description_characters": 495,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "material": "Handwoven Jamdani",
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "mrp_inr",
+          "discount_percent",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "WOMEN-013",
+      "api_id": "source-women-013",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/co-ords/showoffff/showoffff-solid-strappy-top-with-jeans--jacket-co-ords/38239411/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "showoffff solid strappy top with jeans jacket co ords",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "WOMEN-014",
+      "api_id": "source-women-014",
+      "category": "Women",
+      "subcategory": "Women",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/co-ords/bani+women/bani-women-winter-sweatshirt-with-trousers/21058938/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "bani women winter sweatshirt with trousers",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "WOMEN-015",
+      "api_id": "source-women-015",
+      "category": "Women",
+      "subcategory": "Co-ord Set",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/co-ords/chemistry/chemistry-round-neck-crop-top-with-trouser/25804984/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "Chemistry Round Neck Crop Top With Trouser",
+        "brand": "Chemistry",
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": 559900,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Two-piece solid black co-ord: round-neck short-sleeve crop top and trouser, both with button closure and pockets.",
+        "description_characters": 113,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "XXL"
+        ],
+        "colors": [
+          "Black"
+        ],
+        "material": "Polyester",
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "price_inr",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "sizes",
+          "colors"
+        ],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
+      ]
+    },
+    {
+      "id": "KIDS-001",
+      "api_id": "source-kids-001",
+      "category": "Kids",
+      "subcategory": "Hoodie",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Alan-Jones-Clothing-Oversize-Black_7-8/dp/B0DPXDYP4V",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Alan-Jones-Clothing-Oversize-Black_7-8/dp/B0DPXDYP4V?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Alan Jones Boys’ Cotton Printed Hooded Hoodie",
+        "brand": "Alan Jones Clothing",
+        "price_minor": 59700,
+        "price_verified": true,
+        "mrp_minor": 179900,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61v7bkymVeL._SX679_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Printed oversized boys hoodie designed for casual winter wear and layering.",
+        "description_characters": 75,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [
+          "Black"
+        ],
+        "material": "60% Cotton, 40% Polyester",
+        "fit": "Loose/Oversized",
+        "rating_value": 4.2,
+        "rating_count": 216,
+        "description_present": true,
+        "missing_fields": [
+          "sizes"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "fit",
+          "rating",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "KIDS-002",
+      "api_id": "source-kids-002",
+      "category": "Kids",
+      "subcategory": "Kids",
+      "source_store": "Flipkart",
+      "source_url": "https://www.flipkart.com/liwash-full-sleeve-solid-baby-boys-girls-sweatshirt/p/itmeb5ff06368358?pid=SWSGB2WYASDYVUB2",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.flipkart.com/liwash-full-sleeve-solid-baby-boys-girls-sweatshirt/p/itmeb5ff06368358?pid=SWSGB2WYASDYVUB2",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "brand",
+          "color",
+          "rating"
+        ],
+        "issue": "The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail. The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; excluded from the stored description.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Liwash Baby Full Sleeve Solid Sweatshirt",
+        "brand": "Liwash",
+        "price_minor": 35700,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/sweatshirt/b/d/k/1-2-years-red-pink-com-sw-liwash-original-imah6hgem8fzzusg.jpeg?q=70",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "Red"
+        ],
+        "material": null,
+        "fit": null,
+        "rating_value": 3.9,
+        "rating_count": 110,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "rating",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail."
+      ]
+    },
+    {
+      "id": "KIDS-003",
+      "api_id": "source-kids-003",
+      "category": "Kids",
+      "subcategory": "Kids",
+      "source_store": "Meesho",
+      "source_url": "https://www.meesho.com/sweatshirt-pack-of-1/p/5sf7sw",
+      "source_check": {
+        "status": "blocked",
+        "http_status": 403,
+        "final_url": "https://www.meesho.com/sweatshirt-pack-of-1/p/5sf7sw",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Retailer returned an access-denied / challenge response.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "sweatshirt pack of 1",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "KIDS-004",
+      "api_id": "source-kids-004",
+      "category": "Kids",
+      "subcategory": "Clothing Set",
+      "source_store": "Amazon India",
+      "source_url": "https://amazon.in/HELLCAT-Printed-T-shirt-Trackpant-Clothing/dp/B0CKBQF1TT",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/HELLCAT-Printed-T-shirt-Trackpant-Clothing/dp/B0CKBQF1TT?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "HELLCAT Boys’ Hoodie, T-Shirt and Jogger Set",
+        "brand": "HELLCAT",
+        "price_minor": 51900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/51jcWhs5j1L._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "HELLCAT Trendy Printed Cotton Blend Beige Hoodie T-shirt and Jogger Trackpant Clothing Set for Boys , Best Value , Superior Quality , Stretchable , Comfort Wear , Comfort-Fit , Soft Inner and Outer Finish , Adopts to Cold and Semi Cold Conditions , Hoodie T-shirt With 2 pockets Rib in Sleeve and Hem , Cotton Blended , Solid Mid rise Trackpant With Elastic Band closure with No pockets",
+        "description_characters": 386,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "Beige"
+        ],
+        "material": "Cotton Blend",
+        "fit": "Regular Fit",
+        "rating_value": 3.7,
+        "rating_count": 567,
+        "description_present": true,
+        "missing_fields": [
+          "sizes",
+          "mrp_inr",
+          "discount_percent"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "fit",
+          "rating",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "Original URL was missing https://; canonical_url has been normalized."
+      ]
+    },
+    {
+      "id": "KIDS-005",
+      "api_id": "source-kids-005",
+      "category": "Kids",
+      "subcategory": "Sweatshirt",
+      "source_store": "Monte Carlo",
+      "source_url": "https://www.montecarlo.in/products/boys-navy-blue-printed-round-neck-full-sleeve-sweatshirt-523063305-1?variant=49039959851296",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.montecarlo.in/products/boys-navy-blue-printed-round-neck-full-sleeve-sweatshirt-523063305-1?variant=49039959851296",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "color"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Boys Navy Blue Printed Round Neck Full Sleeve Sweatshirt",
+        "brand": "Monte Carlo",
+        "price_minor": 77700,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://www.montecarlo.in/cdn/shop/products/523063305-1-32_5.jpg?v=1697901159&width=700",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [
+          "Navy Blue"
+        ],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "KIDS-006",
+      "api_id": "source-kids-006",
+      "category": "Kids",
+      "subcategory": "Sweatshirt",
+      "source_store": "U.S. Polo Assn.",
+      "source_url": "https://uspoloassn.in/products/kidswear-girls-brand-printed-numeric-sweatshirt-hdv4cvw7t42?variant=47498437001386",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://uspoloassn.in/products/kidswear-girls-brand-printed-numeric-sweatshirt-hdv4cvw7t42?variant=47498437001386",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "U.S. Polo Assn. Girls Printed Sweatshirt",
+        "brand": "U.S. Polo Assn.",
+        "price_minor": 98900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://uspoloassn.in/cdn/shop/files/1_d86bbaef-d5c4-4a91-9df9-be97b996ef44.jpg?v=1759753898",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "- Crew neck - Long sleeves - Ribbed sleeve hems and hemline - Brand printed with numeric pattern - Knitted - Regular fit",
+        "description_characters": 120,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "KIDS-007",
+      "api_id": "source-kids-007",
+      "category": "Kids",
+      "subcategory": "Kids",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/T2F-Cotton-Hooded-Sweatshirt-Boys-SS_35_Navy/dp/B0C8JLYJ1B",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/T2F-Cotton-Hooded-Sweatshirt-Boys-SS_35_Navy/dp/B0C8JLYJ1B?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "material",
+          "fit",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "T2F Boys’ Cotton Hooded Sweatshirt",
+        "brand": null,
+        "price_minor": 36900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/61qhDhiAPpL._SY741_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Hooded sweatshirts have been an all-time favourite for many kids out there. Keeping this in mind, T2F has brought to you this hooded sweatshirt which will warm you up during a chilly winter afternoon. Made up of cotton, it is ideal for you to wear all day long. The Regular fit and full sleeve design sit ideally on your body making you look more aesthetic. Moreover, it also comes with rope for better adjustments. The sweatshirt is easily washable.",
+        "description_characters": 450,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": "Cotton",
+        "fit": "Regular",
+        "rating_value": 3.9,
+        "rating_count": 962,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "fit",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "KIDS-008",
+      "api_id": "source-kids-008",
+      "category": "Kids",
+      "subcategory": "Sweatshirt",
+      "source_store": "Monte Carlo",
+      "source_url": "https://www.montecarlo.in/products/boys-multicolor-printed-hooded-full-sleeve-sweatshirt-524068310-1?variant=51652717871392",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.montecarlo.in/products/boys-multicolor-printed-hooded-full-sleeve-sweatshirt-524068310-1?variant=51652717871392",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "color"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Boys Multicolor Printed Hooded Full Sleeve Sweatshirt",
+        "brand": "Monte Carlo",
+        "price_minor": 100400,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://www.montecarlo.in/cdn/shop/files/524068310-1-32_1.jpg?v=1778828969&width=700",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [
+          "Multicolor"
+        ],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "KIDS-009",
+      "api_id": "source-kids-009",
+      "category": "Kids",
+      "subcategory": "Kids",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/shirts/max/max-boys-casual-shirt/41006988/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "max boys casual shirt",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "KIDS-010",
+      "api_id": "source-kids-010",
+      "category": "Kids",
+      "subcategory": "Shirt",
+      "source_store": "MyMilestones",
+      "source_url": "https://mymilestones.in/products/palm-printed-relaxed-collar-shirt-off-white?variant=48924628648251",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://mymilestones.in/products/palm-printed-relaxed-collar-shirt-off-white?variant=48924628648251",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Palm Printed Relaxed Collar Shirt - Off White",
+        "brand": "MyMilestones",
+        "price_minor": 127100,
+        "price_verified": true,
+        "mrp_minor": 149500,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://mymilestones.in/cdn/shop/files/Website_40796a46-8621-4324-897b-72e247ba21b2_960x960_crop_center.jpg?v=1749558140",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Made from 100% cotton Palm printed relaxed collar shirt for kids boys.",
+        "description_characters": 70,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "Off White"
+        ],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "sizes",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "KIDS-011",
+      "api_id": "source-kids-011",
+      "category": "Kids",
+      "subcategory": "Kids",
+      "source_store": "FirstCry",
+      "source_url": "https://www.firstcry.com/rikidoos/rikidoos-cotton-woven-half-sleeves-sea-life-theme-printed-box-style-shirt-with-t-shirt-light-blue/23806961/product-detail",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.firstcry.com/rikidoos/rikidoos-cotton-woven-half-sleeves-sea-life-theme-printed-box-style-shirt-with-t-shirt-light-blue/23806961/product-detail",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "brand"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Rikidoos Sea Life Printed Shirt and T-Shirt Set",
+        "brand": "Rikidoos",
+        "price_minor": 64908,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://cdn.fcglcdn.com/brainbees/images/products/zoom/rikidoos-cotton-woven-half-sleeves-sea-life-theme-printed-box-style-shirt-with-t-shirt-light-blue-23806961zzsq.webp",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Buy Rikidoos Cotton Woven Half Sleeves Sea Life Theme Printed Box Style Shirt With TShirt Light Blue for boys (7-8 Years) Online in India at best price from FirstCrycom ✓ Get up to 64 discount on Rikidoos Cotton Woven Half Sleeves Sea Life Theme Printed Box Style Shirt With TShirt Light Blue",
+        "description_characters": 292,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "FOOTWEAR-001",
+      "api_id": "source-footwear-001",
+      "category": "Footwear",
+      "subcategory": "Footwear",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/FUEL-Comfortable-Lightweight-Dailywear-Breathable/dp/B0CRBD1WNV",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/FUEL-Comfortable-Lightweight-Dailywear-Breathable/dp/B0CRBD1WNV?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "material",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "FUEL Gabbroo Lightweight Sports Sandals for Men",
+        "brand": "FUEL",
+        "price_minor": 94900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/81nqWhyiMPL._SY535_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": "Synthetic",
+        "fit": null,
+        "rating_value": 3.9,
+        "rating_count": 554,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "material",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "FOOTWEAR-002",
+      "api_id": "source-footwear-002",
+      "category": "Footwear",
+      "subcategory": "Sneakers",
+      "source_store": "Myntra",
+      "source_url": "https://www.myntra.com/casual-shoes/red+tape/red-tape-men-solid-sneakers/32213488/buy",
+      "source_check": {
+        "status": "inaccessible",
+        "http_status": null,
+        "final_url": "about:blank",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page could not be loaded in the available public browser.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "Red Tape Men Solid Sneakers",
+        "brand": "Red Tape",
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": 949900,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Round-toe grey lace-up sneakers with cushioned footbed and textured patterned outsole.",
+        "description_characters": 86,
+        "description_meaningful": true,
+        "description_verified": false,
+        "sizes": [
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "colors": [
+          "Grey"
+        ],
+        "material": "PU upper; EVA/rubber insole and EVA sole",
+        "fit": null,
+        "rating_value": 4.3,
+        "rating_count": 884,
+        "description_present": true,
+        "missing_fields": [
+          "price_inr",
+          "fit",
+          "image"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "rating",
+          "sizes",
+          "colors"
+        ],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
+        "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
+      ]
+    },
+    {
+      "id": "FOOTWEAR-003",
+      "api_id": "source-footwear-003",
+      "category": "Footwear",
+      "subcategory": "Footwear",
+      "source_store": "Tata CLiQ",
+      "source_url": "https://www.tatacliq.com/converse-unisex-chuck-taylor-all-star-malden-street-low-top-canvas-grey-sneakers/p-mp000000031872866",
+      "source_check": {
+        "status": "no_product_content",
+        "http_status": 200,
+        "final_url": "https://www.tatacliq.com/converse-unisex-chuck-taylor-all-star-malden-street-low-top-canvas-grey-sneakers/p-mp000000031872866",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page returned HTTP success but no usable product detail/image was exposed.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "converse unisex chuck taylor all star malden street low top canvas grey sneakers",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "FOOTWEAR-004",
+      "api_id": "source-footwear-004",
+      "category": "Footwear",
+      "subcategory": "Footwear",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
+      "source_check": {
+        "status": "redirected_mismatch",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B09QGL1ZDB?th=1&psc=1",
+        "identity_match": false,
+        "identity_status": "mismatch",
+        "verified_fields": [],
+        "issue": "Source ASIN B08ZCGXGTS redirected to different ASIN B09QGL1ZDB; redirected listing data was excluded.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Besroad Athletic Running Fashion Sneakers",
+        "brand": "Besroad",
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "The source ASIN B08ZCGXGTS redirected to ASIN B09QGL1ZDB during audit. Do not use the redirected listing data; price, image, and product details remain unverified."
+      ]
+    },
+    {
+      "id": "FOOTWEAR-005",
+      "api_id": "source-footwear-005",
+      "category": "Footwear",
+      "subcategory": "Sneakers",
+      "source_store": "Desertcart India",
+      "source_url": "https://www.desertcart.in/products/848916715-mule-sneaker-for-women-men-comfort-breathable-support-sports-sandals",
+      "source_check": {
+        "status": "blocked",
+        "http_status": 403,
+        "final_url": "https://www.desertcart.in/products/848916715-mule-sneaker-for-women-men-comfort-breathable-support-sports-sandals",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Retailer returned an access-denied / challenge response.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "848916715 mule sneaker for women men comfort breathable support sports sandals",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "FOOTWEAR-006",
+      "api_id": "source-footwear-006",
+      "category": "Footwear",
+      "subcategory": "Footwear",
+      "source_store": "Flipkart",
+      "source_url": "https://www.flipkart.com/neemans-sneandals-unisex-casual-sneakers/p/itm787ee1840d0b5?pid=SHOHRDFNDDVTUVYH",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.flipkart.com/neemans-sneandals-unisex-casual-sneakers/p/itm787ee1840d0b5?pid=SHOHRDFNDDVTUVYH",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "brand",
+          "color"
+        ],
+        "issue": "The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail. The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; excluded from the stored description.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Neeman’s Sneandals Unisex Casual Sneakers",
+        "brand": "Neemans",
+        "price_minor": 449900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/shoe/u/0/r/11-nm-tsd-11-neemans-ivory-brown-original-imahrdfnjnzgbufw.jpeg?q=70",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "IVORY/BROWN"
+        ],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail."
+      ]
+    },
+    {
+      "id": "FOOTWEAR-007",
+      "api_id": "source-footwear-007",
+      "category": "Footwear",
+      "subcategory": "Sandals",
+      "source_store": "Stepee",
+      "source_url": "https://www.stepee.in/products/simple-and-casual-look-sandal-36",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.stepee.in/products/simple-and-casual-look-sandal-36",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Simple and Casual Look Sandal",
+        "brand": null,
+        "price_minor": 59900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://cdn2.clevup.in/264522/Black6-1761398698499.jpeg?width=600&format=webp",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Step into Effortless Style with the Simple and Casual Look Sandal Discover the perfect blend of comfort and style with the Simple and Casual Look Sandal, exclusively brought to you by Stepee. Designed for those who value simplicity without compromising on elegance, this sandal is the ideal choice for everyday wear. Whether you&rsquo;re running errands, meeting friends, or enjoying a casual outing, these sandals are your go-to footwear for all-day ease and sophistication. Minimalist Design: Crafted with a sleek and versatile look, these sandals pair effortlessly with any outfit, from jeans to casual dresses. All-Day Comfort: Designed with a comfortable sole and lightweight materials to keep your feet happy, no matter where the day takes you. Durable and Reliable: Made with high-quality materials for long-lasting wear, ensuring value for your money. Easy Slip-On Style: Enjoy the convenience of slipping these on quickly without any hassle, perfect for busy days. Upgrade your footwear collection with a sandal that prioritizes both comfort and style. The Simple and Casual Look Sandal is a must-have for anyone seeking a timeless and versatile addition to their wardrobe. &lt;",
+        "description_characters": 1187,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "FOOTWEAR-008",
+      "api_id": "source-footwear-008",
+      "category": "Footwear",
+      "subcategory": "Sandals",
+      "source_store": "Sreeleathers",
+      "source_url": "https://sreeleathersonline.com/products/ladies-flat-sandal-992001?variant=49233387159798",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://sreeleathersonline.com/products/ladies-flat-sandal-992001?variant=49233387159798",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Ladies Flat Sandal Style & Everyday Comfort 992001",
+        "brand": "Sreeleathers",
+        "price_minor": 33000,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://sreeleathersonline.com/cdn/shop/files/WhatsAppImage2021-03-09at20.10.21_1_1280x.jpg?v=1761459835",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Product Specifications Model No.: 992001 Product Type: Ladies Flat Sandal Upper Material: Synthetic Sole Material: PVC Size Range: 36 to 44 Quantity: 1 Pair MRP: ₹330/- Key Features &amp; Benefits Modern Multi-Strap Design: Minimal and stylish everyday look Toe Loop &amp; Elastic Back Strap: Secure, flexible, and comfortable fit Synthetic Upper: Lightweight, durable, and easy to maintain PVC Sole: Flexible, anti-slip, and long-lasting Comfort Fit: Ideal for daily wear and extended use Step into modern elegance with the Ladies Flat Sandal – Model No. 992001, designed for women who love a clean, minimal look with reliable comfort. Perfect for daily wear, casual outings, and summer styling, this sandal offers a stylish yet practical solution for everyday use. Crafted with a durable synthetic upper, this sandal features a sleek multi-strap design with a toe loop and elastic back strap, ensuring a secure fit while adding a contemporary touch. The soft cushioned footbed provides lasting comfort, while the PVC sole ensures flexibility, durability, and a steady grip for daily wear.",
+        "description_characters": 1090,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "FOOTWEAR-009",
+      "api_id": "source-footwear-009",
+      "category": "Footwear",
+      "subcategory": "Sandals",
+      "source_store": "Walkway",
+      "source_url": "https://walkwayshoes.com/product/women-blue-casual-sandals-4/",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://walkwayshoes.com/product/women-blue-casual-sandals-4/",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price"
+        ],
+        "issue": "The extracted description only repeated the product category and color; omitted as non-informative. The extracted description only repeated the product category and color; omitted as non-informative.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Women Blue Casual Sandals",
+        "brand": "Walkway",
+        "price_minor": 69900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://walkwayshoes.com/wp-content/uploads/2025/06/33-161M45.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "colors": [
+          "Blue"
+        ],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "sizes",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted description only repeated the product category and color; omitted as non-informative."
+      ]
+    },
+    {
+      "id": "FOOTWEAR-010",
+      "api_id": "source-footwear-010",
+      "category": "Footwear",
+      "subcategory": "Footwear",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/CANVI-CHANGE-Ethnic-Sandal-Sandals/dp/B0CLJSRN6T",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/CANVI-CHANGE-Ethnic-Sandal-Sandals/dp/B0CLJSRN6T?th=1&psc=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "material",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "CANVI Women’s Slide Ethnic Sandals",
+        "brand": "CANVI",
+        "price_minor": 47400,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/719UG2vShgL._SY535_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": "Synthetic",
+        "fit": null,
+        "rating_value": 3.6,
+        "rating_count": 266,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "material",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "ACCESSORIES-001",
+      "api_id": "source-accessories-001",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Flipkart",
+      "source_url": "https://www.flipkart.com/relish-watch-sunglass-wallet-combo/p/itm053e2b8c6d445?pid=AAOG8FRJE7FZMYDT",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.flipkart.com/relish-watch-sunglass-wallet-combo/p/itm053e2b8c6d445?pid=AAOG8FRJE7FZMYDT",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate. The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; excluded as stale price boilerplate.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "RELish Watch, Sunglass and Wallet Combo",
+        "brand": "Relish",
+        "price_minor": 48900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/accessories-combo/h/l/s/re-614bwws-relish-original-imah9ju9gtbnfgrw.jpeg?q=70",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate."
+      ]
+    },
+    {
+      "id": "ACCESSORIES-002",
+      "api_id": "source-accessories-002",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Meesho",
+      "source_url": "https://www.meesho.com/pack-of-4-mens-accessories-combo-watch-belt-wallet-sunglasses/p/ca36ch",
+      "source_check": {
+        "status": "blocked",
+        "http_status": 403,
+        "final_url": "https://www.meesho.com/pack-of-4-mens-accessories-combo-watch-belt-wallet-sunglasses/p/ca36ch",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Retailer returned an access-denied / challenge response.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "pack of 4 mens accessories combo watch belt wallet sunglasses",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "ACCESSORIES-003",
+      "api_id": "source-accessories-003",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Flipkart",
+      "source_url": "https://www.flipkart.com/just-leatheer-watch-sunglass-wallet-combo/p/itm134a8cc676a2f?pid=AAOGBHFAYKVZGBX9",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.flipkart.com/just-leatheer-watch-sunglass-wallet-combo/p/itm134a8cc676a2f?pid=AAOGBHFAYKVZGBX9",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "brand",
+          "rating"
+        ],
+        "issue": "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate. The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; excluded as stale price boilerplate.",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Just Leatheer Watch, Sunglass and Wallet Combo",
+        "brand": "Just Leatheer",
+        "price_minor": 22000,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/belt/t/d/b/46-ba606-ba611-men-s-nylon-woven-fabric-belt-hole-free-plastic-original-imahek58gupth5ry.jpeg?q=70",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": 3.8,
+        "rating_count": 6,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": [
+        "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate."
+      ]
+    },
+    {
+      "id": "ACCESSORIES-004",
+      "api_id": "source-accessories-004",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/GOTEO-Leather-Spectacle-Eyeglass-Sunglasses/dp/B0F9XCS2TW",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/GOTEO-Leather-Spectacle-Eyeglass-Sunglasses/dp/B0F9XCS2TW",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "material",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "GOTEO Leather Sunglasses Case",
+        "brand": "GOTEO",
+        "price_minor": 56900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/71JhMvjofnL._SX679_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": "Leather",
+        "fit": null,
+        "rating_value": 4.2,
+        "rating_count": 35,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "material",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "ACCESSORIES-005",
+      "api_id": "source-accessories-005",
+      "category": "Accessories",
+      "subcategory": "Wallet",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Storite-Mens-Leather-RFID-Blocking/dp/B0DX288PK8",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Storite-Mens-Leather-RFID-Blocking/dp/B0DX288PK8?th=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "Storite RFID Blocking PU Leather Card Wallet",
+        "brand": "Storite",
+        "price_minor": 34900,
+        "price_verified": true,
+        "mrp_minor": 99900,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/4186s3wNCTL._SY300_SX300_QL70_FMwebp_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "About this item Number of Card Slot: 9 card slot, 1 sim card slot , 1 menory card slot ,2 side pocket, 1 zipper coin pocket , 2 cash compartments , 1 ID card pocket. Material: Pu Leather, Colour: Grey, Dimension: 11.8 cm x 9.6 x 1.5 cm, Comfortable size for you to simply put in pocket. Compact Design: Enough room to carry your credit cards, ID card, bank card, business card, cash, coins in this wallet. Special Features: Designed with RFID signal-blocking technology, this wallet protects your sensitive information from unauthorised scanning Perfect for Gift: Excellent for yourself or presenting as a gift for him on Birthday, Anniversary, Father's Day, Thanksgiving like any occasions. Department Name: Men › See more product details",
+        "description_characters": 739,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [
+          "Grey"
+        ],
+        "material": "PU Leather",
+        "fit": null,
+        "rating_value": 8.4,
+        "rating_count": 107,
+        "description_present": true,
+        "missing_fields": [
+          "sizes",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "material",
+          "rating",
+          "colors"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "ACCESSORIES-006",
+      "api_id": "source-accessories-006",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/Exotic-Studded-hand-women-Black/dp/B0B2LN5QVH",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/Exotic-Studded-hand-women-Black/dp/B0B2LN5QVH?th=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "EXOTIC Studded Black Handbag for Women",
+        "brand": "Exotic",
+        "price_minor": 116700,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/713794mJmCL._SY535_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": 4.3,
+        "rating_count": 1641,
+        "description_present": false,
+        "missing_fields": [
+          "description",
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "ACCESSORIES-007",
+      "api_id": "source-accessories-007",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Amazon India",
+      "source_url": "https://www.amazon.in/JI-ACCESSORIES-Womens-Stylish-Crossbody/dp/B0FQPRSNZ1",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://www.amazon.in/JI-ACCESSORIES-Womens-Stylish-Crossbody/dp/B0FQPRSNZ1?th=1",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description",
+          "rating"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "JI ACCESSORIES Women’s Crossbody Sling Bag",
+        "brand": "JI",
+        "price_minor": 29800,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://m.media-amazon.com/images/I/719HhNvMzeL._SY535_.jpg",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Discover timeless elegance and modern convenience with our Women’s Stylish Crossbody Sling Bag, crafted from premium quality PU leather that combines durability with a chic, sophisticated look. Designed for everyday use, this lightweight and compact shoulder purse is perfect for women who want functionality without compromising on style. Featuring a spacious main compartment, secure zipper closure, and neatly designed pockets, it helps you keep essentials like your mobile phone, wallet, cards, cosmetics, and keys organized and easily accessible. The adjustable strap allows you to wear it as a crossbody bag or shoulder bag, offering hands-free comfort whether you’re shopping, traveling, attending casual outings, or commuting to work. Its sleek design complements both casual and semi-formal outfits, making it a versatile choice for different occasions. The smooth finish, fine stitching, and stylish design give it a premium touch, while the lightweight build ensures all-day comfort. Ideal for daily use, travel, and gifting, this crossbody sling bag is not just an accessory but a perfect companion for women who value style, convenience, and practicality. Carry it with confidence and add a touch of elegance to your everyday look.",
+        "description_characters": 1244,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": 4.1,
+        "rating_count": 640,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description",
+          "rating"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "ACCESSORIES-008",
+      "api_id": "source-accessories-008",
+      "category": "Accessories",
+      "subcategory": "Watch",
+      "source_store": "SunglassesCraft",
+      "source_url": "https://sunglassescraft.com/products/new-luxury-fashion-womens-watch-sunglassescraft?variant=35929128403101",
+      "source_check": {
+        "status": "accessible",
+        "http_status": 200,
+        "final_url": "https://sunglassescraft.com/products/new-luxury-fashion-womens-watch-sunglassescraft?variant=35929128403101",
+        "identity_match": true,
+        "identity_status": "matched",
+        "verified_fields": [
+          "image",
+          "price",
+          "description"
+        ],
+        "issue": "",
+        "accessible": true
+      },
+      "catalog": {
+        "title": "New Luxury Fashion Women’s Watch",
+        "brand": "SunglassesCraft",
+        "price_minor": 249900,
+        "price_verified": true,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": true,
+        "image_url": "https://sunglassescraft.com/cdn/shop/products/ew-luxury-fashion-womens-watch-womens_main-3_1200x1200.jpg?v=1598856864",
+        "image_is_placeholder": false,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": "Buy New Luxury Fashion Women's Watch-SunglassesCraft Brand Name:SunglassesCraft Movement: QUARTZ Clasp Type: Push Button Hidden Clasp Case Material: STAINLESS STEEL Water Resistance Depth: 3 Bar Style: Fashion & Casual Band Width: 13 mm Case Shape: ROUND Case Thickness: 7 mm Feature: None Dial Window Material Type: Hardlex Band Length: 17.2 cm Band Material Type: STAINLESS STEEL Dial Diameter: 32 mm",
+        "description_characters": 402,
+        "description_meaningful": true,
+        "description_verified": true,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": true,
+        "missing_fields": [
+          "color",
+          "sizes",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "source_product_id"
+        ],
+        "features_present": true,
+        "feature_fields_present": [
+          "description"
+        ],
+        "availability": "orderable"
+      },
+      "source_notes": []
+    },
+    {
+      "id": "ACCESSORIES-009",
+      "api_id": "source-accessories-009",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Tata CLiQ",
+      "source_url": "https://www.tatacliq.com/giordano-green-round-dial-analog-watch-for-women---gz-60139-33/p-mp000000029487960",
+      "source_check": {
+        "status": "no_product_content",
+        "http_status": 200,
+        "final_url": "https://www.tatacliq.com/giordano-green-round-dial-analog-watch-for-women---gz-60139-33/p-mp000000029487960",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Page returned HTTP success but no usable product detail/image was exposed.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "giordano green round dial analog watch for women gz 60139 33",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    },
+    {
+      "id": "ACCESSORIES-010",
+      "api_id": "source-accessories-010",
+      "category": "Accessories",
+      "subcategory": "Accessories",
+      "source_store": "Meesho",
+      "source_url": "https://www.meesho.com/adjustable-strap-handmade-premium-pu-leather-with-6-card-slot-and-zipper-bag-for-women-light-weight/p/az62ui",
+      "source_check": {
+        "status": "blocked",
+        "http_status": 403,
+        "final_url": "https://www.meesho.com/adjustable-strap-handmade-premium-pu-leather-with-6-card-slot-and-zipper-bag-for-women-light-weight/p/az62ui",
+        "identity_match": false,
+        "identity_status": "unconfirmed",
+        "verified_fields": [],
+        "issue": "Retailer returned an access-denied / challenge response.",
+        "accessible": false
+      },
+      "catalog": {
+        "title": "adjustable strap handmade premium pu leather with 6 card slot and zipper bag for women light weight",
+        "brand": null,
+        "price_minor": null,
+        "price_verified": false,
+        "mrp_minor": null,
+        "mrp_verified": false,
+        "orderable": false,
+        "image_url": "/assets/images/product-placeholder.svg",
+        "image_is_placeholder": true,
+        "image_loaded_in_production": true,
+        "image_fallback_shown": false,
+        "description": null,
+        "description_characters": 0,
+        "description_meaningful": false,
+        "description_verified": false,
+        "sizes": [],
+        "colors": [],
+        "material": null,
+        "fit": null,
+        "rating_value": null,
+        "rating_count": null,
+        "description_present": false,
+        "missing_fields": [
+          "price_inr",
+          "description",
+          "color",
+          "sizes",
+          "brand",
+          "mrp_inr",
+          "discount_percent",
+          "material",
+          "fit",
+          "rating",
+          "image"
+        ],
+        "features_present": false,
+        "feature_fields_present": [],
+        "availability": "unavailable: no verified current price"
+      },
+      "source_notes": [
+        "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
+        "Current price not verified; re-check source before import.",
+        "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
+      ]
+    }
+  ]
+}

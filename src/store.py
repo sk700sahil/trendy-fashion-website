@@ -168,7 +168,10 @@ async def create_order(db, body, key):
         return {"order": previous, "replayed": True}, 200
     ids = sorted({item["product_id"] for item in items})
     placeholders = ",".join("?" for _ in ids)
-    rows = await db.all(f"SELECT {PRODUCT_COLUMNS} FROM products WHERE id IN ({placeholders})", ids)
+    rows = await db.all(
+        f"SELECT {PRODUCT_COLUMNS} FROM products WHERE id IN ({placeholders}) "
+        "AND id NOT IN (SELECT id FROM unavailable_products)", ids,
+    )
     products = {row["id"]: product_json(row) for row in rows}
     priced = []
     for item in items:
