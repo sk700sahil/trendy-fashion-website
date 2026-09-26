@@ -4,7 +4,7 @@ The same Cloudflare Python Worker serves `/api/*` alongside Workers Static Asset
 
 ## Catalog
 
-`GET /api/products` returns `{ "products": [...], "total": 86 }` before filtering. The catalog combines 25 existing curated items and 61 retailer-source listings. `price_minor` is integer paise for a supplied price, or `null` when the source did not provide one. Products also expose optional `brand`, `subcategory`, MRP/discount, material, fit, rating, source store/URL, verification status, and `missing_fields`. Sizes and colors are arrays; images are local public paths. All 61 source listings currently use the neutral local placeholder because no reusable image URLs were supplied.
+`GET /api/products` returns `{ "products": [...], "total": 86 }` before filtering. The catalog combines 25 existing curated items and 61 retailer-source listings. `price_minor` is integer paise for a verified current price, or `null` when the source page did not provide one. Products also expose optional `brand`, `subcategory`, MRP/discount, material, fit, rating, source store/URL, verification status, and `missing_fields`. Sizes and colors are arrays. Forty-two source listings use a verified HTTPS retailer/CDN image URL; remaining image gaps use the local placeholder. Exact CDN hosts are allowlisted in the static-assets CSP, and the product page falls back to the placeholder if an image fails to load.
 
 Listings with `price_minor: null` remain searchable and link to their source page, but cannot be added to the demo bag or ordered. Price filters omit them, and price sorting puts them last. No price is inferred from MRP or another product.
 

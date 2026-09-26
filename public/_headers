@@ -2,4 +2,4 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://cdn.fcglcdn.com https://cdn.shopify.com https://cdn2.clevup.in https://indigodreams.in https://m.media-amazon.com https://mymilestones.in https://rukmini1.flixcart.com https://sreeleathersonline.com https://sunglassescraft.com https://uspoloassn.in https://walkwayshoes.com https://www.9shineslabel.com https://www.beloreslims.com https://www.montecarlo.in; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'

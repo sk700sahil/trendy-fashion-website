@@ -28,15 +28,24 @@ def run(base):
             response = error
         with response:
             content = response.read()
-            return response.status, json.loads(content)
+            try:
+                payload = json.loads(content)
+            except (UnicodeDecodeError, json.JSONDecodeError) as error:
+                raise AssertionError(
+                    f"{method or ('POST' if body is not None else 'GET')} {path} returned "
+                    f"HTTP {response.status} with a non-JSON response: {content[:300]!r}"
+                ) from error
+            return response.status, payload
 
     status, catalog = call("/api/products")
     assert status == 200 and len(catalog["products"]) == 86, (status, catalog)
     products = catalog["products"]
     source_products = [item for item in products if item["id"].startswith("source-")]
     assert len(source_products) == 61
-    assert sum(item["price_minor"] is None for item in source_products) == 44
-    assert sum(item["price_minor"] is not None for item in source_products) == 17
+    assert sum(item["price_minor"] is None for item in source_products) == 14
+    assert sum(item["price_minor"] is not None for item in source_products) == 47
+    assert all(isinstance(item["price_minor"], int) and item["price_minor"] > 0
+               for item in products if item["price_minor"] is not None)
     unpriced = next(item for item in source_products if item["price_minor"] is None)
     assert call("/api/orders", {"items": [{"product_id": unpriced["id"], "quantity": 1}]}, str(uuid4()))[0] == 400
     product = next(item for item in products if item["price_minor"] is not None)
@@ -45,6 +54,9 @@ def run(base):
     for related in detail["related"]:
         assert related["category"] == product["category"] and related["id"] != product["id"]
     for image in sorted({item["image"] for item in products}):
+        # Public retailer CDN images are verified in the Chrome suite, under the site CSP.
+        if image.startswith("https://"):
+            continue
         with urlopen(base + image, timeout=30) as response:
             assert response.status == 200 and response.headers["Content-Type"].startswith("image/")
     status, filtered = call("/api/products?category=men&sort=price_asc&max_price=250000")

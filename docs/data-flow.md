@@ -11,8 +11,8 @@ flowchart LR
     E --> F[(D1 products)]
     G[Fixed synthetic order seed] --> H[(D1 orders and order_items)]
     P[Supplied 61-product JSON] --> Q[Validate fields and source IDs]
-    Q --> R[17 priced products]
-    Q --> S[44 unpriced source listings]
+    Q --> R[47 priced source products]
+    Q --> S[14 unpriced source listings]
     R --> F
     S --> T[(D1 source_products)]
     F --> U[Unified catalog_products view]
@@ -47,9 +47,9 @@ The original 25 curated products use the five canonical categories `men` (6), `w
 
 [`data/trendy_threads_products_source.json`](../data/trendy_threads_products_source.json) contains 61 listings: Men 15, Women 15, Kids 11, Footwear 10, Accessories 10. The import retains every row, using a stable ID derived from its supplied source ID and the canonical URL/store identity for duplicate checks. No exact duplicate ID or URL was found. One title is similar to an existing shoe listing, but no shared product ID or source URL establishes that they are the same item, so both remain.
 
-The resulting storefront catalog has 86 rows: Men 21, Women 20, Kids 16, Footwear 15, Accessories 14. Seventeen source listings have a price in the supplied data and enter `products`, where normal demo checkout is available. Forty-four listings have no current price and live in `source_products`; they remain visible/searchable through `catalog_products`, but cannot be checked out. Price filters omit unpriced rows and price sorts place them last. The backend order handler reads orderable prices only from `products`, so browser storage cannot make an unpriced entry purchasable.
+The resulting storefront catalog has 86 rows: Men 21, Women 20, Kids 16, Footwear 15, Accessories 14. Forty-seven source listings now have a current price verified on their matching retailer page and enter `products`, where demo checkout is available. Fourteen listings still have no verified current price and live in `source_products`; they remain visible/searchable through `catalog_products`, but cannot be checked out. Price filters omit unpriced rows and price sorts place them last. The backend order handler reads orderable prices only from `products`, so browser storage cannot make an unpriced entry purchasable.
 
-No product image URLs were supplied for the 61 rows. Retail images were not copied because reuse permission was not established and external image access could not be confirmed. Each row points to the local, neutral `product-placeholder.svg`. Existing site photos are untouched. Missing source attributes remain null/empty and appear in each row's `missing_fields` array and in [`source_import_report.json`](../data/source_import_report.json). That report records 44 missing prices, 61 missing images, missing-field counts, source categories, duplicates, and the limits of the page-access checks. Twelve representative retailer pages were checked without sign-in or anti-bot bypass: eleven were inaccessible to the available fetch and one returned only an image-loader shell; the other 49 were not individually checked. No broken URL was confirmed.
+All 61 URLs were checked in isolated Chrome contexts without sign-in or access-control bypass. Forty-two matching product pages exposed usable product details; seven returned access-denied/challenge pages, ten could not be loaded, and two returned no usable product data. The audit restored 42 retailer/CDN image URLs, 30 missing prices, and descriptions or other details on 30 products. Fourteen products remain unpriced and 19 still use the placeholder. One Amazon URL redirected to a child ASIN, while its canonical listing still matched the source ASIN; that redirect is recorded for future review. No exact duplicate ID or URL was found, and one similar product-title pair was retained because the source IDs did not establish a duplicate. Retailer photos remain hotlinked from verified HTTPS CDN URLs rather than downloaded or rehosted; the CSP allowlists the exact image origins and browser tests verify image loading. Existing original site photos remain untouched. Still-missing source attributes remain null/empty and appear in each row's `missing_fields` array and in [`source_import_report.json`](../data/source_import_report.json). The complete page audit is in [`source_page_checks.json`](../data/source_page_checks.json).
 
 Run `python scripts/import_source_catalog.py` to regenerate `source_products_seed.sql` and `source_import_report.json`, or add `--check` to verify deterministic output without writing. Source access notes for those representative pages are in [`source_page_checks.json`](../data/source_page_checks.json).
 
@@ -94,7 +94,7 @@ The product importer escapes SQL literals and does not delete products absent fr
 | Table | Keys and stored values |
 | --- | --- |
 | `products` | Stable text primary key; name, category, description, integer `price_minor`, image URL, alt text, JSON `sizes`/`colors`, and boolean `featured`. |
-| `source_products` | Source-backed rows without a supplied current price; source store/ID/canonical URL, optional product details, placeholder image, and JSON list of missing fields. The price constraint requires `NULL`. |
+| `source_products` | Source-backed rows without a verified current price; source store/ID/canonical URL, optional product details, retailer image URL or placeholder, and JSON list of missing fields. The price constraint requires `NULL`. |
 | `catalog_products` | Read-only `UNION ALL` view over `products` and `source_products`, used for listing, detail, filtering, search, and sorting. |
 | `orders` | Text primary key; unique `idempotency_key`, normalized-request hash, source restricted to `synthetic` or `visitor`, integer total, and UTC timestamp. No customer or payment fields. |
 | `order_items` | Composite primary key `(order_id, line_no)`; foreign keys to orders and products; product name/category/unit-price snapshots, integer quantity, and selected size/color. Order deletion cascades to its items. |

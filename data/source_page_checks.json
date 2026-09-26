@@ -1,19 +1,1242 @@
 {
   "checked_on": "2026-09-26",
-  "method": "Read-only automated page open; no sign-in, captcha, or anti-bot bypass",
+  "method": "Each source URL opened in a fresh Chrome browser context with no sign-in or access-control bypass. Page data was extracted only when the canonical/final product identity matched the supplied listing.",
+  "total_checked": 61,
+  "counts": {
+    "accessible": 42,
+    "blocked": 7,
+    "inaccessible": 10,
+    "no_product_content": 2,
+    "identity_unconfirmed": 0,
+    "products_enriched": 42,
+    "images_restored": 42,
+    "prices_restored": 30,
+    "descriptions_or_details_restored": 30
+  },
   "checks": [
-    {"id": "MEN-002", "status": "page shell only", "detail": "Returned image-loader shell; no product fields were available."},
-    {"id": "MEN-003", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "MEN-008", "status": "inaccessible", "detail": "Source page fetch returned cache miss."},
-    {"id": "WOMEN-003", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "FOOTWEAR-003", "status": "inaccessible", "detail": "Source page fetch returned cache miss."},
-    {"id": "KIDS-005", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "FOOTWEAR-008", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "FOOTWEAR-009", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "WOMEN-001", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "KIDS-010", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "KIDS-006", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
-    {"id": "WOMEN-012", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."}
-  ],
-  "scope_note": "These are representative checks, not an assertion that every source URL was individually fetched. Values not already present in the supplied JSON were left blank."
+    {
+      "id": "MEN-001",
+      "source_url": "https://www.myntra.com/shirts/highlander/highlander-regular-fit-shirt/28594132/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "MEN-002",
+      "source_url": "https://www.snitch.com/men-sweatshirts/oversized-printed-sweatshirt-4msws0031-01/8884317421730/buy",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Oversized printed sweatshirt for men online in India",
+      "final_url": "https://www.snitch.com/men-sweatshirts/oversized-printed-sweatshirt-4msws0031-01/8884317421730/buy",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "color",
+        "material",
+        "sizes",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "color",
+        "sizes",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-003",
+      "source_url": "https://www.amazon.in/Veirdo%C2%AE-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_MRN_S/dp/B0FV91LFTQ",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Veirdo® Men's Pure Cotton Utility Shirt | Full Sleeve Casual Button-Down with Dual Chest Pockets | Stylish & Comfortable Everyday Wear | VD_FS_RC_SH_MRN_S Maroon : Amazon.in: Clothing & Accessories",
+      "final_url": "https://www.amazon.in/Veirdo%C2%AE-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_MRN_S/dp/B0FV91LFTQ?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "fit",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "fit",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-004",
+      "source_url": "https://www.amazon.in/Noble-Monk-Relax-Hooded-Shirt/dp/B0FJ8HLCP7",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Noble Monk Men's Relax Fit Hooded Shirt | Casual Wear for Men | Full Sleeve Shirts | Stylish Shirt for Men Black at Amazon.in",
+      "final_url": "https://www.amazon.in/Noble-Monk-Relax-Hooded-Shirt/dp/B0FJ8HLCP7?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-005",
+      "source_url": "https://www.snitch.com/men-hoodies/oversized-hooded-100-cotton-terry-printed-hoodie-4mswh9926-01/8896908558498/buy",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Oversized hooded cotton terry printed hoodie for men online in India",
+      "final_url": "https://www.snitch.com/men-hoodies/oversized-hooded-100-cotton-terry-printed-hoodie-4mswh9926-01/8896908558498/buy",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "color",
+        "material",
+        "sizes",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "color",
+        "sizes",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-006",
+      "source_url": "https://www.amazon.in/DEELMO-Stylish-Button-Down-Comfortable-Breathable/dp/B0FXRWKV4C",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "DEELMO Men’s Stylish Cotton Blend Casual Shirt | Full Sleeve Button-Down Shirt with Dual Flap Pockets | Comfortable Breathable Fabric | Perfect for Casual Office and Outing Wear Dark Orange : Amazon.in: Clothing & Accessories",
+      "final_url": "https://www.amazon.in/DEELMO-Stylish-Button-Down-Comfortable-Breathable/dp/B0FXRWKV4C?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "fit"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "fit",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-007",
+      "source_url": "https://www.amazon.in/BULLMER-Cotton-Clothing-Trendy-Co-Ords/dp/B0D1CJV7FD",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy BULLMER Cotton Blend Clothing Set With Trendy Shirt & Pants Co-Ords For Men Beige/Black Small, Printed at Amazon.in",
+      "final_url": "https://www.amazon.in/BULLMER-Cotton-Clothing-Trendy-Co-Ords/dp/B0D1CJV7FD?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "fit"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "fit",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-008",
+      "source_url": "https://www.ajio.com/snitch-men-regular-fit-sweatshirt/p/702632501_grey",
+      "status": "blocked",
+      "http_status": 403,
+      "page_title": "Access Denied",
+      "final_url": "https://www.ajio.com/snitch-men-regular-fit-sweatshirt/p/702632501_grey",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Retailer returned an access-denied / challenge response.",
+      "restored_fields": []
+    },
+    {
+      "id": "MEN-009",
+      "source_url": "https://amazon.in/Lymio-Jackets-Lightweight-Outwear-J-9-Grey-2XL/dp/B0FK9S8K2S",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Lymio Jackets | Jacket for men | Lightweight Outwear Jacket (J-9-Grey-2XL) at Amazon.in",
+      "final_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-9-Grey-2XL/dp/B0FK9S8K2S?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-010",
+      "source_url": "https://www.nykaaman.com/bewakoof-official-harry-potter-merchandise-men-s-blue-order-of-the-phoenix-t-shirt/p/14609787",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.nykaaman.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "MEN-011",
+      "source_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-04-khakhi-S/dp/B0FMDHT43B",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Lymio Jackets | Jacket for men | Lightweight Outwear Jacket (J-04-khakhi-S) at Amazon.in",
+      "final_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-04-khakhi-S/dp/B0FMDHT43B?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-012",
+      "source_url": "https://amazon.in/Veirdo®-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_BK_L/dp/B0FV8YFMLQ",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Veirdo® Men's Pure Cotton Utility Shirt | Full Sleeve Casual Button-Down with Dual Chest Pockets | Stylish & Comfortable Everyday Wear | VD_FS_RC_SH_BK_L Black : Amazon.in: Clothing & Accessories",
+      "final_url": "https://www.amazon.in/Veirdo%C2%AE-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_BK_L/dp/B0FV8YFMLQ?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "fit",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "fit",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-013",
+      "source_url": "https://www.amazon.in/SMOWKLY-Lightweight-Overshirt-Everyday-1689_BK_2XL/dp/B0G2HC8RZZ",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "SMOWKLY Men’s Casual Shirt Jacket for Men | Lightweight 100% Cotton Overshirt | Full Sleeve Utility Shacket with Pockets | Stylish for Everyday Wear | Full Sleeve Button Down Shirt (1689_BK_2XL) : Amazon.in: Clothing & Accessories",
+      "final_url": "https://www.amazon.in/SMOWKLY-Lightweight-Overshirt-Everyday-1689_BK_2XL/dp/B0G2HC8RZZ?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "fit",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "fit",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "MEN-014",
+      "source_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-11-Grey-S/dp/B0FKB9RB56",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Lymio Jackets | Jacket for men | Lightweight Outwear Jacket (J-11-Grey-S) at Amazon.in",
+      "final_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-11-Grey-S/dp/B0FKB9RB56?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "fit"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "fit"
+      ]
+    },
+    {
+      "id": "MEN-015",
+      "source_url": "https://www.myntra.com/jackets/mast+%26+harbour/mast--harbour-men-lightweight-woven-jacket/45217050/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "WOMEN-001",
+      "source_url": "https://www.9shineslabel.com/products/pure-cotton-denim-co-ord-set-embroidered-sleeves-women?variant=47858864914585",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Premium Denim Co Ord Set for Women: Smart Casual Wear – 9shines label",
+      "final_url": "https://www.9shineslabel.com/products/pure-cotton-denim-co-ord-set-embroidered-sleeves-women?variant=47858864914585",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image"
+      ]
+    },
+    {
+      "id": "WOMEN-002",
+      "source_url": "https://www.ajio.com/buda-jeans-co-women-printed-2-piece-co-ord-set/p/702756071_maroon",
+      "status": "blocked",
+      "http_status": 403,
+      "page_title": "Access Denied",
+      "final_url": "https://www.ajio.com/buda-jeans-co-women-printed-2-piece-co-ord-set/p/702756071_maroon",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Retailer returned an access-denied / challenge response.",
+      "restored_fields": []
+    },
+    {
+      "id": "WOMEN-003",
+      "source_url": "https://www.myntra.com/co-ords/claura/claura-printed-chanderi-silk-top--trousers-co-ord-set/30204960/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "WOMEN-004",
+      "source_url": "https://www.amazon.in/Codaisy-Pinafore-Festivity-Everyday-Available/dp/B0DXKBR581",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Codaisy Stylish Blue Denim Pinafore Dress for Women, Cotton Denim Doongri Dress for Office, Travel, College, Festivity and Everyday wear, Plus Size Options Available at Amazon.in",
+      "final_url": "https://www.amazon.in/Codaisy-Pinafore-Festivity-Everyday-Available/dp/B0DXKBR581?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "material",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "WOMEN-005",
+      "source_url": "https://www.amazon.in/GRECIILOOKS-Spandex-Ethnic-Wear-Women/dp/B0F6XNSQMQ",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy GRECIILOOKS Spandex Ethnic Wear Co Ord Set for Women Red at Amazon.in",
+      "final_url": "https://www.amazon.in/GRECIILOOKS-Spandex-Ethnic-Wear-Women/dp/B0F6XNSQMQ?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "material",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "WOMEN-006",
+      "source_url": "https://www.ajio.com/buda-jeans-co-women-2-piece-co-ord-set-/p/702452772_blue",
+      "status": "blocked",
+      "http_status": 403,
+      "page_title": "Access Denied",
+      "final_url": "https://www.ajio.com/buda-jeans-co-women-2-piece-co-ord-set-/p/702452772_blue",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Retailer returned an access-denied / challenge response.",
+      "restored_fields": []
+    },
+    {
+      "id": "WOMEN-007",
+      "source_url": "https://www.myntra.com/co-ords/moda+rapido/moda-rapido-solid-sweetheart-neck-long-sleeves-top-with-trouser/40727267/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "WOMEN-008",
+      "source_url": "https://www.beloreslims.com/products/jegging-with-full-sleeve-denim-coord-set?variant=51300243800342",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Jegging with full sleeve denim co-ord set – Belore Slims",
+      "final_url": "https://www.beloreslims.com/products/jegging-with-full-sleeve-denim-coord-set?variant=51300243800342",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "WOMEN-009",
+      "source_url": "https://www.amazon.in/TOPLOT-Button-up-Loose-fit-Artistic-5234_M_Olive/dp/B0DXFBRTDL",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy TOPLOT Women's Co-ord Set | Button-up, Loose-fit top with Artistic Abstract Prints| Relaxed Loose Fit Design | Stylish Matching Set with Easy Movement | Casual, Outings (5234_M_Olive) at Amazon.in",
+      "final_url": "https://www.amazon.in/TOPLOT-Button-up-Loose-fit-Artistic-5234_M_Olive/dp/B0DXFBRTDL?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "fit",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "fit",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "WOMEN-010",
+      "source_url": "https://www.amazon.in/Vastrick-Fashion-Embroidered-Embroidery-Regular/dp/B0H6D8Z99S",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Vastrick Fashion Women's Cotton Slub Embroidered Co-Ord Set Floral Embroidery Regular Fit M-XXL (IN, Alpha, XL, Regular, Beige) at Amazon.in",
+      "final_url": "https://www.amazon.in/Vastrick-Fashion-Embroidered-Embroidery-Regular/dp/B0H6D8Z99S?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "material",
+        "fit"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "material",
+        "fit",
+        "title"
+      ]
+    },
+    {
+      "id": "WOMEN-011",
+      "source_url": "https://indigodreams.in/products/pearl-glow?variant=44737519026229",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Pearl Glow – Jamdani Dress & Denim Jacket | Indigo Dreams – INDIGO DREAMS",
+      "final_url": "https://indigodreams.in/products/pearl-glow?variant=44737519026229",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "WOMEN-012",
+      "source_url": "https://indigodreams.in/products/orion",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Orion – Black Jamdani Fit & Flare with Jacket | Indigo Dreams – INDIGO DREAMS",
+      "final_url": "https://indigodreams.in/products/orion",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image"
+      ]
+    },
+    {
+      "id": "WOMEN-013",
+      "source_url": "https://www.myntra.com/co-ords/showoffff/showoffff-solid-strappy-top-with-jeans--jacket-co-ords/38239411/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "WOMEN-014",
+      "source_url": "https://www.myntra.com/co-ords/bani+women/bani-women-winter-sweatshirt-with-trousers/21058938/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "WOMEN-015",
+      "source_url": "https://www.myntra.com/co-ords/chemistry/chemistry-round-neck-crop-top-with-trouser/25804984/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "KIDS-001",
+      "source_url": "https://www.amazon.in/Alan-Jones-Clothing-Oversize-Black_7-8/dp/B0DPXDYP4V",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Alan Jones Clothing Printed Oversize Cotton Blend Regular Fit Hoodies for Boys (Black_7-8 Years) at Amazon.in",
+      "final_url": "https://www.amazon.in/Alan-Jones-Clothing-Oversize-Black_7-8/dp/B0DPXDYP4V?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "KIDS-002",
+      "source_url": "https://www.flipkart.com/liwash-full-sleeve-solid-baby-boys-girls-sweatshirt/p/itmeb5ff06368358?pid=SWSGB2WYASDYVUB2",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Liwash Full Sleeve Solid Baby Boys & Baby Girls Sweatshirt - Buy Liwash Full Sleeve Solid Baby Boys & Baby Girls Sweatshirt Online at Best Prices in India | Flipkart.com",
+      "final_url": "https://www.flipkart.com/liwash-full-sleeve-solid-baby-boys-girls-sweatshirt/p/itmeb5ff06368358?pid=SWSGB2WYASDYVUB2",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "brand",
+        "color",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "brand",
+        "color",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "KIDS-003",
+      "source_url": "https://www.meesho.com/sweatshirt-pack-of-1/p/5sf7sw",
+      "status": "blocked",
+      "http_status": 403,
+      "page_title": "Access Denied",
+      "final_url": "https://www.meesho.com/sweatshirt-pack-of-1/p/5sf7sw",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Retailer returned an access-denied / challenge response.",
+      "restored_fields": []
+    },
+    {
+      "id": "KIDS-004",
+      "source_url": "https://amazon.in/HELLCAT-Printed-T-shirt-Trackpant-Clothing/dp/B0CKBQF1TT",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy HELLCAT Trendy Printed Cotton Blend Hoodie T-shirt Jogger Trackpant Clothing Set for Boys - Pack of 1 / Beige / 5-6 Years at Amazon.in",
+      "final_url": "https://www.amazon.in/HELLCAT-Printed-T-shirt-Trackpant-Clothing/dp/B0CKBQF1TT?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "KIDS-005",
+      "source_url": "https://www.montecarlo.in/products/boys-navy-blue-printed-round-neck-full-sleeve-sweatshirt-523063305-1?variant=49039959851296",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Boys Navy Blue Printed Round Neck Full Sleeve Sweatshirt Online in India - Monte Carlo",
+      "final_url": "https://www.montecarlo.in/products/boys-navy-blue-printed-round-neck-full-sleeve-sweatshirt-523063305-1?variant=49039959851296",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "color"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "color",
+        "title"
+      ]
+    },
+    {
+      "id": "KIDS-006",
+      "source_url": "https://uspoloassn.in/products/kidswear-girls-brand-printed-numeric-sweatshirt-hdv4cvw7t42?variant=47498437001386",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Girls Brand Printed Numeric Sweatshirt Red|U.S. Polo Assn. India",
+      "final_url": "https://uspoloassn.in/products/kidswear-girls-brand-printed-numeric-sweatshirt-hdv4cvw7t42?variant=47498437001386",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "KIDS-007",
+      "source_url": "https://www.amazon.in/T2F-Cotton-Hooded-Sweatshirt-Boys-SS_35_Navy/dp/B0C8JLYJ1B",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy T2F Cotton Hooded Neck Regular Fit Hoodie (Boys-SS_35_Navy at Amazon.in",
+      "final_url": "https://www.amazon.in/T2F-Cotton-Hooded-Sweatshirt-Boys-SS_35_Navy/dp/B0C8JLYJ1B?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "material",
+        "fit",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "material",
+        "fit",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "KIDS-008",
+      "source_url": "https://www.montecarlo.in/products/boys-multicolor-printed-hooded-full-sleeve-sweatshirt-524068310-1?variant=51652717871392",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Boys Multicolor Printed Hooded Full Sleeve Sweatshirt Online in India - Monte Carlo",
+      "final_url": "https://www.montecarlo.in/products/boys-multicolor-printed-hooded-full-sleeve-sweatshirt-524068310-1?variant=51652717871392",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "color"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "color",
+        "title"
+      ]
+    },
+    {
+      "id": "KIDS-009",
+      "source_url": "https://www.myntra.com/shirts/max/max-boys-casual-shirt/41006988/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "KIDS-010",
+      "source_url": "https://mymilestones.in/products/palm-printed-relaxed-collar-shirt-off-white?variant=48924628648251",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Palm Printed Relaxed Collar Shirt - Off White",
+      "final_url": "https://mymilestones.in/products/palm-printed-relaxed-collar-shirt-off-white?variant=48924628648251",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image"
+      ]
+    },
+    {
+      "id": "KIDS-011",
+      "source_url": "https://www.firstcry.com/rikidoos/rikidoos-cotton-woven-half-sleeves-sea-life-theme-printed-box-style-shirt-with-t-shirt-light-blue/23806961/product-detail",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Rikidoos Cotton Woven Half Sleeves Sea Life Theme Printed Box Style Shirt With T-Shirt - Light Blue for Boys (7-8 Years) Online in India, Shop at FirstCry.com - 23806961",
+      "final_url": "https://www.firstcry.com/rikidoos/rikidoos-cotton-woven-half-sleeves-sea-life-theme-printed-box-style-shirt-with-t-shirt-light-blue/23806961/product-detail",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "brand"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "brand",
+        "title"
+      ]
+    },
+    {
+      "id": "FOOTWEAR-001",
+      "source_url": "https://www.amazon.in/FUEL-Comfortable-Lightweight-Dailywear-Breathable/dp/B0CRBD1WNV",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "FUEL Gabbroo Comfortable & Lightweight Casual Sports Sandals for Mens with Anti-Skid & Flexible EVA Sole for Running, Walking (Black-White,6UK) : Amazon.in: Shoes & Handbags",
+      "final_url": "https://www.amazon.in/FUEL-Comfortable-Lightweight-Dailywear-Breathable/dp/B0CRBD1WNV?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "material",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "FOOTWEAR-002",
+      "source_url": "https://www.myntra.com/casual-shoes/red+tape/red-tape-men-solid-sneakers/32213488/buy",
+      "status": "inaccessible",
+      "http_status": null,
+      "page_title": "www.myntra.com",
+      "final_url": "about:blank",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page could not be loaded in the available public browser.",
+      "restored_fields": []
+    },
+    {
+      "id": "FOOTWEAR-003",
+      "source_url": "https://www.tatacliq.com/converse-unisex-chuck-taylor-all-star-malden-street-low-top-canvas-grey-sneakers/p-mp000000031872866",
+      "status": "no_product_content",
+      "http_status": 200,
+      "page_title": null,
+      "final_url": "https://www.tatacliq.com/converse-unisex-chuck-taylor-all-star-malden-street-low-top-canvas-grey-sneakers/p-mp000000031872866",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page returned HTTP success but no usable product detail/image was exposed.",
+      "restored_fields": []
+    },
+    {
+      "id": "FOOTWEAR-004",
+      "source_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Besroad Outdoor Hiking Slip on Sandals Sports Water Shoes Fashion Sneakers Slippers Classic Clogs for Women Men, Black, 7.5 Women/6 Men at Amazon.in",
+      "final_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B09QGL1ZDB?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": {
+        "source": "B08ZCGXGTS",
+        "final": "B09QGL1ZDB",
+        "canonical": "B08ZCGXGTS"
+      },
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "material",
+        "sizes",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "sizes",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "FOOTWEAR-005",
+      "source_url": "https://www.desertcart.in/products/848916715-mule-sneaker-for-women-men-comfort-breathable-support-sports-sandals",
+      "status": "blocked",
+      "http_status": 403,
+      "page_title": "Just a moment...",
+      "final_url": "https://www.desertcart.in/products/848916715-mule-sneaker-for-women-men-comfort-breathable-support-sports-sandals",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Retailer returned an access-denied / challenge response.",
+      "restored_fields": []
+    },
+    {
+      "id": "FOOTWEAR-006",
+      "source_url": "https://www.flipkart.com/neemans-sneandals-unisex-casual-sneakers/p/itm787ee1840d0b5?pid=SHOHRDFNDDVTUVYH",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Neemans The Sneandals Unisex Casual Sneakers Sneakers For Unisex - Buy Neemans The Sneandals Unisex Casual Sneakers Sneakers For Unisex Online at Best Price - Shop Online for Footwears in India | Flipkart.com",
+      "final_url": "https://www.flipkart.com/neemans-sneandals-unisex-casual-sneakers/p/itm787ee1840d0b5?pid=SHOHRDFNDDVTUVYH",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "brand",
+        "color"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "brand",
+        "color",
+        "title"
+      ]
+    },
+    {
+      "id": "FOOTWEAR-007",
+      "source_url": "https://www.stepee.in/products/simple-and-casual-look-sandal-36",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Simple and casual look sandal",
+      "final_url": "https://www.stepee.in/products/simple-and-casual-look-sandal-36",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "FOOTWEAR-008",
+      "source_url": "https://sreeleathersonline.com/products/ladies-flat-sandal-992001?variant=49233387159798",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Ladies Flat Sandal Style & Everyday Comfort 992001 – SREELEATHERS",
+      "final_url": "https://sreeleathersonline.com/products/ladies-flat-sandal-992001?variant=49233387159798",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "FOOTWEAR-009",
+      "source_url": "https://walkwayshoes.com/product/women-blue-casual-sandals-4/",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Women Blue Casual Sandals - Walkwayshoes",
+      "final_url": "https://walkwayshoes.com/product/women-blue-casual-sandals-4/",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "FOOTWEAR-010",
+      "source_url": "https://www.amazon.in/CANVI-CHANGE-Ethnic-Sandal-Sandals/dp/B0CLJSRN6T",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy CANVI - TAKE CHANGE TO MAKE CHANGE Stylish | Fancy | Comfortable Slide Ethnic Sandal, Flats Slip On Flat Flip Flop Thong Sandals Casual Sandals Ethnic Flats Sandals For Women And Girl (Sea Green, 7) at Amazon.in",
+      "final_url": "https://www.amazon.in/CANVI-CHANGE-Ethnic-Sandal-Sandals/dp/B0CLJSRN6T?th=1&psc=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "material",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-001",
+      "source_url": "https://www.flipkart.com/relish-watch-sunglass-wallet-combo/p/itm053e2b8c6d445?pid=AAOG8FRJE7FZMYDT",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "RELish Watch, Sunglass & Wallet Combo Price in India - Buy RELish Watch, Sunglass & Wallet Combo online at Flipkart.com",
+      "final_url": "https://www.flipkart.com/relish-watch-sunglass-wallet-combo/p/itm053e2b8c6d445?pid=AAOG8FRJE7FZMYDT",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-002",
+      "source_url": "https://www.meesho.com/pack-of-4-mens-accessories-combo-watch-belt-wallet-sunglasses/p/ca36ch",
+      "status": "blocked",
+      "http_status": 403,
+      "page_title": "Access Denied",
+      "final_url": "https://www.meesho.com/pack-of-4-mens-accessories-combo-watch-belt-wallet-sunglasses/p/ca36ch",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Retailer returned an access-denied / challenge response.",
+      "restored_fields": []
+    },
+    {
+      "id": "ACCESSORIES-003",
+      "source_url": "https://www.flipkart.com/just-leatheer-watch-sunglass-wallet-combo/p/itm134a8cc676a2f?pid=AAOGBHFAYKVZGBX9",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Just Leatheer Watch, Sunglass & Wallet Combo Price in India - Buy Just Leatheer Watch, Sunglass & Wallet Combo online at Flipkart.com",
+      "final_url": "https://www.flipkart.com/just-leatheer-watch-sunglass-wallet-combo/p/itm134a8cc676a2f?pid=AAOGBHFAYKVZGBX9",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "brand",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "brand",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-004",
+      "source_url": "https://www.amazon.in/GOTEO-Leather-Spectacle-Eyeglass-Sunglasses/dp/B0F9XCS2TW",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy GOTEO 2 in 1 Leather Specs Case, Slim Lightweight Sunglass Case, Hard Shell Protective Spectacle Case at Amazon.in",
+      "final_url": "https://www.amazon.in/GOTEO-Leather-Spectacle-Eyeglass-Sunglasses/dp/B0F9XCS2TW",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "material",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "material",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-005",
+      "source_url": "https://www.amazon.in/Storite-Mens-Leather-RFID-Blocking/dp/B0DX288PK8",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy Storite RFID Blocking PU Leather Card Holder Wallet, Grey | Bifold Purse for Men & Women with ID Window & Multiple Card Slots, Coins Zipper Pocket at Amazon.in",
+      "final_url": "https://www.amazon.in/Storite-Mens-Leather-RFID-Blocking/dp/B0DX288PK8?th=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-006",
+      "source_url": "https://www.amazon.in/Exotic-Studded-hand-women-Black/dp/B0B2LN5QVH",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "Buy EXOTIC formal hand bag for women (Black) at Amazon.in",
+      "final_url": "https://www.amazon.in/Exotic-Studded-hand-women-Black/dp/B0B2LN5QVH?th=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "image",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-007",
+      "source_url": "https://www.amazon.in/JI-ACCESSORIES-Womens-Stylish-Crossbody/dp/B0FQPRSNZ1",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "JI ACCESSORIES J I Women’s Stylish Crossbody Sling Bag – Elegant PU Leather Small Shoulder Purse with Adjustable Strap – Casual & Travel Handbag (PINK) : Amazon.in: Fashion",
+      "final_url": "https://www.amazon.in/JI-ACCESSORIES-Womens-Stylish-Crossbody/dp/B0FQPRSNZ1?th=1",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description",
+        "rating"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "rating",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-008",
+      "source_url": "https://sunglassescraft.com/products/new-luxury-fashion-womens-watch-sunglassescraft?variant=35929128403101",
+      "status": "accessible",
+      "http_status": 200,
+      "page_title": "New Luxury Fashion Women's Watch-SunglassesCraft",
+      "final_url": "https://sunglassescraft.com/products/new-luxury-fashion-womens-watch-sunglassescraft?variant=35929128403101",
+      "identity_match": true,
+      "redirected_asin": null,
+      "verified_fields": [
+        "image",
+        "price",
+        "description"
+      ],
+      "issue": "",
+      "restored_fields": [
+        "price_inr",
+        "description",
+        "image",
+        "title"
+      ]
+    },
+    {
+      "id": "ACCESSORIES-009",
+      "source_url": "https://www.tatacliq.com/giordano-green-round-dial-analog-watch-for-women---gz-60139-33/p-mp000000029487960",
+      "status": "no_product_content",
+      "http_status": 200,
+      "page_title": null,
+      "final_url": "https://www.tatacliq.com/giordano-green-round-dial-analog-watch-for-women---gz-60139-33/p-mp000000029487960",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Page returned HTTP success but no usable product detail/image was exposed.",
+      "restored_fields": []
+    },
+    {
+      "id": "ACCESSORIES-010",
+      "source_url": "https://www.meesho.com/adjustable-strap-handmade-premium-pu-leather-with-6-card-slot-and-zipper-bag-for-women-light-weight/p/az62ui",
+      "status": "blocked",
+      "http_status": 403,
+      "page_title": "Access Denied",
+      "final_url": "https://www.meesho.com/adjustable-strap-handmade-premium-pu-leather-with-6-card-slot-and-zipper-bag-for-women-light-weight/p/az62ui",
+      "identity_match": false,
+      "redirected_asin": null,
+      "verified_fields": [],
+      "issue": "Retailer returned an access-denied / challenge response.",
+      "restored_fields": []
+    }
+  ]
 }

@@ -58,24 +58,55 @@ test('all source listings are browsable and only verified-price products can be 
   for (const [category, count] of Object.entries(expected)) {
     expect(products.filter(product => product.category === category)).toHaveLength(count);
   }
-  expect(products.filter(product => product.id.startsWith('source-') && product.price_minor != null)).toHaveLength(17);
-  expect(products.filter(product => product.id.startsWith('source-') && product.price_minor == null)).toHaveLength(44);
+  expect(new Set(products.map(product => product.id)).size).toBe(86);
+  expect(products.filter(product => !product.id.startsWith('source-'))).toHaveLength(25);
+  expect(products.filter(product => product.price_minor != null).every(product => Number.isSafeInteger(product.price_minor) && product.price_minor > 0)).toBeTruthy();
+  expect(products.filter(product => product.id.startsWith('source-') && product.price_minor != null)).toHaveLength(47);
+  expect(products.filter(product => product.id.startsWith('source-') && product.price_minor == null)).toHaveLength(14);
 
-  await page.goto('/pages/product.html?id=source-men-002');
+  await page.goto('/pages/product.html?id=source-footwear-003');
   await expect(page.locator('.detail-price')).toHaveText('Price unavailable');
   await expect(page.locator('#add-form')).toHaveCount(0);
   await expect(page.getByRole('link', { name: 'View source listing ↗' })).toHaveAttribute('target', '_blank');
   await expect(page.locator('.detail-image img')).toHaveJSProperty('complete', true);
   expect(await page.locator('.detail-image img').evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
+  await expect(page.locator('.detail-image img')).toHaveAttribute('src', /product-placeholder\.svg/);
 
-  await page.goto('/pages/product.html?id=source-men-001');
-  await expect(page.locator('.detail-price')).toHaveText('₹485.00');
-  await page.getByRole('button', { name: 'Add to bag' }).click();
-  await page.getByRole('link', { name: 'View your bag' }).click();
-  await expect(page.locator('.summary-total')).toContainText('₹485.00');
-  await page.getByRole('link', { name: 'Continue to demo checkout' }).click();
-  await page.getByRole('button', { name: 'Place demo order' }).click();
-  await expect(page.locator('.order-reference')).toContainText('tt-');
+  const footwear = products.find(product => product.id === 'source-footwear-004');
+  expect(footwear.price_minor).toBe(865600);
+  await page.goto('/pages/product?id=source-footwear-004');
+  await expect(page.locator('main h1')).toHaveText(footwear.name);
+  await expect(page.locator('.detail-price')).toHaveText('₹8,656.00');
+  await expect(page.locator('.detail-description')).toContainText('Quick Dry Water Shoes');
+  await expect(page.locator('.product-specs')).toContainText('Besroad');
+  await expect(page.locator('.product-specs')).toContainText('Spandex upper; rubber sole');
+  await expect(page.locator('#add-form')).toBeVisible();
+  const image = page.locator('.detail-image img');
+  await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBeTruthy();
+  expect(await image.getAttribute('src')).toBe(footwear.image);
+
+  await page.route(footwear.image, route => route.abort());
+  await page.reload();
+  await expect(image).toHaveAttribute('src', /product-placeholder\.svg/);
+  await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBeTruthy();
+});
+
+test('all 42 verified retailer image URLs load under the deployed CSP', async ({ page, request }) => {
+  const { products } = await (await request.get('/api/products')).json();
+  const images = products.filter(product => product.id.startsWith('source-') && product.image.startsWith('https://'));
+  expect(images).toHaveLength(42);
+  await page.goto('/pages/privacy.html');
+  for (let i = 0; i < images.length; i += 6) {
+    const batch = images.slice(i, i + 6);
+    const results = await page.evaluate(urls => Promise.all(urls.map(url => new Promise(resolve => {
+      const image = new Image();
+      const timer = setTimeout(() => resolve({url, loaded:false, reason:'timeout'}), 15000);
+      image.onload = () => { clearTimeout(timer); resolve({url, loaded:image.naturalWidth > 0}); };
+      image.onerror = () => { clearTimeout(timer); resolve({url, loaded:false, reason:'load error'}); };
+      image.src = url;
+    }))), batch.map(product => product.image));
+    expect(results.filter(result => !result.loaded), JSON.stringify(results.filter(result => !result.loaded))).toEqual([]);
+  }
 });
 
 test('home to persisted bag, checkout, confirmation, and updated analytics', async ({ page, request }) => {

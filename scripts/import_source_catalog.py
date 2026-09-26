@@ -23,8 +23,14 @@ from clean_catalog import clean_catalog, sql_literal  # noqa: E402
 CATEGORIES = {"men": "men", "women": "women", "kids": "kids", "footwear": "footwear", "accessories": "accessories"}
 FIELDS = (
     "price_inr", "description", "color", "sizes", "brand", "subcategory", "mrp_inr",
-    "discount_percent", "material", "fit", "rating", "source_product_id", "image",
+    "discount_percent", "material", "fit", "rating", "source_product_id",
 )
+IMAGE_HOSTS = {
+    "cdn.fcglcdn.com", "cdn.shopify.com", "cdn2.clevup.in", "images-eu.ssl-images-amazon.com",
+    "indigodreams.in", "m.media-amazon.com", "mymilestones.in", "rukmini1.flixcart.com",
+    "rukminim2.flixcart.com", "sreeleathersonline.com", "sunglassescraft.com", "uspoloassn.in",
+    "walkwayshoes.com", "www.9shineslabel.com", "www.beloreslims.com", "www.montecarlo.in",
+}
 PRODUCT_COLUMNS = (
     "id", "name", "category", "description", "price_minor", "image", "alt", "sizes", "colors", "featured",
     "brand", "subcategory", "mrp_minor", "discount_percent", "material", "fit", "rating_value", "rating_scale",
@@ -97,6 +103,16 @@ def validate_and_map(payload, existing_rows, page_checks):
                 raise ValueError("description must be text of 2000 characters or fewer")
             price = minor(item.get("price_inr"), "price_inr")
             mrp = minor(item.get("mrp_inr"), "mrp_inr")
+            raw_images = item.get("image_urls") or []
+            if not isinstance(raw_images, list) or any(not isinstance(value, str) for value in raw_images):
+                raise ValueError("image_urls must be a list of verified HTTPS image URLs")
+            image_urls = []
+            for value in raw_images:
+                image_url = urlparse(value)
+                if image_url.scheme != "https" or image_url.hostname not in IMAGE_HOSTS:
+                    raise ValueError("image_urls must use an allowlisted HTTPS retailer/CDN host")
+                if value not in image_urls:
+                    image_urls.append(value)
             discount = item.get("discount_percent")
             if discount is not None and (type(discount) is not int or not 0 <= discount <= 100):
                 raise ValueError("discount_percent must be an integer from 0 to 100")
@@ -119,9 +135,8 @@ def validate_and_map(payload, existing_rows, page_checks):
                 source_id = None
             row_id = stable_id(code)
             missing = [field for field in FIELDS if not item.get(field)]
-            # Every supplied record lacks a reusable image URL; use the neutral local placeholder.
-            if not item.get("image_urls"):
-                missing.append("image_urls")
+            if not image_urls:
+                missing.append("image")
             ids[row_id] += 1
             urls[canonical] += 1
             if source_id:
@@ -129,16 +144,17 @@ def validate_and_map(payload, existing_rows, page_checks):
             field_missing.update(missing)
             mapped.append({
                 "id": row_id, "name": name, "category": category,
-                "description": description, "price_minor": price,
-                "image": "/assets/images/product-placeholder.svg",
-                "alt": "Retailer product image unavailable; local placeholder shown",
+                "description": description if description is not None else ("" if price is not None else None),
+                "price_minor": price,
+                "image": image_urls[0] if image_urls else "/assets/images/product-placeholder.svg",
+                "alt": f"{name} product image" if image_urls else "Retailer product image unavailable; local placeholder shown",
                 "sizes": sizes, "colors": [color.strip()] if isinstance(color, str) and color.strip() else [],
                 "featured": 0, "brand": item.get("brand"), "subcategory": item.get("subcategory"),
                 "mrp_minor": mrp, "discount_percent": discount, "material": item.get("material"),
                 "fit": item.get("fit"), "rating_value": rating_value, "rating_scale": rating_scale,
                 "rating_count": rating_count, "source_store": store, "source_product_id": source_id,
                 "canonical_url": canonical, "verification_status": str(item.get("verification_status") or "unverified"),
-                "missing_fields": missing, "source_code": code,
+                "missing_fields": missing, "source_code": code, "image_urls": image_urls,
             })
         except (ValueError, TypeError, OverflowError) as exc:
             errors.append({"row": row_number, "id": item.get("id") if isinstance(item, dict) else None, "error": str(exc)})
@@ -173,7 +189,8 @@ def validate_and_map(payload, existing_rows, page_checks):
         original = source_by_code.get(check.get("id"), {})
         page_results.append({**check, "url": original.get("canonical_url")})
     inaccessible = sum(check["status"] == "inaccessible" for check in page_results)
-    shell_only = sum(check["status"] == "page shell only" for check in page_results)
+    blocked = sum(check["status"] == "blocked" for check in page_results)
+    no_product_content = sum(check["status"] == "no_product_content" for check in page_results)
     priced = [p for p in mapped if p["price_minor"] is not None]
     unpriced = [p for p in mapped if p["price_minor"] is None]
     combined_counts = Counter(row["category"] for row in existing_rows)
@@ -184,9 +201,16 @@ def validate_and_map(payload, existing_rows, page_checks):
         "source_rows": len(source), "imported_source_rows": len(mapped),
         "existing_products_preserved": len(existing_rows), "final_catalog_count": len(existing_rows) + len(mapped),
         "source_priced_and_orderable": len(priced), "source_visible_price_unavailable": len(unpriced),
+        "products_enriched": sum(bool(check.get("identity_match") and check.get("restored_fields")) for check in page_results),
+        "products_with_real_images_restored": sum(bool(p["image_urls"]) for p in mapped),
+        "prices_restored": sum("price_inr" in check.get("restored_fields", []) for check in page_results),
+        "descriptions_details_restored": sum(bool(set(check.get("restored_fields", [])) &
+                                                    {"description", "brand", "color", "material", "fit", "sizes", "rating", "mrp_inr", "discount_percent"})
+                                              for check in page_results),
+        "products_still_using_placeholders": [p["source_code"] for p in mapped if not p["image_urls"]],
         "missing_current_prices": [p["source_code"] for p in unpriced],
         "missing_images": [p["source_code"] for p in mapped if "image_urls" in p["missing_fields"]],
-        "image_policy": "No retailer images were imported: no image URLs were supplied and reuse permission was not established. A local neutral placeholder is used.",
+        "image_policy": "Verified HTTPS retailer/CDN URLs are used when confirmed on the matching product page; exact CDN origins are allowlisted in public/_headers. Images that fail verification remain on the local placeholder. Retailer images are not downloaded or rehosted.",
         "missing_field_counts": dict(sorted(field_missing.items())),
         "exact_duplicates_found": exact,
         "id_collisions_with_existing_catalog": sorted(set(ids) & {row["id"] for row in existing_rows}),
@@ -196,8 +220,9 @@ def validate_and_map(payload, existing_rows, page_checks):
         "category_counts_final": dict(sorted(combined_counts.items())),
         "confirmed_broken_urls": [],
         "source_pages_checked": len(page_results), "source_pages_inaccessible": inaccessible,
-        "source_pages_shell_only": shell_only,
+        "source_pages_blocked": blocked, "source_pages_without_product_content": no_product_content,
         "source_pages_not_individually_checked": len(source) - len(checked_ids),
+        "redirected_or_suspicious_products": [check for check in page_results if check.get("redirected_asin")],
         "source_page_checks": page_results,
         "unavailable_fields_note": "Missing retailer values remain NULL/empty and are exposed in missing_fields; no values were inferred.",
     }
@@ -206,9 +231,11 @@ def validate_and_map(payload, existing_rows, page_checks):
 
 def seed_sql(products):
     lines = ["-- Generated by scripts/import_source_catalog.py. Do not edit by hand.",
-             "-- All source prices are preserved only when present in the supplied verified data."]
+             "-- Source-page values are populated only when the matching retailer listing exposed them."]
     for product in products:
         target = "products" if product["price_minor"] is not None else "source_products"
+        other = "source_products" if target == "products" else "products"
+        lines.append(f"DELETE FROM {other} WHERE id={sql_literal(product['id'])};")
         columns = PRODUCT_COLUMNS
         values = []
         for column in columns:
@@ -257,9 +284,12 @@ def main(argv=None):
     if stale:
         print("FAIL: stale source catalog outputs: " + ", ".join(stale), file=sys.stderr)
         return 1
-    print(f"PASS: imported {len(products)} source rows; {report['source_priced_and_orderable']} priced, "
+    print(f"PASS: imported {len(products)} source rows; {report['products_enriched']} enriched, "
+          f"{report['products_with_real_images_restored']} with verified images, "
+          f"{report['prices_restored']} prices restored; "
+          f"{report['source_priced_and_orderable']} priced, "
           f"{report['source_visible_price_unavailable']} with price unavailable; "
-          f"catalog total {report['final_catalog_count']}; all products use local placeholder images.")
+          f"catalog total {report['final_catalog_count']}.")
     return 0
 
 
