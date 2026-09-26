@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-labelledby="title desc">
+  <title id="title">Product image unavailable</title>
+  <desc id="desc">Neutral Trendy Threads placeholder shown when a source image was not available for local use.</desc>
+  <rect width="600" height="750" fill="#f1eee7"/>
+  <rect x="52" y="52" width="496" height="646" rx="8" fill="none" stroke="#d7d0c4" stroke-width="2"/>
+  <g fill="none" stroke="#a69c8d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="247" y="288" width="106" height="84" rx="8"/>
+    <circle cx="279" cy="316" r="10"/>
+    <path d="m259 357 28-27 20 17 15-13 27 23"/>
+  </g>
+  <text x="300" y="420" fill="#625d55" font-family="Arial,sans-serif" font-size="17" letter-spacing="2" text-anchor="middle">IMAGE NOT AVAILABLE</text>
+  <text x="300" y="450" fill="#827a70" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">Trendy Threads · product reference</text>
+</svg>

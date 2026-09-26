@@ -11,7 +11,11 @@ MAX_BODY_BYTES = 16_384
 MAX_LINES = 20
 MAX_QUANTITY = 10
 MAX_UNITS = 50
-PRODUCT_COLUMNS = "id,name,category,description,price_minor,image,alt,sizes,colors,featured"
+PRODUCT_COLUMNS = (
+    "id,name,category,description,price_minor,image,alt,sizes,colors,featured,brand,subcategory,mrp_minor,"
+    "discount_percent,material,fit,rating_value,rating_scale,rating_count,source_store,source_product_id,"
+    "canonical_url,verification_status,missing_fields"
+)
 
 
 class APIError(Exception):
@@ -28,9 +32,10 @@ def invalid(message):
 
 def product_json(row):
     product = dict(row)
-    for field in ("sizes", "colors"):
+    for field in ("sizes", "colors", "missing_fields"):
         product[field] = json.loads(product[field])
     product["featured"] = bool(product["featured"])
+    product["currency"] = "INR"
     return product
 
 
@@ -53,8 +58,8 @@ async def list_products(db, params):
         invalid("Search must be 100 characters or fewer.")
     if search:
         search = search.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
-        clauses.append("(name LIKE ? ESCAPE '\\' OR description LIKE ? ESCAPE '\\')")
-        values.extend([f"%{search}%"] * 2)
+        clauses.append("(name LIKE ? ESCAPE '\\' OR COALESCE(description,'') LIKE ? ESCAPE '\\' OR COALESCE(brand,'') LIKE ? ESCAPE '\\' OR COALESCE(source_store,'') LIKE ? ESCAPE '\\')")
+        values.extend([f"%{search}%"] * 4)
     minimum = maximum = None
     if params.get("min_price", ""):
         minimum = price_filter(params["min_price"], "min_price")
@@ -68,27 +73,27 @@ async def list_products(db, params):
         invalid("Minimum price cannot exceed maximum price.")
     sorts = {
         "featured": "featured DESC, name COLLATE NOCASE, id",
-        "price_asc": "price_minor, name COLLATE NOCASE, id",
-        "price_desc": "price_minor DESC, name COLLATE NOCASE, id",
+        "price_asc": "CASE WHEN price_minor IS NULL THEN 1 ELSE 0 END, price_minor, name COLLATE NOCASE, id",
+        "price_desc": "CASE WHEN price_minor IS NULL THEN 1 ELSE 0 END, price_minor DESC, name COLLATE NOCASE, id",
         "name": "name COLLATE NOCASE, id",
     }
     sort = params.get("sort", "featured")
     if sort not in sorts:
         invalid("Choose a valid product sort order.")
     where = " WHERE " + " AND ".join(clauses) if clauses else ""
-    # The portfolio catalog is intentionally small and returned in full.
-    rows = await db.all(f"SELECT {PRODUCT_COLUMNS} FROM products{where} ORDER BY {sorts[sort]}", values)
+    # Keep unavailable-price source items visible in the unfiltered catalog, but sort them last.
+    rows = await db.all(f"SELECT {PRODUCT_COLUMNS} FROM catalog_products{where} ORDER BY {sorts[sort]}", values)
     products = [product_json(row) for row in rows]
     return {"products": products, "total": len(products)}
 
 
 async def get_product(db, product_id):
-    rows = await db.all(f"SELECT {PRODUCT_COLUMNS} FROM products WHERE id = ?", [product_id])
+    rows = await db.all(f"SELECT {PRODUCT_COLUMNS} FROM catalog_products WHERE id = ?", [product_id])
     if not rows:
         raise APIError(404, "product_not_found", "This product could not be found.")
     product = product_json(rows[0])
     rows = await db.all(
-        f"SELECT {PRODUCT_COLUMNS} FROM products WHERE category = ? AND id != ? "
+        f"SELECT {PRODUCT_COLUMNS} FROM catalog_products WHERE category = ? AND id != ? "
         "ORDER BY featured DESC, name COLLATE NOCASE, id LIMIT 4",
         [product["category"], product_id],
     )

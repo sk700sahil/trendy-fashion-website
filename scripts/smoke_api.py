@@ -31,15 +31,21 @@ def run(base):
             return response.status, json.loads(content)
 
     status, catalog = call("/api/products")
-    assert status == 200 and len(catalog["products"]) >= 20, (status, catalog)
+    assert status == 200 and len(catalog["products"]) == 86, (status, catalog)
     products = catalog["products"]
-    product = products[0]
+    source_products = [item for item in products if item["id"].startswith("source-")]
+    assert len(source_products) == 61
+    assert sum(item["price_minor"] is None for item in source_products) == 44
+    assert sum(item["price_minor"] is not None for item in source_products) == 17
+    unpriced = next(item for item in source_products if item["price_minor"] is None)
+    assert call("/api/orders", {"items": [{"product_id": unpriced["id"], "quantity": 1}]}, str(uuid4()))[0] == 400
+    product = next(item for item in products if item["price_minor"] is not None)
     status, detail = call("/api/products/" + product["id"])
     assert status == 200 and detail["product"] == product
     for related in detail["related"]:
         assert related["category"] == product["category"] and related["id"] != product["id"]
-    for item in products:
-        with urlopen(base + item["image"], timeout=30) as response:
+    for image in sorted({item["image"] for item in products}):
+        with urlopen(base + image, timeout=30) as response:
             assert response.status == 200 and response.headers["Content-Type"].startswith("image/")
     status, filtered = call("/api/products?category=men&sort=price_asc&max_price=250000")
     assert status == 200

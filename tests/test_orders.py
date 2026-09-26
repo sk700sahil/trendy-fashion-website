@@ -26,7 +26,10 @@ class SQLiteDB:
             ("test-bag", "Everyday tote", "accessories", "A roomy tote for daily use.", 54900, "/tote.webp", "Everyday tote", '[]', '["Natural"]', 0),
             ("test-knit", "Soft knit", "men", "Soft cotton knit.", 89900, "/knit.webp", "Soft knit", '["S","M"]', '["Navy"]', 0),
         ]
-        self.connection.executemany("INSERT INTO products VALUES (?,?,?,?,?,?,?,?,?,?)", rows)
+        self.connection.executemany(
+            "INSERT INTO products (id,name,category,description,price_minor,image,alt,sizes,colors,featured) VALUES (?,?,?,?,?,?,?,?,?,?)",
+            rows,
+        )
         self.connection.commit()
 
     async def all(self, sql, values=()):

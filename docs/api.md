@@ -4,11 +4,13 @@ The same Cloudflare Python Worker serves `/api/*` alongside Workers Static Asset
 
 ## Catalog
 
-`GET /api/products` returns `{ "products": [...], "total": 25 }`. The total is the number of matching products; the small portfolio catalog is returned in full. Each product contains `id`, `name`, `category`, `description`, `price_minor`, `image`, `alt`, `sizes` and `colors` arrays, and a `featured` boolean. Images are local public paths.
+`GET /api/products` returns `{ "products": [...], "total": 86 }` before filtering. The catalog combines 25 existing curated items and 61 retailer-source listings. `price_minor` is integer paise for a supplied price, or `null` when the source did not provide one. Products also expose optional `brand`, `subcategory`, MRP/discount, material, fit, rating, source store/URL, verification status, and `missing_fields`. Sizes and colors are arrays; images are local public paths. All 61 source listings currently use the neutral local placeholder because no reusable image URLs were supplied.
+
+Listings with `price_minor: null` remain searchable and link to their source page, but cannot be added to the demo bag or ordered. Price filters omit them, and price sorting puts them last. No price is inferred from MRP or another product.
 
 | Optional query | Accepted value |
 | --- | --- |
-| `q` | Search name/description, at most 100 characters; SQL wildcard characters are treated literally |
+| `q` | Search name/description/brand/store, at most 100 characters; SQL wildcard characters are treated literally |
 | `category` | `men`, `women`, `kids`, `accessories`, `footwear`; empty or `all` selects all |
 | `min_price`, `max_price` | Inclusive non-negative integer amounts in paise |
 | `sort` | `featured` (default), `price_asc`, `price_desc`, `name` |

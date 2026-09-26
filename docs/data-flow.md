@@ -1,6 +1,6 @@
 # Catalog and demo order data
 
-Trendy Threads uses one SQL catalog for every storefront page. The data workflow is a small, reproducible CSV preparation pipeline followed by transactional demo orders and SQL aggregation. All orders and monetary figures are demonstrations; they do not represent a trading business, payments, customers, or deliveries.
+Trendy Threads exposes one SQL-backed catalog view to every storefront page. The data workflow combines the existing reproducible CSV preparation pipeline with a separate retailer-source JSON import, followed by transactional demo orders and SQL aggregation. All orders and monetary figures are demonstrations; they do not represent a trading business, payments, customers, or deliveries.
 
 ```mermaid
 flowchart LR
@@ -10,7 +10,14 @@ flowchart LR
     C --> E[Idempotent product SQL seed]
     E --> F[(D1 products)]
     G[Fixed synthetic order seed] --> H[(D1 orders and order_items)]
-    F --> I[Python product API]
+    P[Supplied 61-product JSON] --> Q[Validate fields and source IDs]
+    Q --> R[17 priced products]
+    Q --> S[44 unpriced source listings]
+    R --> F
+    S --> T[(D1 source_products)]
+    F --> U[Unified catalog_products view]
+    T --> U
+    U --> I[Python product API]
     I --> J[Browser catalog and cart]
     J --> K[Validated demo checkout]
     F --> K
@@ -34,7 +41,17 @@ Examples of corrections retained in the provenance columns:
 | The same heels appeared in both Accessories and Footwear with hair-accessory alt text | One stable `foot-embellished-heels` record belongs to Footwear. |
 | A baby outfit asserted cotton and a one-piece romper | `kids-baby-set` describes the visible outfit without those unsupported claims. |
 
-The five canonical categories are `men` (6 products), `women` (5), `kids` (5), `accessories` (4), and `footwear` (5). Stable product IDs do not depend on row position or a changing display name. Product image URLs point to lowercase files under `public/assets/images/`; the API returns them as `/assets/images/<filename>`.
+The original 25 curated products use the five canonical categories `men` (6), `women` (5), `kids` (5), `accessories` (4), and `footwear` (5). Stable product IDs do not depend on row position or a changing display name. Product image URLs point to local files under `public/assets/images/`.
+
+## Supplied retailer source list
+
+[`data/trendy_threads_products_source.json`](../data/trendy_threads_products_source.json) contains 61 listings: Men 15, Women 15, Kids 11, Footwear 10, Accessories 10. The import retains every row, using a stable ID derived from its supplied source ID and the canonical URL/store identity for duplicate checks. No exact duplicate ID or URL was found. One title is similar to an existing shoe listing, but no shared product ID or source URL establishes that they are the same item, so both remain.
+
+The resulting storefront catalog has 86 rows: Men 21, Women 20, Kids 16, Footwear 15, Accessories 14. Seventeen source listings have a price in the supplied data and enter `products`, where normal demo checkout is available. Forty-four listings have no current price and live in `source_products`; they remain visible/searchable through `catalog_products`, but cannot be checked out. Price filters omit unpriced rows and price sorts place them last. The backend order handler reads orderable prices only from `products`, so browser storage cannot make an unpriced entry purchasable.
+
+No product image URLs were supplied for the 61 rows. Retail images were not copied because reuse permission was not established and external image access could not be confirmed. Each row points to the local, neutral `product-placeholder.svg`. Existing site photos are untouched. Missing source attributes remain null/empty and appear in each row's `missing_fields` array and in [`source_import_report.json`](../data/source_import_report.json). That report records 44 missing prices, 61 missing images, missing-field counts, source categories, duplicates, and the limits of the page-access checks. Twelve representative retailer pages were checked without sign-in or anti-bot bypass: eleven were inaccessible to the available fetch and one returned only an image-loader shell; the other 49 were not individually checked. No broken URL was confirmed.
+
+Run `python scripts/import_source_catalog.py` to regenerate `source_products_seed.sql` and `source_import_report.json`, or add `--check` to verify deterministic output without writing. Source access notes for those representative pages are in [`source_page_checks.json`](../data/source_page_checks.json).
 
 [`scripts/clean_catalog.py`](../scripts/clean_catalog.py) uses only the Python standard library and supports Python 3.10 or newer. Run these commands from the repository root:
 
@@ -72,15 +89,17 @@ The successful outputs are:
 
 The product importer escapes SQL literals and does not delete products absent from a later CSV. Retiring products would need a separate, deliberate schema/application change. The seed generator is deterministic for the same CSV and image filenames; its synthetic fixture selection also depends on the sorted catalog, so changing the catalog can change a newly created demo database's fixtures.
 
-[`migrations/0001_catalog_and_orders.sql`](../migrations/0001_catalog_and_orders.sql) creates the following schema. Apply the migration, then `catalog_seed.sql`, then `synthetic_orders.sql`, using the local or remote D1 commands in the [README](../README.md).
+[`migrations/0001_catalog_and_orders.sql`](../migrations/0001_catalog_and_orders.sql) creates the original schema; [`migrations/0002_source_catalog.sql`](../migrations/0002_source_catalog.sql) adds source metadata, the unpriced listing table, and unified view. Apply both migrations, then `catalog_seed.sql`, `source_products_seed.sql`, and `synthetic_orders.sql`, using the local or remote D1 commands in the [README](../README.md).
 
 | Table | Keys and stored values |
 | --- | --- |
 | `products` | Stable text primary key; name, category, description, integer `price_minor`, image URL, alt text, JSON `sizes`/`colors`, and boolean `featured`. |
+| `source_products` | Source-backed rows without a supplied current price; source store/ID/canonical URL, optional product details, placeholder image, and JSON list of missing fields. The price constraint requires `NULL`. |
+| `catalog_products` | Read-only `UNION ALL` view over `products` and `source_products`, used for listing, detail, filtering, search, and sorting. |
 | `orders` | Text primary key; unique `idempotency_key`, normalized-request hash, source restricted to `synthetic` or `visitor`, integer total, and UTC timestamp. No customer or payment fields. |
 | `order_items` | Composite primary key `(order_id, line_no)`; foreign keys to orders and products; product name/category/unit-price snapshots, integer quantity, and selected size/color. Order deletion cascades to its items. |
 
-Checks restrict categories, JSON array shape, positive integer product prices, nonnegative integer order totals, and integer item quantities from 1 through 10. Indexes support product category/price filters, order dates/source, and product/category aggregations. Order-item snapshots preserve the meaning of past orders if a product's name, category, or price later changes.
+Checks restrict categories, JSON array shape, positive integer orderable product prices, unpriced source rows, nonnegative integer order totals, and integer item quantities from 1 through 10. Indexes support product category/price filters, source identity/URLs, order dates/source, and product/category aggregations. Order-item snapshots preserve the meaning of past orders if a product's name, category, or price later changes.
 
 The reproducible seed contains exactly **36 synthetic orders**, **74 item lines**, and **147 units**, with a demo value of **₹208,866**. Timestamps run from `2026-04-03T12:00:00Z` through `2026-09-24T12:00:00Z`. Counts are intentionally chosen for a useful chart; they are not an observed growth trend.
 

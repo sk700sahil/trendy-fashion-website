@@ -1,0 +1,19 @@
+{
+  "checked_on": "2026-09-26",
+  "method": "Read-only automated page open; no sign-in, captcha, or anti-bot bypass",
+  "checks": [
+    {"id": "MEN-002", "status": "page shell only", "detail": "Returned image-loader shell; no product fields were available."},
+    {"id": "MEN-003", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "MEN-008", "status": "inaccessible", "detail": "Source page fetch returned cache miss."},
+    {"id": "WOMEN-003", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "FOOTWEAR-003", "status": "inaccessible", "detail": "Source page fetch returned cache miss."},
+    {"id": "KIDS-005", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "FOOTWEAR-008", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "FOOTWEAR-009", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "WOMEN-001", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "KIDS-010", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "KIDS-006", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."},
+    {"id": "WOMEN-012", "status": "inaccessible", "detail": "Source page could not be opened by the available browser fetch."}
+  ],
+  "scope_note": "These are representative checks, not an assertion that every source URL was individually fetched. Values not already present in the supplied JSON were left blank."
+}
