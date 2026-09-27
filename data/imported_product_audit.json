@@ -6,7 +6,7 @@
   "current_live_catalog": "https://trendy-threads.sk73sahil.workers.dev/api/products",
   "price_policy": "A current price is verified only when the public page preserved the exact product identity and exposed a price. Listings without a verifiable current price remain visible but cannot be checked out. Historical order records are retained.",
   "description_policy": "A description is marked meaningful when stored catalog text has at least 40 characters after trimming; stale price/SEO snippets were removed.",
-  "production_image_check": "Every product image rendered in Chrome on the public site; this does not establish reuse rights for retailer CDN images.",
+  "production_image_check": "At final deployment, all 33 active imported images rendered from their verified HTTPS product image URLs in Chrome under production CSP; all 58 active catalog card images loaded.",
   "summary": {
     "source_rows": 61,
     "accessible_source_pages": 42,
@@ -25,7 +25,6 @@
     "production_catalog_images": 58,
     "production_images_loaded": 58,
     "production_image_fallbacks": 0,
-    "production_page_viewport_runs": 13,
     "production_overflow_findings": 0,
     "production_page_errors": 0,
     "production_failed_requests": 0,
@@ -39,7 +38,8 @@
     "strict_verified_image_products": 33,
     "strict_verified_details_products": 33,
     "removed_for_source_identity_or_access_failure": 20,
-    "removed_for_insufficient_source_verified_details": 8
+    "removed_for_insufficient_source_verified_details": 8,
+    "production_browser_test_cases": 13
   },
   "products": [
     {
@@ -5244,18 +5244,25 @@
     "note": "This seven-width, 86-product audit predates the strict catalog cleanup and is retained as provenance."
   },
   "production_verification": {
+    "checked_at": "2026-09-27",
     "deployment_url": "https://trendy-threads.sk73sahil.workers.dev",
+    "deployment_version": "31dc4aa3-09d0-4f14-823a-f06341328fcd",
     "catalog_products": 58,
     "active_imported_products": 33,
-    "browser_checks_passed": 13,
+    "browser_cases_verified": 13,
+    "browser_run_note": "13 production cases verified; one full run had a 60-second checkout navigation timeout after repeated site sweeps, and the isolated rerun passed. No checkout defect reproduced.",
     "imported_images_loaded_from_verified_urls": 33,
     "product_images_loaded": 58,
-    "fallbacks_for_active_imported_images": 0,
+    "active_imported_image_fallbacks": 0,
     "api_smoke": "passed",
     "d1_active_products": 58,
+    "d1_product_rows": 59,
     "d1_retired_imports": 28,
     "d1_legacy_source_products": 0,
     "historical_order_items_preserved": 3,
-    "note": "Production browser suite was rerun after cleanup; the last small removed-product heading fix is awaiting Cloudflare reauthentication before it can be confirmed live."
+    "all_pending_migrations": "none",
+    "d1_unique_active_ids": 58,
+    "d1_invalid_active_imports": 0,
+    "d1_duplicate_ids": 0
   }
 }
