@@ -22,16 +22,24 @@
     "placeholder_images": 20,
     "meaningful_descriptions": 30,
     "missing_or_short_descriptions": 31,
-    "production_catalog_images": 86,
-    "production_images_loaded": 86,
+    "production_catalog_images": 58,
+    "production_images_loaded": 58,
     "production_image_fallbacks": 0,
-    "production_page_viewport_runs": 98,
+    "production_page_viewport_runs": 13,
     "production_overflow_findings": 0,
     "production_page_errors": 0,
     "production_failed_requests": 0,
     "duplicate_catalog_ids": 0,
     "product_rows_with_useful_details": 45,
-    "product_rows_without_meaningful_details": 16
+    "product_rows_without_meaningful_details": 16,
+    "active_imported_products": 33,
+    "removed_imported_products": 28,
+    "duplicate_imported_products_removed": 0,
+    "strict_verified_price_products": 33,
+    "strict_verified_image_products": 33,
+    "strict_verified_details_products": 33,
+    "removed_for_source_identity_or_access_failure": 20,
+    "removed_for_insufficient_source_verified_details": 8
   },
   "products": [
     {
@@ -99,7 +107,30 @@
       "source_notes": [
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "MEN-002",
@@ -173,7 +204,29 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "material",
+          "color",
+          "sizes"
+        ]
+      },
+      "duplicate_of": "source-men-002",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-003",
@@ -236,7 +289,27 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-men-003",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-004",
@@ -305,7 +378,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-men-004",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-005",
@@ -377,7 +469,29 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "material",
+          "color",
+          "sizes"
+        ]
+      },
+      "duplicate_of": "source-men-005",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-006",
@@ -441,7 +555,26 @@
       },
       "source_notes": [
         "The extracted text contained stale embedded price/rating metadata conflicting with the verified fields; removed from the product description."
-      ]
+      ],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-men-006",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-007",
@@ -510,7 +643,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-men-007",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-008",
@@ -573,7 +725,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_BLOCKED",
+      "failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "MEN-009",
@@ -639,7 +814,26 @@
       "source_notes": [
         "Original URL was missing https://; canonical_url has been normalized.",
         "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DESCRIPTION_MISSING",
+      "failure_reasons": [
+        "DESCRIPTION_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "MEN-010",
@@ -708,7 +902,30 @@
       "source_notes": [
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "MEN-011",
@@ -773,7 +990,26 @@
       },
       "source_notes": [
         "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DESCRIPTION_MISSING",
+      "failure_reasons": [
+        "DESCRIPTION_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "MEN-012",
@@ -838,7 +1074,27 @@
       },
       "source_notes": [
         "Original URL was missing https://; canonical_url has been normalized."
-      ]
+      ],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-men-012",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-013",
@@ -901,7 +1157,27 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-men-013",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-014",
@@ -965,7 +1241,26 @@
       },
       "source_notes": [
         "The extracted description was a generic keyword string without product-specific features; omitted rather than presented as useful details."
-      ]
+      ],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-men-014",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "MEN-015",
@@ -1032,7 +1327,30 @@
       "source_notes": [
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-001",
@@ -1099,7 +1417,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DETAILS_INSUFFICIENT",
+      "failure_reasons": [
+        "DETAILS_INSUFFICIENT"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-002",
@@ -1162,7 +1499,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_BLOCKED",
+      "failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-003",
@@ -1225,7 +1585,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-004",
@@ -1287,7 +1670,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "material"
+        ]
+      },
+      "duplicate_of": "source-women-004",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "WOMEN-005",
@@ -1350,7 +1752,27 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "material"
+        ]
+      },
+      "duplicate_of": "source-women-005",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "WOMEN-006",
@@ -1413,7 +1835,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_BLOCKED",
+      "failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-007",
@@ -1476,7 +1921,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-008",
@@ -1545,7 +2013,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-women-008",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "WOMEN-009",
@@ -1608,7 +2095,27 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-women-009",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "WOMEN-010",
@@ -1671,7 +2178,28 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "material",
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-women-010",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "WOMEN-011",
@@ -1733,7 +2261,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-women-011",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "WOMEN-012",
@@ -1803,7 +2350,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-women-012",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "WOMEN-013",
@@ -1866,7 +2432,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-014",
@@ -1929,7 +2518,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "WOMEN-015",
@@ -1998,7 +2610,30 @@
       "source_notes": [
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "KIDS-001",
@@ -2058,7 +2693,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DETAILS_INSUFFICIENT",
+      "failure_reasons": [
+        "DETAILS_INSUFFICIENT"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "KIDS-002",
@@ -2126,7 +2780,26 @@
       },
       "source_notes": [
         "The extracted listing snippet advertises Rs. 599, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail."
-      ]
+      ],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "color"
+        ]
+      },
+      "duplicate_of": "source-kids-002",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "KIDS-003",
@@ -2189,7 +2862,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_BLOCKED",
+      "failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "KIDS-004",
@@ -2254,7 +2950,26 @@
       },
       "source_notes": [
         "Original URL was missing https://; canonical_url has been normalized."
-      ]
+      ],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-kids-004",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "KIDS-005",
@@ -2318,7 +3033,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "color"
+        ]
+      },
+      "duplicate_of": "source-kids-005",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "KIDS-006",
@@ -2380,7 +3114,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-kids-006",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "KIDS-007",
@@ -2445,7 +3198,28 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description",
+          "material",
+          "fit"
+        ]
+      },
+      "duplicate_of": "source-kids-007",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "KIDS-008",
@@ -2509,7 +3283,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "color"
+        ]
+      },
+      "duplicate_of": "source-kids-008",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "KIDS-009",
@@ -2572,7 +3365,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "KIDS-010",
@@ -2634,7 +3450,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-kids-010",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "KIDS-011",
@@ -2696,7 +3531,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-kids-011",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "FOOTWEAR-001",
@@ -2758,7 +3612,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "material"
+        ]
+      },
+      "duplicate_of": "source-footwear-001",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "FOOTWEAR-002",
@@ -2826,7 +3699,30 @@
       "source_notes": [
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image.",
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_INACCESSIBLE",
+      "failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "FOOTWEAR-003",
@@ -2889,7 +3785,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_NOT_PRODUCT",
+      "failure_reasons": [
+        "SOURCE_NOT_PRODUCT",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "FOOTWEAR-004",
@@ -2949,7 +3868,30 @@
       },
       "source_notes": [
         "The source ASIN B08ZCGXGTS redirected to ASIN B09QGL1ZDB during audit. Do not use the redirected listing data; price, image, and product details remain unverified."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "REDIRECTED_TO_DIFFERENT_PRODUCT",
+      "failure_reasons": [
+        "REDIRECTED_TO_DIFFERENT_PRODUCT",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "FOOTWEAR-005",
@@ -3013,7 +3955,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_BLOCKED",
+      "failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "FOOTWEAR-006",
@@ -3080,7 +4045,26 @@
       },
       "source_notes": [
         "The extracted listing snippet advertises Rs. 4,999, which conflicts with the matching page?s verified current price; removed to avoid displaying a stale price as product detail."
-      ]
+      ],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "color"
+        ]
+      },
+      "duplicate_of": "source-footwear-006",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "FOOTWEAR-007",
@@ -3143,7 +4127,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-footwear-007",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "FOOTWEAR-008",
@@ -3205,7 +4208,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-footwear-008",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "FOOTWEAR-009",
@@ -3277,7 +4299,26 @@
       },
       "source_notes": [
         "The extracted description only repeated the product category and color; omitted as non-informative."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DESCRIPTION_MISSING",
+      "failure_reasons": [
+        "DESCRIPTION_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "FOOTWEAR-010",
@@ -3339,7 +4380,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "material"
+        ]
+      },
+      "duplicate_of": "source-footwear-010",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "ACCESSORIES-001",
@@ -3401,7 +4461,26 @@
       },
       "source_notes": [
         "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DESCRIPTION_MISSING",
+      "failure_reasons": [
+        "DESCRIPTION_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "ACCESSORIES-002",
@@ -3464,7 +4543,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_BLOCKED",
+      "failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "ACCESSORIES-003",
@@ -3529,7 +4631,26 @@
       },
       "source_notes": [
         "The extracted description advertises Rs. 999, which conflicts with the matching page?s verified current price; removed as stale price boilerplate."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DESCRIPTION_MISSING",
+      "failure_reasons": [
+        "DESCRIPTION_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "ACCESSORIES-004",
@@ -3591,7 +4712,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "material"
+        ]
+      },
+      "duplicate_of": "source-accessories-004",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "ACCESSORIES-005",
@@ -3652,7 +4792,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-accessories-005",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "ACCESSORIES-006",
@@ -3713,7 +4872,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "DESCRIPTION_MISSING",
+      "failure_reasons": [
+        "DESCRIPTION_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "ACCESSORIES-007",
@@ -3775,7 +4953,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-accessories-007",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "ACCESSORIES-008",
@@ -3837,7 +5034,26 @@
         ],
         "availability": "orderable"
       },
-      "source_notes": []
+      "source_notes": [],
+      "status": "ACTIVE",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": true,
+        "identity_matched": true,
+        "verified_price": true,
+        "working_real_image": true,
+        "meaningful_source_verified_details": true,
+        "valid_category": true,
+        "not_duplicate": false,
+        "verified_detail_fields": [
+          "description"
+        ]
+      },
+      "duplicate_of": "source-accessories-008",
+      "failure_reason": null,
+      "failure_reasons": [],
+      "action_taken": "kept active after strict validation"
     },
     {
       "id": "ACCESSORIES-009",
@@ -3900,7 +5116,30 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_NOT_PRODUCT",
+      "failure_reasons": [
+        "SOURCE_NOT_PRODUCT",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "id": "ACCESSORIES-010",
@@ -3963,8 +5202,60 @@
         "Full live product details were not reliably extractable in this environment; title is based on the source URL/path when available.",
         "Current price not verified; re-check source before import.",
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
-      ]
+      ],
+      "status": "REMOVED",
+      "validation": {
+        "valid_title": true,
+        "valid_source_url": true,
+        "source_accessible": false,
+        "identity_matched": false,
+        "verified_price": false,
+        "working_real_image": false,
+        "meaningful_source_verified_details": false,
+        "valid_category": true,
+        "not_duplicate": true,
+        "verified_detail_fields": []
+      },
+      "duplicate_of": null,
+      "failure_reason": "SOURCE_BLOCKED",
+      "failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ],
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     }
   ],
-  "production_checked_at": "2026-09-26T22:14:48.812Z"
+  "production_checked_at": "2026-09-27",
+  "cleanup_policy": "Only identity-matched products with a verified positive INR price, source-verified meaningful details, and a real image verified by HTTP 200 image MIME, browser rendering, HTTPS, and production CSP remain active.",
+  "previous_production_audit": {
+    "checked_at": "2026-09-26T22:14:48.812Z",
+    "before_cleanup_metrics": {
+      "production_catalog_images": 86,
+      "production_images_loaded": 86,
+      "production_image_fallbacks": 0,
+      "production_page_viewport_runs": 98,
+      "production_overflow_findings": 0,
+      "production_page_errors": 0,
+      "production_failed_requests": 0
+    },
+    "note": "This seven-width, 86-product audit predates the strict catalog cleanup and is retained as provenance."
+  },
+  "production_verification": {
+    "deployment_url": "https://trendy-threads.sk73sahil.workers.dev",
+    "catalog_products": 58,
+    "active_imported_products": 33,
+    "browser_checks_passed": 13,
+    "imported_images_loaded_from_verified_urls": 33,
+    "product_images_loaded": 58,
+    "fallbacks_for_active_imported_images": 0,
+    "api_smoke": "passed",
+    "d1_active_products": 58,
+    "d1_retired_imports": 28,
+    "d1_legacy_source_products": 0,
+    "historical_order_items_preserved": 3,
+    "note": "Production browser suite was rerun after cleanup; the last small removed-product heading fix is awaiting Cloudflare reauthentication before it can be confirmed live."
+  }
 }

@@ -25,17 +25,19 @@ test('pages, local images, links, and original portraits work', async ({ page, r
 });
 
 test('search, category, price filters, sorting, empty states, and reset', async ({ page, request }) => {
+  const { products: catalog } = await (await request.get('/api/products')).json();
+  const categoryCounts = Object.fromEntries([...new Set(catalog.map(product => product.category))].map(category => [category, catalog.filter(product => product.category === category).length]));
   await page.goto('/pages/explore.html');
-  await expect(page.locator('.product-card')).toHaveCount(86);
+  await expect(page.locator('.product-card')).toHaveCount(58);
   await page.getByLabel('Collection', { exact: true }).selectOption('men');
-  await expect(page.locator('.product-card')).toHaveCount(21);
+  await expect(page.locator('.product-card')).toHaveCount(categoryCounts.men);
   await expect(page.locator('main h1')).toHaveText("The men's edit.");
-  for (const [category, count] of Object.entries({ women: 20, kids: 16, footwear: 15, accessories: 14 })) {
+  for (const [category, count] of Object.entries(categoryCounts).filter(([category]) => category !== 'men')) {
     await page.getByLabel('Collection', { exact: true }).selectOption(category);
     await expect(page.locator('.product-card')).toHaveCount(count);
   }
   await page.getByLabel('Collection', { exact: true }).selectOption('');
-  await expect(page.locator('.product-card')).toHaveCount(86);
+  await expect(page.locator('.product-card')).toHaveCount(58);
   await page.getByLabel('Collection', { exact: true }).selectOption('men');
   await page.getByLabel('Max price').fill('2000');
   await page.getByRole('button', { name: 'Apply filters' }).click();
@@ -47,7 +49,7 @@ test('search, category, price filters, sorting, empty states, and reset', async 
   await expect(page.locator('#result-count')).toHaveText('0 pieces to discover');
   await expect(page.locator('.empty-state')).toBeVisible();
   await page.locator('#empty-reset').click();
-  await expect(page.locator('.product-card')).toHaveCount(86);
+  await expect(page.locator('.product-card')).toHaveCount(58);
   await page.getByLabel('Search products').fill('denim');
   await page.getByRole('button', { name: 'Search', exact: true }).click();
   const matches = (await (await request.get('/api/products?q=denim&sort=featured')).json()).products;
@@ -58,21 +60,20 @@ test('search, category, price filters, sorting, empty states, and reset', async 
   await expect(page.locator('#filter-status')).toContainText('Minimum price');
 });
 
-test('all source listings are browsable and only verified-price products can be ordered', async ({ page, request }) => {
+test('only strictly verified imported products are active and orderable', async ({ page, request }) => {
   const response = await request.get('/api/products');
   expect(response.status()).toBe(200);
   const { products } = await response.json();
-  expect(products).toHaveLength(86);
-  const expected = { men: 21, women: 20, kids: 16, footwear: 15, accessories: 14 };
-  for (const [category, count] of Object.entries(expected)) {
-    expect(products.filter(product => product.category === category)).toHaveLength(count);
-  }
-  expect(new Set(products.map(product => product.id)).size).toBe(86);
+  expect(products).toHaveLength(58);
+  expect(new Set(products.map(product => product.id)).size).toBe(58);
   expect(products.filter(product => !product.id.startsWith('source-'))).toHaveLength(25);
   expect(products.filter(product => product.price_minor != null).every(product => Number.isSafeInteger(product.price_minor) && product.price_minor > 0)).toBeTruthy();
-  expect(products.filter(product => product.id.startsWith('source-') && product.price_minor != null)).toHaveLength(41);
-  expect(products.filter(product => product.id.startsWith('source-') && product.price_minor == null)).toHaveLength(20);
+  const imported = products.filter(product => product.id.startsWith('source-'));
+  expect(imported).toHaveLength(33);
+  expect(imported.every(product => product.price_minor != null && product.image.startsWith('https://'))).toBeTruthy();
   for (const productId of ['source-footwear-004', 'source-men-001']) {
+    const gone = await request.get(`/api/products/${productId}`);
+    expect(gone.status()).toBe(404);
     const response = await request.post('/api/orders', {
       data: { items: [{ product_id: productId, quantity: 1 }] },
       headers: { 'Idempotency-Key': randomUUID() },
@@ -81,70 +82,53 @@ test('all source listings are browsable and only verified-price products can be 
     expect((await response.json()).error.code).toBe('invalid_product');
   }
 
-  await page.goto('/pages/product.html?id=source-footwear-003');
-  await expect(page.locator('.detail-price')).toHaveText('Price unavailable');
-  await expect(page.locator('#add-form')).toHaveCount(0);
+  await page.goto('/pages/product.html?id=source-men-002');
+  await expect(page.locator('.detail-price')).not.toHaveText('Price unavailable');
+  await expect(page.locator('#add-form')).toBeVisible();
   await expect(page.getByRole('link', { name: 'View source listing ↗' })).toHaveAttribute('target', '_blank');
-  await expect(page.locator('.detail-image img')).toHaveJSProperty('complete', true);
-  expect(await page.locator('.detail-image img').evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
-  await expect(page.locator('.detail-image img')).toHaveAttribute('src', /product-placeholder\.svg/);
-
-  const inaccessiblePrice = products.find(product => product.id === 'source-men-001');
-  expect(inaccessiblePrice.price_minor).toBeNull();
-  expect(inaccessiblePrice.mrp_minor).toBeGreaterThan(0);
-  await page.goto('/pages/product?id=source-men-001');
-  await expect(page.locator('.detail-price')).toHaveText('Price unavailable');
-  await expect(page.locator('.detail-copy > .product-category')).toHaveCount(0);
-  await expect(page.locator('.notice')).toContainText('verified current price is unavailable');
-  await expect(page.locator('#add-form')).toHaveCount(0);
-
-  const footwear = products.find(product => product.id === 'source-footwear-004');
-  expect(footwear.price_minor).toBeNull();
-  expect(footwear.image).toBe('/assets/images/product-placeholder.svg');
-  expect(footwear.description).toBeNull();
-  expect(footwear.mrp_minor).toBeNull();
-  expect(footwear.sizes).toEqual([]);
-  expect(footwear.colors).toEqual([]);
-  await page.goto('/pages/product?id=source-footwear-004');
-  await expect(page.locator('main h1')).toHaveText(footwear.name);
-  await expect(page.locator('.detail-price')).toHaveText('Price unavailable');
-  await expect(page.locator('.detail-description')).toContainText('The source did not provide a product description.');
-  await expect(page.locator('.product-specs')).toContainText('Besroad');
-  await expect(page.locator('.product-specs')).not.toContainText('Spandex upper; rubber sole');
-  await expect(page.locator('#add-form')).toHaveCount(0);
+  await expect(page.locator('.detail-description')).not.toContainText('The source did not provide a product description.');
   const image = page.locator('.detail-image img');
-  await expect(image).toHaveAttribute('src', /product-placeholder\.svg/);
-  await expect(page.getByRole('link', { name: 'View source listing ↗' })).toHaveAttribute('href', /B08ZCGXGTS/);
+  await expect.poll(() => image.evaluate(node => node.complete && node.naturalWidth > 0)).toBeTruthy();
+  const imageState = await image.evaluate(node => ({ src: node.src, naturalWidth: node.naturalWidth, fallback: node.dataset.fallback }));
+  expect(imageState.naturalWidth).toBeGreaterThan(0);
+  expect(imageState.src.startsWith('https://') || imageState.fallback === '/assets/images/product-placeholder.svg').toBeTruthy();
+  await page.goto('/pages/product.html?id=source-men-001');
+  await expect(page.locator('main h1')).toHaveText('This piece is no longer available.');
+  await expect(page.locator('#add-form')).toHaveCount(0);
 });
 
-test('all 86 catalog images display or fall back to a working local placeholder', async ({ page }) => {
+test('all active catalog cards render a loaded image or the local offline fallback', async ({ page }) => {
   await page.goto('/pages/explore.html');
   await loaded(page);
-  await expect(page.locator('.product-card')).toHaveCount(86);
+  await expect(page.locator('.product-card')).toHaveCount(58);
   await page.locator('.product-card img').evaluateAll(images => images.forEach(image => image.loading = 'eager'));
   await expect.poll(() => page.locator('.product-card img').evaluateAll(images =>
-    images.length === 86 && images.every(image => image.complete && image.naturalWidth > 0)
+    images.length === 58 && images.every(image => image.complete && image.naturalWidth > 0)
   )).toBeTruthy();
-  const fallbacks = await page.locator('.product-card img[src*="product-placeholder.svg"]').count();
-  expect(fallbacks).toBeGreaterThanOrEqual(20);
+  const rendered = await page.locator('.product-card img').evaluateAll(images => images.every(image =>
+    image.complete && image.naturalWidth > 0 &&
+    (image.currentSrc.startsWith('https://') || image.currentSrc.includes('/assets/images/'))
+  ));
+  expect(rendered).toBeTruthy();
 });
 
-test('all 41 imported retailer images load or fall back under the deployed CSP', async ({ page, request }) => {
+test('all 33 active retailer images load under the deployed CSP', async ({ page, request }) => {
   const { products } = await (await request.get('/api/products')).json();
   const images = products.filter(product => product.id.startsWith('source-') && product.image.startsWith('https://'));
-  expect(images).toHaveLength(41);
+  expect(images).toHaveLength(33);
   const response = await page.goto('/pages/explore.html');
   const responseCsp = response.headers()['content-security-policy'] || '';
   await loaded(page);
   await page.locator('.product-card img').evaluateAll(elements => elements.forEach(element => { element.loading = 'eager'; }));
   await expect.poll(() => page.locator('.product-card img').evaluateAll(elements =>
-    elements.length === 86 && elements.every(element => element.complete && element.naturalWidth > 0)
+    elements.length === 58 && elements.every(element => element.complete && element.naturalWidth > 0)
   ), { timeout: 20000 }).toBeTruthy();
   for (const product of images) {
     expect(responseCsp, product.image).toContain(new URL(product.image).host);
     const image = page.locator(`.product-card a[href*="${product.id}"] img`);
     await expect(image).toHaveCount(1);
     const shown = await image.evaluate(element => ({ src: element.getAttribute('src'), alt: element.alt }));
+    if (process.env.TEST_BASE_URL) expect(shown.src, `${product.id} image failed to render`).toBe(product.image);
     if (shown.src !== product.image) {
       expect(shown.src).toContain('/assets/images/product-placeholder.svg');
       expect(shown.alt).toBe('Product image unavailable');
@@ -169,7 +153,7 @@ test('home to persisted bag, checkout, confirmation, and updated analytics', asy
   const before = (await (await request.get('/api/analytics?source=visitor')).json()).summary.orders;
   await page.goto('/');
   await page.getByRole('link', { name: 'Explore the collection', exact: false }).first().click();
-  await expect(page.locator('.product-card')).toHaveCount(86);
+  await expect(page.locator('.product-card')).toHaveCount(58);
   await page.locator('.product-card h3 a').first().click();
   await expect(page.locator('#add-form')).toBeVisible();
   await page.getByLabel('Quantity', { exact: true }).fill('2');
@@ -248,7 +232,7 @@ test('bag removal and recoverable catalog error', async ({ page }) => {
   await expect(page.getByRole('alert')).toContainText('could not reach');
   await page.unroute('**/api/products?*');
   await page.getByRole('button', { name: 'Try again' }).click();
-  await expect(page.locator('.product-card')).toHaveCount(86);
+  await expect(page.locator('.product-card')).toHaveCount(58);
 });
 
 test('corrupted browser storage recovers to an empty bag with a clear notice', async ({ page }) => {
@@ -285,7 +269,7 @@ test('mobile layout and keyboard navigation', async ({ page }) => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route).toBe(true);
   }
   await page.setViewportSize({ width: 768, height: 1024 });
-  await page.goto('/pages/product.html?id=source-men-001');
+  await page.goto('/pages/product.html?id=source-men-002');
   await loaded(page);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.setViewportSize({ width: 375, height: 812 });

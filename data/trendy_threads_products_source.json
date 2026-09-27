@@ -89,7 +89,15 @@
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "MEN-002",
@@ -140,7 +148,9 @@
         "material",
         "sizes",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-003",
@@ -182,7 +192,9 @@
         "description",
         "fit",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-004",
@@ -228,7 +240,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-005",
@@ -277,7 +291,9 @@
         "material",
         "sizes",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-006",
@@ -320,7 +336,9 @@
         "price",
         "description",
         "fit"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-007",
@@ -369,7 +387,9 @@
         "image",
         "price",
         "fit"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-008",
@@ -401,7 +421,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "MEN-009",
@@ -444,6 +472,10 @@
         "image",
         "price",
         "description"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DESCRIPTION_MISSING"
       ]
     },
     {
@@ -486,7 +518,15 @@
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "MEN-011",
@@ -528,6 +568,10 @@
         "image",
         "price",
         "description"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DESCRIPTION_MISSING"
       ]
     },
     {
@@ -572,7 +616,9 @@
         "description",
         "fit",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-013",
@@ -614,7 +660,9 @@
         "description",
         "fit",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-014",
@@ -657,7 +705,9 @@
         "price",
         "description",
         "fit"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "MEN-015",
@@ -697,7 +747,15 @@
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "WOMEN-001",
@@ -738,6 +796,10 @@
       "verified_fields": [
         "image",
         "price"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DETAILS_INSUFFICIENT"
       ]
     },
     {
@@ -770,7 +832,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "WOMEN-003",
@@ -802,7 +872,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "WOMEN-004",
@@ -843,7 +921,9 @@
         "price",
         "material",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "WOMEN-005",
@@ -885,7 +965,9 @@
         "description",
         "material",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "WOMEN-006",
@@ -917,7 +999,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "WOMEN-007",
@@ -949,7 +1039,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "WOMEN-008",
@@ -992,7 +1090,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "WOMEN-009",
@@ -1034,7 +1134,9 @@
         "description",
         "fit",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "WOMEN-010",
@@ -1072,7 +1174,9 @@
         "description",
         "material",
         "fit"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "WOMEN-011",
@@ -1108,7 +1212,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "WOMEN-012",
@@ -1150,7 +1256,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "WOMEN-013",
@@ -1182,7 +1290,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "WOMEN-014",
@@ -1214,7 +1330,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "WOMEN-015",
@@ -1252,7 +1376,15 @@
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "KIDS-001",
@@ -1291,6 +1423,10 @@
       "verified_fields": [
         "image",
         "price"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DETAILS_INSUFFICIENT"
       ]
     },
     {
@@ -1336,7 +1472,9 @@
         "brand",
         "color",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "KIDS-003",
@@ -1368,7 +1506,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "KIDS-004",
@@ -1410,7 +1556,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "KIDS-005",
@@ -1446,7 +1594,9 @@
         "image",
         "price",
         "color"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "KIDS-006",
@@ -1482,7 +1632,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "KIDS-007",
@@ -1525,7 +1677,9 @@
         "material",
         "fit",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "KIDS-008",
@@ -1561,7 +1715,9 @@
         "image",
         "price",
         "color"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "KIDS-009",
@@ -1593,7 +1749,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "KIDS-010",
@@ -1629,7 +1793,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "KIDS-011",
@@ -1666,7 +1832,9 @@
         "price",
         "description",
         "brand"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "FOOTWEAR-001",
@@ -1707,7 +1875,9 @@
         "price",
         "material",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "FOOTWEAR-002",
@@ -1748,7 +1918,15 @@
         "Retailer page was inaccessible during the 2026-09-27 audit; the supplied price is not treated as a verified current price and checkout is disabled."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_INACCESSIBLE",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DETAILS_INSUFFICIENT",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "FOOTWEAR-003",
@@ -1780,7 +1958,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_NOT_PRODUCT",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "FOOTWEAR-004",
@@ -1812,7 +1998,15 @@
       "needs_enrichment": true,
       "needs_image_fetch": true,
       "verified_on": "2026-09-27",
-      "verified_fields": []
+      "verified_fields": [],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "REDIRECTED_TO_DIFFERENT_PRODUCT",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "FOOTWEAR-005",
@@ -1844,7 +2038,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "FOOTWEAR-006",
@@ -1884,7 +2086,9 @@
         "description",
         "brand",
         "color"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "FOOTWEAR-007",
@@ -1920,7 +2124,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "FOOTWEAR-008",
@@ -1956,7 +2162,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "FOOTWEAR-009",
@@ -2000,6 +2208,10 @@
       "verified_fields": [
         "image",
         "price"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DESCRIPTION_MISSING"
       ]
     },
     {
@@ -2041,7 +2253,9 @@
         "price",
         "material",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "ACCESSORIES-001",
@@ -2079,6 +2293,10 @@
         "image",
         "price",
         "description"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DESCRIPTION_MISSING"
       ]
     },
     {
@@ -2111,7 +2329,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "ACCESSORIES-003",
@@ -2155,6 +2381,10 @@
         "description",
         "brand",
         "rating"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DESCRIPTION_MISSING"
       ]
     },
     {
@@ -2196,7 +2426,9 @@
         "price",
         "material",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "ACCESSORIES-005",
@@ -2236,7 +2468,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "ACCESSORIES-006",
@@ -2276,6 +2510,10 @@
         "image",
         "price",
         "rating"
+      ],
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "DESCRIPTION_MISSING"
       ]
     },
     {
@@ -2317,7 +2555,9 @@
         "price",
         "description",
         "rating"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "ACCESSORIES-008",
@@ -2353,7 +2593,9 @@
         "image",
         "price",
         "description"
-      ]
+      ],
+      "import_status": "ACTIVE",
+      "import_failure_reasons": []
     },
     {
       "id": "ACCESSORIES-009",
@@ -2385,7 +2627,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_NOT_PRODUCT",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     },
     {
       "id": "ACCESSORIES-010",
@@ -2417,7 +2667,15 @@
         "Direct reusable image URL not extracted; Codex should fetch from source page if permitted, otherwise use a placeholder/licensed image."
       ],
       "needs_enrichment": true,
-      "needs_image_fetch": true
+      "needs_image_fetch": true,
+      "import_status": "REMOVED",
+      "import_failure_reasons": [
+        "SOURCE_BLOCKED",
+        "PRICE_MISSING",
+        "PRICE_UNVERIFIED",
+        "DESCRIPTION_MISSING",
+        "IMAGE_MISSING"
+      ]
     }
   ]
 }

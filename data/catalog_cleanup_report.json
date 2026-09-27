@@ -1,29 +1,48 @@
 {
-  "status": "passed",
-  "source_checked_on": "2026-09-27",
-  "urls_received": 61,
-  "successfully_added": 0,
-  "valid_imports": 33,
-  "already_existed": 33,
-  "duplicates": 0,
-  "rejected": 28,
-  "failure_breakdown": {
-    "DESCRIPTION_MISSING": 21,
-    "DETAILS_INSUFFICIENT": 7,
-    "IMAGE_MISSING": 20,
-    "PRICE_MISSING": 20,
-    "PRICE_UNVERIFIED": 20,
-    "REDIRECTED_TO_DIFFERENT_PRODUCT": 1,
-    "SOURCE_BLOCKED": 7,
-    "SOURCE_INACCESSIBLE": 10,
-    "SOURCE_NOT_PRODUCT": 2
+  "status": "completed",
+  "checked_on": "2026-09-27",
+  "before_cleanup": {
+    "total_products": 86,
+    "original_products": 25,
+    "imported_products": 61
   },
+  "duplicates_found": 0,
+  "duplicates_removed": 0,
+  "incomplete_imported_products_removed": 28,
+  "removal_reason_counts": {
+    "missing_or_unverified_current_price": 20,
+    "missing_or_unverified_real_image": 20,
+    "missing_source_verified_meaningful_details": 28,
+    "source_inaccessible_or_blocked_or_unusable": 19,
+    "source_identity_mismatch": 1,
+    "confirmed_duplicates": 0,
+    "other_validation_failures": 0
+  },
+  "reason_counts_overlap": true,
+  "after_cleanup": {
+    "total_products": 58,
+    "original_products": 25,
+    "active_imported_products": 33,
+    "orderable_products": 58
+  },
+  "historical_data": "Three historical order items reference source-men-001. Its order snapshot and product row remain in D1, but retired_products excludes it from the active catalog and checkout. All other removed imported product rows had no order references.",
+  "duplicate_review_candidates": [
+    {
+      "product_ids": [
+        "FOOTWEAR-002",
+        "foot-grey-sneakers"
+      ],
+      "similarity_score": 0.652,
+      "decision": "not a confirmed duplicate; titles and source identity differ, and no shared SKU/canonical product ID was found. FOOTWEAR-002 was removed for failing source/price/image/detail quality gates."
+    }
+  ],
   "products": [
     {
       "product_id": "source-men-001",
+      "source_id": "MEN-001",
       "title": "HIGHLANDER Regular Fit Shirt",
       "source_url": "https://www.myntra.com/shirts/highlander/highlander-regular-fit-shirt/28594132/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -38,7 +57,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -46,13 +64,14 @@
         "DETAILS_INSUFFICIENT",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-men-002",
+      "source_id": "MEN-002",
       "title": "No Drama Oversized Sweatshirt",
       "source_url": "https://www.snitch.com/men-sweatshirts/oversized-printed-sweatshirt-4msws0031-01/8884317421730/buy",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -70,17 +89,17 @@
           "sizes"
         ]
       },
-      "duplicate_of": "source-men-002",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-003",
+      "source_id": "MEN-003",
       "title": "Veirdo Men’s Pure Cotton Utility Shirt",
       "source_url": "https://www.amazon.in/Veirdo%C2%AE-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_MRN_S/dp/B0FV91LFTQ",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -96,17 +115,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-men-003",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-004",
+      "source_id": "MEN-004",
       "title": "Noble Monk Men’s Solid Regular Fit Hooded Shirt",
       "source_url": "https://www.amazon.in/Noble-Monk-Relax-Hooded-Shirt/dp/B0FJ8HLCP7",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -121,17 +140,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-men-004",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-005",
+      "source_id": "MEN-005",
       "title": "GRIND GRIT TO GLORY Oversized Hoodie",
       "source_url": "https://www.snitch.com/men-hoodies/oversized-hooded-100-cotton-terry-printed-hoodie-4mswh9926-01/8896908558498/buy",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -149,17 +168,17 @@
           "sizes"
         ]
       },
-      "duplicate_of": "source-men-005",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-006",
+      "source_id": "MEN-006",
       "title": "DEELMO Men’s Stylish Cotton Blend Casual Shirt",
       "source_url": "https://www.amazon.in/DEELMO-Stylish-Button-Down-Comfortable-Breathable/dp/B0FXRWKV4C",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -174,17 +193,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-men-006",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-007",
+      "source_id": "MEN-007",
       "title": "BULLMER Shirt and Pants Co-ords Set for Men",
       "source_url": "https://www.amazon.in/BULLMER-Cotton-Clothing-Trendy-Co-Ords/dp/B0D1CJV7FD",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -199,17 +218,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-men-007",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-008",
+      "source_id": "MEN-008",
       "title": "snitch men regular fit sweatshirt",
       "source_url": "https://www.ajio.com/snitch-men-regular-fit-sweatshirt/p/702632501_grey",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -224,7 +243,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_BLOCKED",
       "failure_reasons": [
         "SOURCE_BLOCKED",
         "PRICE_MISSING",
@@ -232,13 +250,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-men-009",
+      "source_id": "MEN-009",
       "title": "Lymio Lightweight Outwear Jacket J-07-09",
       "source_url": "https://amazon.in/Lymio-Jackets-Lightweight-Outwear-J-9-Grey-2XL/dp/B0FK9S8K2S",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -253,17 +272,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DESCRIPTION_MISSING",
       "failure_reasons": [
         "DESCRIPTION_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-men-010",
+      "source_id": "MEN-010",
       "title": "Bewakoof Official Harry Potter Men's Blue Order of the Phoenix Graphic Printed T-shirt",
       "source_url": "https://www.nykaaman.com/bewakoof-official-harry-potter-merchandise-men-s-blue-order-of-the-phoenix-t-shirt/p/14609787",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -278,7 +297,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -286,13 +304,14 @@
         "DETAILS_INSUFFICIENT",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-men-011",
+      "source_id": "MEN-011",
       "title": "Lymio Lightweight Outwear Jacket J-04-06",
       "source_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-04-khakhi-S/dp/B0FMDHT43B",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -307,17 +326,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DESCRIPTION_MISSING",
       "failure_reasons": [
         "DESCRIPTION_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-men-012",
+      "source_id": "MEN-012",
       "title": "Veirdo Men’s Pure Cotton Utility Shirt",
       "source_url": "https://amazon.in/Veirdo®-Button-Down-Comfortable-Everyday-VD_FS_RC_SH_BK_L/dp/B0FV8YFMLQ",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -333,17 +352,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-men-012",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-013",
+      "source_id": "MEN-013",
       "title": "SMOWKLY Men’s Lightweight Cotton Overshirt",
       "source_url": "https://www.amazon.in/SMOWKLY-Lightweight-Overshirt-Everyday-1689_BK_2XL/dp/B0G2HC8RZZ",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -359,17 +378,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-men-013",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-014",
+      "source_id": "MEN-014",
       "title": "Lymio Lightweight Outwear Jacket J-10-11",
       "source_url": "https://www.amazon.in/Lymio-Jackets-Lightweight-Outwear-J-11-Grey-S/dp/B0FKB9RB56",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -384,17 +403,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-men-014",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-men-015",
+      "source_id": "MEN-015",
       "title": "Mast & Harbour Men Lightweight Woven Jacket",
       "source_url": "https://www.myntra.com/jackets/mast+%26+harbour/mast--harbour-men-lightweight-woven-jacket/45217050/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -409,7 +428,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -417,13 +435,14 @@
         "DETAILS_INSUFFICIENT",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-001",
+      "source_id": "WOMEN-001",
       "title": "Light Blue Denim Co Ord Set for Women with Floral Embroidery",
       "source_url": "https://www.9shineslabel.com/products/pure-cotton-denim-co-ord-set-embroidered-sleeves-women?variant=47858864914585",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -438,17 +457,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DETAILS_INSUFFICIENT",
       "failure_reasons": [
         "DETAILS_INSUFFICIENT"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-002",
+      "source_id": "WOMEN-002",
       "title": "buda jeans co women printed 2 piece co ord set",
       "source_url": "https://www.ajio.com/buda-jeans-co-women-printed-2-piece-co-ord-set/p/702756071_maroon",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -463,7 +482,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_BLOCKED",
       "failure_reasons": [
         "SOURCE_BLOCKED",
         "PRICE_MISSING",
@@ -471,13 +489,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-003",
+      "source_id": "WOMEN-003",
       "title": "claura printed chanderi silk top trousers co ord set",
       "source_url": "https://www.myntra.com/co-ords/claura/claura-printed-chanderi-silk-top--trousers-co-ord-set/30204960/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -492,7 +511,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -500,13 +518,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-004",
+      "source_id": "WOMEN-004",
       "title": "Codaisy Blue Denim Pinafore Dress for Women",
       "source_url": "https://www.amazon.in/Codaisy-Pinafore-Festivity-Everyday-Available/dp/B0DXKBR581",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -521,17 +540,17 @@
           "material"
         ]
       },
-      "duplicate_of": "source-women-004",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-women-005",
+      "source_id": "WOMEN-005",
       "title": "GRECIILOOKS Women’s Co-Ord Set",
       "source_url": "https://www.amazon.in/GRECIILOOKS-Spandex-Ethnic-Wear-Women/dp/B0F6XNSQMQ",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -547,17 +566,17 @@
           "material"
         ]
       },
-      "duplicate_of": "source-women-005",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-women-006",
+      "source_id": "WOMEN-006",
       "title": "buda jeans co women 2 piece co ord set",
       "source_url": "https://www.ajio.com/buda-jeans-co-women-2-piece-co-ord-set-/p/702452772_blue",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -572,7 +591,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_BLOCKED",
       "failure_reasons": [
         "SOURCE_BLOCKED",
         "PRICE_MISSING",
@@ -580,13 +598,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-007",
+      "source_id": "WOMEN-007",
       "title": "moda rapido solid sweetheart neck long sleeves top with trouser",
       "source_url": "https://www.myntra.com/co-ords/moda+rapido/moda-rapido-solid-sweetheart-neck-long-sleeves-top-with-trouser/40727267/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -601,7 +620,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -609,13 +627,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-008",
+      "source_id": "WOMEN-008",
       "title": "Jegging with full sleeve denim co-ord set",
       "source_url": "https://www.beloreslims.com/products/jegging-with-full-sleeve-denim-coord-set?variant=51300243800342",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -630,17 +649,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-women-008",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-women-009",
+      "source_id": "WOMEN-009",
       "title": "TOPLOT Women’s Printed Co-Ord Set",
       "source_url": "https://www.amazon.in/TOPLOT-Button-up-Loose-fit-Artistic-5234_M_Olive/dp/B0DXFBRTDL",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -656,17 +675,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-women-009",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-women-010",
+      "source_id": "WOMEN-010",
       "title": "Vastrick Cotton Slub Embroidered Co-Ord Set",
       "source_url": "https://www.amazon.in/Vastrick-Fashion-Embroidered-Embroidery-Regular/dp/B0H6D8Z99S",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -683,17 +702,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-women-010",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-women-011",
+      "source_id": "WOMEN-011",
       "title": "PEARL GLOW",
       "source_url": "https://indigodreams.in/products/pearl-glow?variant=44737519026229",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -708,17 +727,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-women-011",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-women-012",
+      "source_id": "WOMEN-012",
       "title": "ORION",
       "source_url": "https://indigodreams.in/products/orion",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -733,17 +752,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-women-012",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-women-013",
+      "source_id": "WOMEN-013",
       "title": "showoffff solid strappy top with jeans jacket co ords",
       "source_url": "https://www.myntra.com/co-ords/showoffff/showoffff-solid-strappy-top-with-jeans--jacket-co-ords/38239411/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -758,7 +777,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -766,13 +784,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-014",
+      "source_id": "WOMEN-014",
       "title": "bani women winter sweatshirt with trousers",
       "source_url": "https://www.myntra.com/co-ords/bani+women/bani-women-winter-sweatshirt-with-trousers/21058938/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -787,7 +806,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -795,13 +813,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-women-015",
+      "source_id": "WOMEN-015",
       "title": "Chemistry Round Neck Crop Top With Trouser",
       "source_url": "https://www.myntra.com/co-ords/chemistry/chemistry-round-neck-crop-top-with-trouser/25804984/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -816,7 +835,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -824,13 +842,14 @@
         "DETAILS_INSUFFICIENT",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-kids-001",
+      "source_id": "KIDS-001",
       "title": "Alan Jones Boys’ Cotton Printed Hooded Hoodie",
       "source_url": "https://www.amazon.in/Alan-Jones-Clothing-Oversize-Black_7-8/dp/B0DPXDYP4V",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -845,17 +864,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DETAILS_INSUFFICIENT",
       "failure_reasons": [
         "DETAILS_INSUFFICIENT"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-kids-002",
+      "source_id": "KIDS-002",
       "title": "Liwash Baby Full Sleeve Solid Sweatshirt",
       "source_url": "https://www.flipkart.com/liwash-full-sleeve-solid-baby-boys-girls-sweatshirt/p/itmeb5ff06368358?pid=SWSGB2WYASDYVUB2",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -870,17 +889,17 @@
           "color"
         ]
       },
-      "duplicate_of": "source-kids-002",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-kids-003",
+      "source_id": "KIDS-003",
       "title": "sweatshirt pack of 1",
       "source_url": "https://www.meesho.com/sweatshirt-pack-of-1/p/5sf7sw",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -895,7 +914,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_BLOCKED",
       "failure_reasons": [
         "SOURCE_BLOCKED",
         "PRICE_MISSING",
@@ -903,13 +921,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-kids-004",
+      "source_id": "KIDS-004",
       "title": "HELLCAT Boys’ Hoodie, T-Shirt and Jogger Set",
       "source_url": "https://amazon.in/HELLCAT-Printed-T-shirt-Trackpant-Clothing/dp/B0CKBQF1TT",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -924,17 +943,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-kids-004",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-kids-005",
+      "source_id": "KIDS-005",
       "title": "Boys Navy Blue Printed Round Neck Full Sleeve Sweatshirt",
       "source_url": "https://www.montecarlo.in/products/boys-navy-blue-printed-round-neck-full-sleeve-sweatshirt-523063305-1?variant=49039959851296",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -949,17 +968,17 @@
           "color"
         ]
       },
-      "duplicate_of": "source-kids-005",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-kids-006",
+      "source_id": "KIDS-006",
       "title": "U.S. Polo Assn. Girls Printed Sweatshirt",
       "source_url": "https://uspoloassn.in/products/kidswear-girls-brand-printed-numeric-sweatshirt-hdv4cvw7t42?variant=47498437001386",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -974,17 +993,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-kids-006",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-kids-007",
+      "source_id": "KIDS-007",
       "title": "T2F Boys’ Cotton Hooded Sweatshirt",
       "source_url": "https://www.amazon.in/T2F-Cotton-Hooded-Sweatshirt-Boys-SS_35_Navy/dp/B0C8JLYJ1B",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1001,17 +1020,17 @@
           "fit"
         ]
       },
-      "duplicate_of": "source-kids-007",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-kids-008",
+      "source_id": "KIDS-008",
       "title": "Boys Multicolor Printed Hooded Full Sleeve Sweatshirt",
       "source_url": "https://www.montecarlo.in/products/boys-multicolor-printed-hooded-full-sleeve-sweatshirt-524068310-1?variant=51652717871392",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1026,17 +1045,17 @@
           "color"
         ]
       },
-      "duplicate_of": "source-kids-008",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-kids-009",
+      "source_id": "KIDS-009",
       "title": "max boys casual shirt",
       "source_url": "https://www.myntra.com/shirts/max/max-boys-casual-shirt/41006988/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1051,7 +1070,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -1059,13 +1077,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-kids-010",
+      "source_id": "KIDS-010",
       "title": "Palm Printed Relaxed Collar Shirt - Off White",
       "source_url": "https://mymilestones.in/products/palm-printed-relaxed-collar-shirt-off-white?variant=48924628648251",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1080,17 +1099,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-kids-010",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-kids-011",
+      "source_id": "KIDS-011",
       "title": "Rikidoos Sea Life Printed Shirt and T-Shirt Set",
       "source_url": "https://www.firstcry.com/rikidoos/rikidoos-cotton-woven-half-sleeves-sea-life-theme-printed-box-style-shirt-with-t-shirt-light-blue/23806961/product-detail",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1105,17 +1124,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-kids-011",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-footwear-001",
+      "source_id": "FOOTWEAR-001",
       "title": "FUEL Gabbroo Lightweight Sports Sandals for Men",
       "source_url": "https://www.amazon.in/FUEL-Comfortable-Lightweight-Dailywear-Breathable/dp/B0CRBD1WNV",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1130,17 +1149,17 @@
           "material"
         ]
       },
-      "duplicate_of": "source-footwear-001",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-footwear-002",
+      "source_id": "FOOTWEAR-002",
       "title": "Red Tape Men Solid Sneakers",
       "source_url": "https://www.myntra.com/casual-shoes/red+tape/red-tape-men-solid-sneakers/32213488/buy",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1155,7 +1174,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_INACCESSIBLE",
       "failure_reasons": [
         "SOURCE_INACCESSIBLE",
         "PRICE_MISSING",
@@ -1163,13 +1181,14 @@
         "DETAILS_INSUFFICIENT",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-footwear-003",
+      "source_id": "FOOTWEAR-003",
       "title": "converse unisex chuck taylor all star malden street low top canvas grey sneakers",
       "source_url": "https://www.tatacliq.com/converse-unisex-chuck-taylor-all-star-malden-street-low-top-canvas-grey-sneakers/p-mp000000031872866",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1184,7 +1203,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_NOT_PRODUCT",
       "failure_reasons": [
         "SOURCE_NOT_PRODUCT",
         "PRICE_MISSING",
@@ -1192,13 +1210,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-footwear-004",
+      "source_id": "FOOTWEAR-004",
       "title": "Besroad Athletic Running Fashion Sneakers",
       "source_url": "https://www.amazon.in/Besroad-Athletic-Running-Fashion-Sneakers/dp/B08ZCGXGTS",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1213,7 +1232,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "REDIRECTED_TO_DIFFERENT_PRODUCT",
       "failure_reasons": [
         "REDIRECTED_TO_DIFFERENT_PRODUCT",
         "PRICE_MISSING",
@@ -1221,13 +1239,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-footwear-005",
+      "source_id": "FOOTWEAR-005",
       "title": "848916715 mule sneaker for women men comfort breathable support sports sandals",
       "source_url": "https://www.desertcart.in/products/848916715-mule-sneaker-for-women-men-comfort-breathable-support-sports-sandals",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1242,7 +1261,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_BLOCKED",
       "failure_reasons": [
         "SOURCE_BLOCKED",
         "PRICE_MISSING",
@@ -1250,13 +1268,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-footwear-006",
+      "source_id": "FOOTWEAR-006",
       "title": "Neeman’s Sneandals Unisex Casual Sneakers",
       "source_url": "https://www.flipkart.com/neemans-sneandals-unisex-casual-sneakers/p/itm787ee1840d0b5?pid=SHOHRDFNDDVTUVYH",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1271,17 +1290,17 @@
           "color"
         ]
       },
-      "duplicate_of": "source-footwear-006",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-footwear-007",
+      "source_id": "FOOTWEAR-007",
       "title": "Simple and Casual Look Sandal",
       "source_url": "https://www.stepee.in/products/simple-and-casual-look-sandal-36",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1296,17 +1315,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-footwear-007",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-footwear-008",
+      "source_id": "FOOTWEAR-008",
       "title": "Ladies Flat Sandal Style & Everyday Comfort 992001",
       "source_url": "https://sreeleathersonline.com/products/ladies-flat-sandal-992001?variant=49233387159798",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1321,17 +1340,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-footwear-008",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-footwear-009",
+      "source_id": "FOOTWEAR-009",
       "title": "Women Blue Casual Sandals",
       "source_url": "https://walkwayshoes.com/product/women-blue-casual-sandals-4/",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1346,17 +1365,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DESCRIPTION_MISSING",
       "failure_reasons": [
         "DESCRIPTION_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-footwear-010",
+      "source_id": "FOOTWEAR-010",
       "title": "CANVI Women’s Slide Ethnic Sandals",
       "source_url": "https://www.amazon.in/CANVI-CHANGE-Ethnic-Sandal-Sandals/dp/B0CLJSRN6T",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1371,17 +1390,17 @@
           "material"
         ]
       },
-      "duplicate_of": "source-footwear-010",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-accessories-001",
+      "source_id": "ACCESSORIES-001",
       "title": "RELish Watch, Sunglass and Wallet Combo",
       "source_url": "https://www.flipkart.com/relish-watch-sunglass-wallet-combo/p/itm053e2b8c6d445?pid=AAOG8FRJE7FZMYDT",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1396,17 +1415,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DESCRIPTION_MISSING",
       "failure_reasons": [
         "DESCRIPTION_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-accessories-002",
+      "source_id": "ACCESSORIES-002",
       "title": "pack of 4 mens accessories combo watch belt wallet sunglasses",
       "source_url": "https://www.meesho.com/pack-of-4-mens-accessories-combo-watch-belt-wallet-sunglasses/p/ca36ch",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1421,7 +1440,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_BLOCKED",
       "failure_reasons": [
         "SOURCE_BLOCKED",
         "PRICE_MISSING",
@@ -1429,13 +1447,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-accessories-003",
+      "source_id": "ACCESSORIES-003",
       "title": "Just Leatheer Watch, Sunglass and Wallet Combo",
       "source_url": "https://www.flipkart.com/just-leatheer-watch-sunglass-wallet-combo/p/itm134a8cc676a2f?pid=AAOGBHFAYKVZGBX9",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1450,17 +1469,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DESCRIPTION_MISSING",
       "failure_reasons": [
         "DESCRIPTION_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-accessories-004",
+      "source_id": "ACCESSORIES-004",
       "title": "GOTEO Leather Sunglasses Case",
       "source_url": "https://www.amazon.in/GOTEO-Leather-Spectacle-Eyeglass-Sunglasses/dp/B0F9XCS2TW",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1475,17 +1494,17 @@
           "material"
         ]
       },
-      "duplicate_of": "source-accessories-004",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-accessories-005",
+      "source_id": "ACCESSORIES-005",
       "title": "Storite RFID Blocking PU Leather Card Wallet",
       "source_url": "https://www.amazon.in/Storite-Mens-Leather-RFID-Blocking/dp/B0DX288PK8",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1500,17 +1519,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-accessories-005",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-accessories-006",
+      "source_id": "ACCESSORIES-006",
       "title": "EXOTIC Studded Black Handbag for Women",
       "source_url": "https://www.amazon.in/Exotic-Studded-hand-women-Black/dp/B0B2LN5QVH",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1525,17 +1544,17 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "DESCRIPTION_MISSING",
       "failure_reasons": [
         "DESCRIPTION_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-accessories-007",
+      "source_id": "ACCESSORIES-007",
       "title": "JI ACCESSORIES Women’s Crossbody Sling Bag",
       "source_url": "https://www.amazon.in/JI-ACCESSORIES-Womens-Stylish-Crossbody/dp/B0FQPRSNZ1",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1550,17 +1569,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-accessories-007",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-accessories-008",
+      "source_id": "ACCESSORIES-008",
       "title": "New Luxury Fashion Women’s Watch",
       "source_url": "https://sunglassescraft.com/products/new-luxury-fashion-womens-watch-sunglassescraft?variant=35929128403101",
-      "status": "EXISTING",
+      "status": "ACTIVE",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1575,17 +1594,17 @@
           "description"
         ]
       },
-      "duplicate_of": "source-accessories-008",
-      "duplicate_reason": "same normalized canonical source URL",
-      "failure_reason": null,
+      "duplicate_of": null,
+      "duplicate_reason": null,
       "failure_reasons": [],
-      "action_taken": "kept existing validated product; incoming row did not overwrite it"
+      "action_taken": "kept active after strict validation"
     },
     {
       "product_id": "source-accessories-009",
+      "source_id": "ACCESSORIES-009",
       "title": "giordano green round dial analog watch for women gz 60139 33",
       "source_url": "https://www.tatacliq.com/giordano-green-round-dial-analog-watch-for-women---gz-60139-33/p-mp000000029487960",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1600,7 +1619,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_NOT_PRODUCT",
       "failure_reasons": [
         "SOURCE_NOT_PRODUCT",
         "PRICE_MISSING",
@@ -1608,13 +1626,14 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     },
     {
       "product_id": "source-accessories-010",
+      "source_id": "ACCESSORIES-010",
       "title": "adjustable strap handmade premium pu leather with 6 card slot and zipper bag for women light weight",
       "source_url": "https://www.meesho.com/adjustable-strap-handmade-premium-pu-leather-with-6-card-slot-and-zipper-bag-for-women-light-weight/p/az62ui",
-      "status": "REJECTED",
+      "status": "REMOVED",
       "validation": {
         "valid_title": true,
         "valid_source_url": true,
@@ -1629,7 +1648,6 @@
       },
       "duplicate_of": null,
       "duplicate_reason": null,
-      "failure_reason": "SOURCE_BLOCKED",
       "failure_reasons": [
         "SOURCE_BLOCKED",
         "PRICE_MISSING",
@@ -1637,12 +1655,7 @@
         "DESCRIPTION_MISSING",
         "IMAGE_MISSING"
       ],
-      "action_taken": "not inserted; excluded from active catalog"
+      "action_taken": "removed from active catalog; historical order snapshot preserved when referenced"
     }
-  ],
-  "final_catalog_count": 58,
-  "active_imported_count": 33,
-  "retired_count": 28,
-  "duplicate_url_policy": "HTTPS URLs are normalized for host/path and tracking parameters; retailer SKU and variant parameters are retained.",
-  "idempotent": true
+  ]
 }

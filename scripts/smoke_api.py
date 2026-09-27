@@ -14,7 +14,10 @@ def run(base):
     base = base.rstrip("/")
 
     def call(path, body=None, key=None, method=None, extra_headers=None):
-        headers = {"Accept": "application/json"}
+        headers = {
+            "Accept": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        }
         if body is not None:
             headers["Content-Type"] = "application/json"
         if key:
@@ -38,17 +41,16 @@ def run(base):
             return response.status, payload
 
     status, catalog = call("/api/products")
-    assert status == 200 and len(catalog["products"]) == 86, (status, catalog)
+    assert status == 200 and len(catalog["products"]) == 58, (status, catalog)
     products = catalog["products"]
     source_products = [item for item in products if item["id"].startswith("source-")]
-    assert len(source_products) == 61
-    assert sum(item["price_minor"] is None for item in source_products) == 20
-    assert sum(item["price_minor"] is not None for item in source_products) == 41
-    assert all(isinstance(item["price_minor"], int) and item["price_minor"] > 0
-               for item in products if item["price_minor"] is not None)
-    unpriced = next(item for item in source_products if item["price_minor"] is None)
-    assert call("/api/orders", {"items": [{"product_id": unpriced["id"], "quantity": 1}]}, str(uuid4()))[0] == 400
-    product = next(item for item in products if item["price_minor"] is not None)
+    assert len(source_products) == 33
+    assert all(isinstance(item["price_minor"], int) and item["price_minor"] > 0 for item in products)
+    assert all(item["image"].startswith("https://") for item in source_products)
+    for retired in ("source-footwear-004", "source-men-001"):
+        assert call("/api/products/" + retired)[0] == 404
+        assert call("/api/orders", {"items": [{"product_id": retired, "quantity": 1}]}, str(uuid4()))[0] == 400
+    product = products[0]
     status, detail = call("/api/products/" + product["id"])
     assert status == 200 and detail["product"] == product
     for related in detail["related"]:
@@ -57,7 +59,11 @@ def run(base):
         # Public retailer CDN images are verified in the Chrome suite, under the site CSP.
         if image.startswith("https://"):
             continue
-        with urlopen(base + image, timeout=30) as response:
+        asset_request = Request(base + image, headers={
+            "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+        })
+        with urlopen(asset_request, timeout=30) as response:
             assert response.status == 200 and response.headers["Content-Type"].startswith("image/")
     status, filtered = call("/api/products?category=men&sort=price_asc&max_price=250000")
     assert status == 200

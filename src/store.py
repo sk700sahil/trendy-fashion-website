@@ -170,7 +170,8 @@ async def create_order(db, body, key):
     placeholders = ",".join("?" for _ in ids)
     rows = await db.all(
         f"SELECT {PRODUCT_COLUMNS} FROM products WHERE id IN ({placeholders}) "
-        "AND id NOT IN (SELECT id FROM unavailable_products)", ids,
+        "AND id NOT IN (SELECT id FROM unavailable_products) "
+        "AND id NOT IN (SELECT product_id FROM retired_products)", ids,
     )
     products = {row["id"]: product_json(row) for row in rows}
     priced = []
@@ -223,6 +224,7 @@ async def analytics(db, source="all"):
         ("SELECT i.category,SUM(i.quantity) AS units,SUM(i.unit_price_minor*i.quantity) AS revenue_minor "
          "FROM order_items i JOIN orders o ON o.id=i.order_id" + where + " GROUP BY i.category ORDER BY revenue_minor DESC,i.category", values),
         ("SELECT i.product_id,MAX(i.product_name) AS name,MAX(i.category) AS category," 
+         "EXISTS(SELECT 1 FROM catalog_products c WHERE c.id=i.product_id) AS active,"
          "SUM(i.quantity) AS units,SUM(i.unit_price_minor*i.quantity) AS revenue_minor "
          "FROM order_items i JOIN orders o ON o.id=i.order_id" + where + " GROUP BY i.product_id ORDER BY units DESC,revenue_minor DESC,i.product_id LIMIT 5", values),
     ]
